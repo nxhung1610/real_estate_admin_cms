@@ -13,18 +13,18 @@ class BaseResponse<T> {
   final String? log;
   final Response? response;
 
-  factory BaseResponse.fromJson(
-    Map<String, dynamic> json, {
-    T Function(dynamic data)? parse,
+  factory BaseResponse.fromJson({
     Response? response,
+    T Function(dynamic data)? parse,
   }) {
+    final Map<String, dynamic>? json = response?.data;
     return BaseResponse._(
-      success: json["success"],
-      data: parse?.call(json["data"]),
-      message: json["message"],
-      statusCode: json['status_code'],
-      errorKey: json['error_key'],
-      log: json['log'],
+      success: json?["success"] ?? false,
+      data: json?["data"] != null ? parse?.call(json?["data"]) : null,
+      message: json?["message"],
+      statusCode: response?.statusCode ?? json?['status_code'] ?? 503,
+      errorKey: json?['error_key'],
+      log: json?['log'],
       response: response,
     );
   }

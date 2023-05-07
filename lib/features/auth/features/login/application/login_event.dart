@@ -7,4 +7,6 @@ class LoginEvent with _$LoginEvent {
   const factory LoginEvent.onPasswordChange(String password) =
       LoginEventOnPasswordChange;
   const factory LoginEvent.onLogin() = LoginEventOnLogin;
+  const factory LoginEvent.onPasswordVisibleChange() =
+      LoginEventOnPasswordVisibleChange;
 }

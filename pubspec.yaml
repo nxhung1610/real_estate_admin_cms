@@ -52,6 +52,7 @@ dependencies:
   flutter_svg:
   flutter_secure_storage: ^8.0.0
   dropdown_button2: 
+  equatable:
 
   # Language
   intl: ^0.17.0

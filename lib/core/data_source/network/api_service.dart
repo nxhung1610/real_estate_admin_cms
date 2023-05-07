@@ -232,8 +232,7 @@ abstract class ApiService implements IApiService {
       printLog(this, message: e, error: e, trace: trace);
       res = e.response;
     }
-    return BaseResponse.fromJson(res?.data as Map<String, dynamic>,
-        parse: resultParser);
+    return BaseResponse.fromJson(response: res?.data, parse: resultParser);
   }
 
   Future<BaseResponse<T>> _put<T>(
@@ -249,8 +248,7 @@ abstract class ApiService implements IApiService {
       printLog(this, message: e, error: e, trace: trace);
       res = e.response;
     }
-    return BaseResponse.fromJson(res?.data as Map<String, dynamic>,
-        parse: resultParser);
+    return BaseResponse.fromJson(response: res?.data, parse: resultParser);
   }
 
   Future<BaseResponse<T>> _get<T>(
@@ -265,8 +263,7 @@ abstract class ApiService implements IApiService {
       printLog(this, message: e, error: e, trace: trace);
       res = e.response;
     }
-    return BaseResponse.fromJson(res?.data as Map<String, dynamic>,
-        parse: resultParser);
+    return BaseResponse.fromJson(response: res?.data, parse: resultParser);
   }
 
   Future<BaseResponse<T>> _delete<T>(
@@ -282,8 +279,7 @@ abstract class ApiService implements IApiService {
       printLog(this, message: e, error: e, trace: trace);
       res = e.response;
     }
-    return BaseResponse.fromJson(res?.data as Map<String, dynamic>,
-        parse: resultParser);
+    return BaseResponse.fromJson(response: res?.data, parse: resultParser);
   }
 
   @override

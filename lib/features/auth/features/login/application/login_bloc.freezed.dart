@@ -19,6 +19,7 @@ mixin _$LoginState {
   PhoneNumberAuth? get phoneNumberAuth => throw _privateConstructorUsedError;
   PasswordAuth? get passwordAuth => throw _privateConstructorUsedError;
   Status get status => throw _privateConstructorUsedError;
+  bool get passwordVisible => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $LoginStateCopyWith<LoginState> get copyWith =>
@@ -34,7 +35,8 @@ abstract class $LoginStateCopyWith<$Res> {
   $Res call(
       {PhoneNumberAuth? phoneNumberAuth,
       PasswordAuth? passwordAuth,
-      Status status});
+      Status status,
+      bool passwordVisible});
 
   $StatusCopyWith<$Res> get status;
 }
@@ -55,6 +57,7 @@ class _$LoginStateCopyWithImpl<$Res, $Val extends LoginState>
     Object? phoneNumberAuth = freezed,
     Object? passwordAuth = freezed,
     Object? status = null,
+    Object? passwordVisible = null,
   }) {
     return _then(_value.copyWith(
       phoneNumberAuth: freezed == phoneNumberAuth
@@ -69,6 +72,10 @@ class _$LoginStateCopyWithImpl<$Res, $Val extends LoginState>
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as Status,
+      passwordVisible: null == passwordVisible
+          ? _value.passwordVisible
+          : passwordVisible // ignore: cast_nullable_to_non_nullable
+              as bool,
     ) as $Val);
   }
 
@@ -92,7 +99,8 @@ abstract class _$$_LoginStateCopyWith<$Res>
   $Res call(
       {PhoneNumberAuth? phoneNumberAuth,
       PasswordAuth? passwordAuth,
-      Status status});
+      Status status,
+      bool passwordVisible});
 
   @override
   $StatusCopyWith<$Res> get status;
@@ -112,6 +120,7 @@ class __$$_LoginStateCopyWithImpl<$Res>
     Object? phoneNumberAuth = freezed,
     Object? passwordAuth = freezed,
     Object? status = null,
+    Object? passwordVisible = null,
   }) {
     return _then(_$_LoginState(
       phoneNumberAuth: freezed == phoneNumberAuth
@@ -126,6 +135,10 @@ class __$$_LoginStateCopyWithImpl<$Res>
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as Status,
+      passwordVisible: null == passwordVisible
+          ? _value.passwordVisible
+          : passwordVisible // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -136,7 +149,8 @@ class _$_LoginState implements _LoginState {
   const _$_LoginState(
       {this.phoneNumberAuth,
       this.passwordAuth,
-      this.status = const Status.idle()});
+      this.status = const Status.idle(),
+      this.passwordVisible = false});
 
   @override
   final PhoneNumberAuth? phoneNumberAuth;
@@ -145,10 +159,13 @@ class _$_LoginState implements _LoginState {
   @override
   @JsonKey()
   final Status status;
+  @override
+  @JsonKey()
+  final bool passwordVisible;
 
   @override
   String toString() {
-    return 'LoginState(phoneNumberAuth: $phoneNumberAuth, passwordAuth: $passwordAuth, status: $status)';
+    return 'LoginState(phoneNumberAuth: $phoneNumberAuth, passwordAuth: $passwordAuth, status: $status, passwordVisible: $passwordVisible)';
   }
 
   @override
@@ -160,12 +177,14 @@ class _$_LoginState implements _LoginState {
                 other.phoneNumberAuth == phoneNumberAuth) &&
             (identical(other.passwordAuth, passwordAuth) ||
                 other.passwordAuth == passwordAuth) &&
-            (identical(other.status, status) || other.status == status));
+            (identical(other.status, status) || other.status == status) &&
+            (identical(other.passwordVisible, passwordVisible) ||
+                other.passwordVisible == passwordVisible));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, phoneNumberAuth, passwordAuth, status);
+  int get hashCode => Object.hash(
+      runtimeType, phoneNumberAuth, passwordAuth, status, passwordVisible);
 
   @JsonKey(ignore: true)
   @override
@@ -178,7 +197,8 @@ abstract class _LoginState implements LoginState {
   const factory _LoginState(
       {final PhoneNumberAuth? phoneNumberAuth,
       final PasswordAuth? passwordAuth,
-      final Status status}) = _$_LoginState;
+      final Status status,
+      final bool passwordVisible}) = _$_LoginState;
 
   @override
   PhoneNumberAuth? get phoneNumberAuth;
@@ -186,6 +206,8 @@ abstract class _LoginState implements LoginState {
   PasswordAuth? get passwordAuth;
   @override
   Status get status;
+  @override
+  bool get passwordVisible;
   @override
   @JsonKey(ignore: true)
   _$$_LoginStateCopyWith<_$_LoginState> get copyWith =>
@@ -268,4 +290,26 @@ class _$LoginEventOnLogin implements LoginEventOnLogin {
 
 abstract class LoginEventOnLogin implements LoginEvent {
   const factory LoginEventOnLogin() = _$LoginEventOnLogin;
+}
+
+/// @nodoc
+
+class _$LoginEventOnPasswordVisibleChange
+    implements LoginEventOnPasswordVisibleChange {
+  const _$LoginEventOnPasswordVisibleChange();
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$LoginEventOnPasswordVisibleChange);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+}
+
+abstract class LoginEventOnPasswordVisibleChange implements LoginEvent {
+  const factory LoginEventOnPasswordVisibleChange() =
+      _$LoginEventOnPasswordVisibleChange;
 }

@@ -69,8 +69,17 @@ class AuthInterceptor extends QueuedInterceptorsWrapper {
       }
 
       try {
-        final accessToken = await authDataSource.refreshToken();
-        final response = await retry(err.requestOptions, accessToken.data);
+        final refreshToken = await authenticationLocalDataSource.refreshToken();
+        if (refreshToken == null) {
+          throw Exception('Refresh token is null');
+        }
+        final token =
+            await authDataSource.refreshToken(refreshToken: refreshToken);
+        if (!token.success) {
+          throw Exception('Refresh token fail');
+        }
+        final response =
+            await retry(err.requestOptions, token.data!.token!.token!);
         return handler.resolve(response);
       } catch (e, trace) {
         printLog(this, message: e, error: e, trace: trace);

@@ -46,10 +46,10 @@ import 'package:real_estate_admin_cms/features/connectivity/application/connecti
     as _i23;
 import 'package:shared_preferences/shared_preferences.dart' as _i20;
 
-import '../core/data_source/module/local_module.dart' as _i24;
-import '../core/data_source/module/network_module.dart' as _i25;
+import '../core/data_source/module/local_module.dart' as _i25;
+import '../core/data_source/module/network_module.dart' as _i26;
 import '../core/data_source/module/thirt_module.dart'
-    as _i26; // ignore_for_file: unnecessary_lambdas
+    as _i24; // ignore_for_file: unnecessary_lambdas
 
 // ignore_for_file: lines_longer_than_80_chars
 extension GetItInjectableX on _i1.GetIt {
@@ -123,8 +123,8 @@ extension GetItInjectableX on _i1.GetIt {
   }
 }
 
-class _$LocalModule extends _i24.LocalModule {}
+class _$ThirtModule extends _i24.ThirtModule {}
 
-class _$NetworkModule extends _i25.NetworkModule {}
+class _$LocalModule extends _i25.LocalModule {}
 
-class _$ThirtModule extends _i26.ThirtModule {}
+class _$NetworkModule extends _i26.NetworkModule {}

@@ -6,6 +6,9 @@ import 'package:real_estate_admin_cms/core/data_source/network/auth/dto/login_re
 import 'package:real_estate_admin_cms/core/data_source/network/auth/i_auth_datasource.dart';
 import 'package:real_estate_admin_cms/core/data_source/network/common/base_response.dart';
 
+import 'dto/login_response_dto.dart';
+import 'dto/refresh_token_request_dto.dart';
+
 @LazySingleton(as: IAuthDataSource)
 class AuthDataSource implements IAuthDataSource {
   final IApiService apiService;
@@ -21,7 +24,7 @@ class AuthDataSource implements IAuthDataSource {
   }
 
   @override
-  Future<BaseResponse> login({
+  Future<BaseResponse<LoginResponseDto>> login({
     required String phoneNumber,
     required String password,
   }) {
@@ -30,14 +33,24 @@ class AuthDataSource implements IAuthDataSource {
       LoginRequest(
         phone: phoneNumber,
         password: password,
-      ),
+      ).toJson(),
+      resultParser: (json) {
+        return LoginResponseDto.fromJson(json);
+      },
     );
   }
 
   @override
-  Future<BaseResponse> refreshToken() {
-    // TODO: implement refreshToken
-    throw UnimplementedError();
+  Future<BaseResponse<LoginResponseDto>> refreshToken({
+    required String refreshToken,
+  }) {
+    return apiService.post(
+      AuthConstant.refreshToken,
+      RefreshTokenRequestDto(refreshToken: refreshToken).toJson(),
+      resultParser: (json) {
+        return LoginResponseDto.fromJson(json);
+      },
+    );
   }
 
   @override
