@@ -24,7 +24,7 @@ class _ErrorPageState extends State<ErrorPage> {
             mainAxisSize: MainAxisSize.min,
             children: [
               Assets.icons.icError.svg(
-                width: double.infinity,
+                width: 300,
               ),
               const SizedBox(
                 height: 24,

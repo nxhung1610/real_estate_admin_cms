@@ -1,7 +1,10 @@
 part of 'login_bloc.dart';
 
-@freezed
+@freezedBlocState
 class LoginState with _$LoginState {
-  const factory LoginState.initial() = _Initial;
-  const factory LoginState.loadInProgress() = _LoadInProgress;
+  const factory LoginState({
+    PhoneNumberAuth? phoneNumberAuth,
+    PasswordAuth? passwordAuth,
+    @Default(Status.idle()) Status status,
+  }) = _LoginState;
 }

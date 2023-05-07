@@ -1,6 +1,6 @@
 part of 'login_bloc.dart';
 
-@freezed
+@freezedBlocEvent
 class LoginEvent with _$LoginEvent {
   const factory LoginEvent.onPhoneNumberChange(String phoneNumber) =
       LoginEventOnPhoneNumberChange;

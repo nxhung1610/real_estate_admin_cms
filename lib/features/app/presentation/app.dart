@@ -3,16 +3,21 @@ import 'dart:async';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:go_router/go_router.dart';
+import 'package:loader_overlay/loader_overlay.dart';
+import 'package:real_estate_admin_cms/config/app_theme.dart';
 import 'package:real_estate_admin_cms/dependency_injection/dependencies_injection.dart';
 import 'package:real_estate_admin_cms/features/common/presentation/error_page.dart';
 import 'package:real_estate_admin_cms/features/common/router/base_router.dart';
 import 'package:real_estate_admin_cms/features/common/router/go_router_refresh_stream.dart';
 import 'package:real_estate_admin_cms/features/connectivity/application/connectivity_bloc.dart';
 import 'package:real_estate_admin_cms/helper/.helper.dart';
+import 'package:real_estate_admin_cms/languages/generated/l10n.dart';
 import 'package:real_estate_admin_cms/utils/logger/logger.dart';
 
 import '../../auth/application/auth_bloc.dart';
+import '../../common/presentation/scroll_behavior.dart';
 import '../application/app_bloc.dart';
 import '../router/routers.dart';
 
@@ -99,7 +104,7 @@ class __AppViewState extends State<_AppView> {
           // Redirect them to Auth page
           final alreadyInLogin = unAuthentcationRoutes.contains(state.path);
           if (!isLoggedIn && !alreadyInLogin) {
-            return $authRoute.url;
+            return $authRoute.login.url;
           }
 
           // If user is login and
@@ -131,8 +136,24 @@ class __AppViewState extends State<_AppView> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp.router(
-      routerConfig: appRoute,
+    return GlobalLoaderOverlay(
+      child: MaterialApp.router(
+        theme: AppTheme.light,
+        scrollBehavior: const ScrollBehaviorModified(),
+        debugShowCheckedModeBanner: false,
+        darkTheme: AppTheme.dark,
+        // themeMode: appBloc.state.mode,
+        themeMode: ThemeMode.light,
+        locale: const Locale('vi'),
+        localizationsDelegates: const [
+          S.delegate,
+          GlobalMaterialLocalizations.delegate,
+          GlobalWidgetsLocalizations.delegate,
+          GlobalCupertinoLocalizations.delegate,
+        ],
+        routerConfig: appRoute,
+        supportedLocales: S.delegate.supportedLocales,
+      ),
     );
   }
 }

@@ -1,6 +1,7 @@
 import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
 import 'package:real_estate_admin_cms/core/data_source/network/api_service.dart';
+import 'package:real_estate_admin_cms/core/data_source/network/auth/auth_constant.dart';
 import 'package:real_estate_admin_cms/core/data_source/network/auth/dto/login_request.dart';
 import 'package:real_estate_admin_cms/core/data_source/network/auth/i_auth_datasource.dart';
 import 'package:real_estate_admin_cms/core/data_source/network/common/base_response.dart';
@@ -25,7 +26,7 @@ class AuthDataSource implements IAuthDataSource {
     required String password,
   }) {
     return apiService.post(
-      '/login',
+      AuthConstant.login,
       LoginRequest(
         phone: phoneNumber,
         password: password,

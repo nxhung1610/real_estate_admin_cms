@@ -51,6 +51,13 @@ dependencies:
   geolocator:
   flutter_svg:
   flutter_secure_storage: ^8.0.0
+  dropdown_button2: 
+
+  # Language
+  intl: ^0.17.0
+  intl_utils: ^2.8.2
+  flutter_localizations: 
+    sdk: flutter
   
 
 dev_dependencies:
