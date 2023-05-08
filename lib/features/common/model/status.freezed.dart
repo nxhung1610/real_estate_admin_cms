@@ -14,6 +14,23 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
+Status _$StatusFromJson(Map<String, dynamic> json) {
+  switch (json['runtimeType']) {
+    case 'idle':
+      return StatusIdle.fromJson(json);
+    case 'success':
+      return StatusSuccess.fromJson(json);
+    case 'loading':
+      return StatusLoading.fromJson(json);
+    case 'failure':
+      return StatusFailure.fromJson(json);
+
+    default:
+      throw CheckedFromJsonException(json, 'runtimeType', 'Status',
+          'Invalid union type "${json['runtimeType']}"!');
+  }
+}
+
 /// @nodoc
 mixin _$Status {
   @optionalTypeArgs
@@ -66,6 +83,7 @@ mixin _$Status {
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -102,9 +120,15 @@ class __$$StatusIdleCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
+@JsonSerializable()
 class _$StatusIdle implements StatusIdle {
-  const _$StatusIdle();
+  const _$StatusIdle({final String? $type}) : $type = $type ?? 'idle';
+
+  factory _$StatusIdle.fromJson(Map<String, dynamic> json) =>
+      _$$StatusIdleFromJson(json);
+
+  @JsonKey(name: 'runtimeType')
+  final String $type;
 
   @override
   String toString() {
@@ -117,6 +141,7 @@ class _$StatusIdle implements StatusIdle {
         (other.runtimeType == runtimeType && other is _$StatusIdle);
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => runtimeType.hashCode;
 
@@ -193,10 +218,20 @@ class _$StatusIdle implements StatusIdle {
     }
     return orElse();
   }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$StatusIdleToJson(
+      this,
+    );
+  }
 }
 
 abstract class StatusIdle implements Status {
   const factory StatusIdle() = _$StatusIdle;
+
+  factory StatusIdle.fromJson(Map<String, dynamic> json) =
+      _$StatusIdle.fromJson;
 }
 
 /// @nodoc
@@ -231,12 +266,19 @@ class __$$StatusSuccessCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
+@JsonSerializable()
 class _$StatusSuccess implements StatusSuccess {
-  const _$StatusSuccess({this.value});
+  const _$StatusSuccess({this.value, final String? $type})
+      : $type = $type ?? 'success';
+
+  factory _$StatusSuccess.fromJson(Map<String, dynamic> json) =>
+      _$$StatusSuccessFromJson(json);
 
   @override
   final dynamic value;
+
+  @JsonKey(name: 'runtimeType')
+  final String $type;
 
   @override
   String toString() {
@@ -251,6 +293,7 @@ class _$StatusSuccess implements StatusSuccess {
             const DeepCollectionEquality().equals(other.value, value));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode =>
       Object.hash(runtimeType, const DeepCollectionEquality().hash(value));
@@ -334,10 +377,20 @@ class _$StatusSuccess implements StatusSuccess {
     }
     return orElse();
   }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$StatusSuccessToJson(
+      this,
+    );
+  }
 }
 
 abstract class StatusSuccess implements Status, StatusValue {
   const factory StatusSuccess({final dynamic value}) = _$StatusSuccess;
+
+  factory StatusSuccess.fromJson(Map<String, dynamic> json) =
+      _$StatusSuccess.fromJson;
 
   dynamic get value;
   @JsonKey(ignore: true)
@@ -362,9 +415,15 @@ class __$$StatusLoadingCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
+@JsonSerializable()
 class _$StatusLoading implements StatusLoading {
-  const _$StatusLoading();
+  const _$StatusLoading({final String? $type}) : $type = $type ?? 'loading';
+
+  factory _$StatusLoading.fromJson(Map<String, dynamic> json) =>
+      _$$StatusLoadingFromJson(json);
+
+  @JsonKey(name: 'runtimeType')
+  final String $type;
 
   @override
   String toString() {
@@ -377,6 +436,7 @@ class _$StatusLoading implements StatusLoading {
         (other.runtimeType == runtimeType && other is _$StatusLoading);
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => runtimeType.hashCode;
 
@@ -453,10 +513,20 @@ class _$StatusLoading implements StatusLoading {
     }
     return orElse();
   }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$StatusLoadingToJson(
+      this,
+    );
+  }
 }
 
 abstract class StatusLoading implements Status {
   const factory StatusLoading() = _$StatusLoading;
+
+  factory StatusLoading.fromJson(Map<String, dynamic> json) =
+      _$StatusLoading.fromJson;
 }
 
 /// @nodoc
@@ -491,12 +561,19 @@ class __$$StatusFailureCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
+@JsonSerializable()
 class _$StatusFailure implements StatusFailure {
-  const _$StatusFailure({this.value});
+  const _$StatusFailure({this.value, final String? $type})
+      : $type = $type ?? 'failure';
+
+  factory _$StatusFailure.fromJson(Map<String, dynamic> json) =>
+      _$$StatusFailureFromJson(json);
 
   @override
   final dynamic value;
+
+  @JsonKey(name: 'runtimeType')
+  final String $type;
 
   @override
   String toString() {
@@ -511,6 +588,7 @@ class _$StatusFailure implements StatusFailure {
             const DeepCollectionEquality().equals(other.value, value));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode =>
       Object.hash(runtimeType, const DeepCollectionEquality().hash(value));
@@ -594,10 +672,20 @@ class _$StatusFailure implements StatusFailure {
     }
     return orElse();
   }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$StatusFailureToJson(
+      this,
+    );
+  }
 }
 
 abstract class StatusFailure implements Status, StatusValue {
   const factory StatusFailure({final dynamic value}) = _$StatusFailure;
+
+  factory StatusFailure.fromJson(Map<String, dynamic> json) =
+      _$StatusFailure.fromJson;
 
   dynamic get value;
   @JsonKey(ignore: true)

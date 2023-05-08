@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:injectable/injectable.dart';
 import 'package:real_estate_admin_cms/core/data/common/i_failure_repository.dart';
 import 'package:real_estate_admin_cms/core/data/connectivity/enum/connectivity_status.dart';
@@ -12,9 +13,11 @@ import 'package:real_estate_admin_cms/utils/logger/logger.dart';
 part 'connectivity_state.dart';
 part 'connectivity_event.dart';
 part 'connectivity_bloc.freezed.dart';
+part 'connectivity_bloc.g.dart';
 
 @injectable
-class ConnectivityBloc extends Bloc<ConnectivityEvent, ConnectivityState> {
+class ConnectivityBloc
+    extends HydratedBloc<ConnectivityEvent, ConnectivityState> {
   final IConnectivityRepository connectivityRepository;
   ConnectivityBloc(
     this.connectivityRepository,
@@ -61,5 +64,15 @@ class ConnectivityBloc extends Bloc<ConnectivityEvent, ConnectivityState> {
   Future<void> close() {
     streamSubscription?.cancel();
     return super.close();
+  }
+
+  @override
+  ConnectivityState? fromJson(Map<String, dynamic> json) {
+    return ConnectivityState.fromJson(json);
+  }
+
+  @override
+  Map<String, dynamic>? toJson(ConnectivityState state) {
+    return state.toJson();
   }
 }

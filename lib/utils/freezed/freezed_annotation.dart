@@ -5,7 +5,7 @@ const freezedSqfileEntity = freezed;
 
 const freezedApiResponse = Freezed(fromJson: true, toJson: false);
 const freezedApiRequest = Freezed(fromJson: false, toJson: true);
-const freezedBlocState = Freezed(fromJson: false, toJson: false);
+const freezedBlocState = Freezed();
 const freezedBlocEvent = Freezed(
   copyWith: false,
   toStringOverride: false,

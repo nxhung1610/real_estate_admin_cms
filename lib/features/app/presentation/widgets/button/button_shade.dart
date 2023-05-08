@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:real_estate_admin_cms/config/app_color.dart';
 import 'package:real_estate_admin_cms/config/app_size.dart';
 import 'package:real_estate_admin_cms/features/app/application/app_bloc.dart';

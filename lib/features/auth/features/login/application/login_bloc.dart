@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:injectable/injectable.dart';
 import 'package:real_estate_admin_cms/core/data/auth/i_auth_repository.dart';
 import 'package:real_estate_admin_cms/core/data/auth/value_objects.dart';
@@ -13,9 +14,10 @@ import 'package:real_estate_admin_cms/utils/logger/logger.dart';
 part 'login_state.dart';
 part 'login_event.dart';
 part 'login_bloc.freezed.dart';
+part 'login_bloc.g.dart';
 
 @injectable
-class LoginBloc extends Bloc<LoginEvent, LoginState> {
+class LoginBloc extends HydratedBloc<LoginEvent, LoginState> {
   final IAuthRepository authRepository;
   LoginBloc(this.authRepository) : super(const LoginState()) {
     on<LoginEventOnPhoneNumberChange>(_onPhoneNumberChanged);
@@ -28,14 +30,22 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
     LoginEventOnPhoneNumberChange event,
     Emitter<LoginState> emit,
   ) {
-    emit(state.copyWith(phoneNumberAuth: PhoneNumberAuth(event.phoneNumber)));
+    try {
+      emit(state.copyWith(phoneNumberAuth: PhoneNumberAuth(event.phoneNumber)));
+    } catch (e, trace) {
+      printLog(this, message: e, error: e, trace: trace);
+    }
   }
 
   FutureOr<void> _onPasswordChanged(
     LoginEventOnPasswordChange event,
     Emitter<LoginState> emit,
   ) {
-    emit(state.copyWith(passwordAuth: PasswordAuth(event.password)));
+    try {
+      emit(state.copyWith(passwordAuth: PasswordAuth(event.password)));
+    } catch (e, trace) {
+      printLog(this, message: e, error: e, trace: trace);
+    }
   }
 
   FutureOr<void> _onLogin(
@@ -76,5 +86,15 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
     Emitter<LoginState> emit,
   ) {
     emit(state.copyWith(passwordVisible: !state.passwordVisible));
+  }
+
+  @override
+  LoginState? fromJson(Map<String, dynamic> json) {
+    return LoginState.fromJson(json);
+  }
+
+  @override
+  Map<String, dynamic>? toJson(LoginState state) {
+    return state.toJson();
   }
 }

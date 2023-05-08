@@ -1,6 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'status.freezed.dart';
+part 'status.g.dart';
 
 abstract class StatusValue {
   dynamic get value;
@@ -18,4 +19,6 @@ class Status with _$Status {
   const factory Status.failure({
     dynamic value,
   }) = StatusFailure;
+
+  factory Status.fromJson(Map<String, dynamic> json) => _$StatusFromJson(json);
 }

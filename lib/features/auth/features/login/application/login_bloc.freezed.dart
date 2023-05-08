@@ -14,6 +14,10 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
+LoginState _$LoginStateFromJson(Map<String, dynamic> json) {
+  return _LoginState.fromJson(json);
+}
+
 /// @nodoc
 mixin _$LoginState {
   PhoneNumberAuth? get phoneNumberAuth => throw _privateConstructorUsedError;
@@ -21,6 +25,7 @@ mixin _$LoginState {
   Status get status => throw _privateConstructorUsedError;
   bool get passwordVisible => throw _privateConstructorUsedError;
 
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $LoginStateCopyWith<LoginState> get copyWith =>
       throw _privateConstructorUsedError;
@@ -144,13 +149,16 @@ class __$$_LoginStateCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
+@JsonSerializable()
 class _$_LoginState implements _LoginState {
   const _$_LoginState(
       {this.phoneNumberAuth,
       this.passwordAuth,
       this.status = const Status.idle(),
       this.passwordVisible = false});
+
+  factory _$_LoginState.fromJson(Map<String, dynamic> json) =>
+      _$$_LoginStateFromJson(json);
 
   @override
   final PhoneNumberAuth? phoneNumberAuth;
@@ -182,6 +190,7 @@ class _$_LoginState implements _LoginState {
                 other.passwordVisible == passwordVisible));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType, phoneNumberAuth, passwordAuth, status, passwordVisible);
@@ -191,6 +200,13 @@ class _$_LoginState implements _LoginState {
   @pragma('vm:prefer-inline')
   _$$_LoginStateCopyWith<_$_LoginState> get copyWith =>
       __$$_LoginStateCopyWithImpl<_$_LoginState>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_LoginStateToJson(
+      this,
+    );
+  }
 }
 
 abstract class _LoginState implements LoginState {
@@ -199,6 +215,9 @@ abstract class _LoginState implements LoginState {
       final PasswordAuth? passwordAuth,
       final Status status,
       final bool passwordVisible}) = _$_LoginState;
+
+  factory _LoginState.fromJson(Map<String, dynamic> json) =
+      _$_LoginState.fromJson;
 
   @override
   PhoneNumberAuth? get phoneNumberAuth;

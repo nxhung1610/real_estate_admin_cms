@@ -53,6 +53,9 @@ dependencies:
   flutter_secure_storage: ^8.0.0
   dropdown_button2: 
   equatable:
+  hydrated_bloc: ^9.1.0
+  path_provider: ^2.0.15
+  json_annotation: ^4.8.1
 
   # Language
   intl: ^0.17.0

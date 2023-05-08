@@ -14,10 +14,15 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
+AppState _$AppStateFromJson(Map<String, dynamic> json) {
+  return _AppState.fromJson(json);
+}
+
 /// @nodoc
 mixin _$AppState {
   bool get isFirstLaunch => throw _privateConstructorUsedError;
 
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $AppStateCopyWith<AppState> get copyWith =>
       throw _privateConstructorUsedError;
@@ -88,9 +93,12 @@ class __$$_AppStateCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
+@JsonSerializable()
 class _$_AppState with DiagnosticableTreeMixin implements _AppState {
   const _$_AppState({this.isFirstLaunch = true});
+
+  factory _$_AppState.fromJson(Map<String, dynamic> json) =>
+      _$$_AppStateFromJson(json);
 
   @override
   @JsonKey()
@@ -118,6 +126,7 @@ class _$_AppState with DiagnosticableTreeMixin implements _AppState {
                 other.isFirstLaunch == isFirstLaunch));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, isFirstLaunch);
 
@@ -126,10 +135,19 @@ class _$_AppState with DiagnosticableTreeMixin implements _AppState {
   @pragma('vm:prefer-inline')
   _$$_AppStateCopyWith<_$_AppState> get copyWith =>
       __$$_AppStateCopyWithImpl<_$_AppState>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_AppStateToJson(
+      this,
+    );
+  }
 }
 
 abstract class _AppState implements AppState {
   const factory _AppState({final bool isFirstLaunch}) = _$_AppState;
+
+  factory _AppState.fromJson(Map<String, dynamic> json) = _$_AppState.fromJson;
 
   @override
   bool get isFirstLaunch;

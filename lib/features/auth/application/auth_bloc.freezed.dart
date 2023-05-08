@@ -14,6 +14,21 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
+AuthState _$AuthStateFromJson(Map<String, dynamic> json) {
+  switch (json['runtimeType']) {
+    case 'unknown':
+      return AuthStateUnknown.fromJson(json);
+    case 'authentication':
+      return AuthStateAuthentication.fromJson(json);
+    case 'unAuthentication':
+      return AuthStateUnAuthentication.fromJson(json);
+
+    default:
+      throw CheckedFromJsonException(json, 'runtimeType', 'AuthState',
+          'Invalid union type "${json['runtimeType']}"!');
+  }
+}
+
 /// @nodoc
 mixin _$AuthState {
   @optionalTypeArgs
@@ -60,6 +75,7 @@ mixin _$AuthState {
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -96,9 +112,15 @@ class __$$AuthStateUnknownCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
+@JsonSerializable()
 class _$AuthStateUnknown implements AuthStateUnknown {
-  const _$AuthStateUnknown();
+  const _$AuthStateUnknown({final String? $type}) : $type = $type ?? 'unknown';
+
+  factory _$AuthStateUnknown.fromJson(Map<String, dynamic> json) =>
+      _$$AuthStateUnknownFromJson(json);
+
+  @JsonKey(name: 'runtimeType')
+  final String $type;
 
   @override
   String toString() {
@@ -111,6 +133,7 @@ class _$AuthStateUnknown implements AuthStateUnknown {
         (other.runtimeType == runtimeType && other is _$AuthStateUnknown);
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => runtimeType.hashCode;
 
@@ -181,10 +204,20 @@ class _$AuthStateUnknown implements AuthStateUnknown {
     }
     return orElse();
   }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$AuthStateUnknownToJson(
+      this,
+    );
+  }
 }
 
 abstract class AuthStateUnknown implements AuthState {
   const factory AuthStateUnknown() = _$AuthStateUnknown;
+
+  factory AuthStateUnknown.fromJson(Map<String, dynamic> json) =
+      _$AuthStateUnknown.fromJson;
 }
 
 /// @nodoc
@@ -204,9 +237,16 @@ class __$$AuthStateAuthenticationCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
+@JsonSerializable()
 class _$AuthStateAuthentication implements AuthStateAuthentication {
-  const _$AuthStateAuthentication();
+  const _$AuthStateAuthentication({final String? $type})
+      : $type = $type ?? 'authentication';
+
+  factory _$AuthStateAuthentication.fromJson(Map<String, dynamic> json) =>
+      _$$AuthStateAuthenticationFromJson(json);
+
+  @JsonKey(name: 'runtimeType')
+  final String $type;
 
   @override
   String toString() {
@@ -220,6 +260,7 @@ class _$AuthStateAuthentication implements AuthStateAuthentication {
             other is _$AuthStateAuthentication);
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => runtimeType.hashCode;
 
@@ -290,10 +331,20 @@ class _$AuthStateAuthentication implements AuthStateAuthentication {
     }
     return orElse();
   }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$AuthStateAuthenticationToJson(
+      this,
+    );
+  }
 }
 
 abstract class AuthStateAuthentication implements AuthState {
   const factory AuthStateAuthentication() = _$AuthStateAuthentication;
+
+  factory AuthStateAuthentication.fromJson(Map<String, dynamic> json) =
+      _$AuthStateAuthentication.fromJson;
 }
 
 /// @nodoc
@@ -314,9 +365,16 @@ class __$$AuthStateUnAuthenticationCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
+@JsonSerializable()
 class _$AuthStateUnAuthentication implements AuthStateUnAuthentication {
-  const _$AuthStateUnAuthentication();
+  const _$AuthStateUnAuthentication({final String? $type})
+      : $type = $type ?? 'unAuthentication';
+
+  factory _$AuthStateUnAuthentication.fromJson(Map<String, dynamic> json) =>
+      _$$AuthStateUnAuthenticationFromJson(json);
+
+  @JsonKey(name: 'runtimeType')
+  final String $type;
 
   @override
   String toString() {
@@ -330,6 +388,7 @@ class _$AuthStateUnAuthentication implements AuthStateUnAuthentication {
             other is _$AuthStateUnAuthentication);
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => runtimeType.hashCode;
 
@@ -400,10 +459,20 @@ class _$AuthStateUnAuthentication implements AuthStateUnAuthentication {
     }
     return orElse();
   }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$AuthStateUnAuthenticationToJson(
+      this,
+    );
+  }
 }
 
 abstract class AuthStateUnAuthentication implements AuthState {
   const factory AuthStateUnAuthentication() = _$AuthStateUnAuthentication;
+
+  factory AuthStateUnAuthentication.fromJson(Map<String, dynamic> json) =
+      _$AuthStateUnAuthentication.fromJson;
 }
 
 /// @nodoc

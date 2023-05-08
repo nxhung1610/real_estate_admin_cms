@@ -8,4 +8,7 @@ class LoginState with _$LoginState, ILoadingState {
     @Default(Status.idle()) Status status,
     @Default(false) bool passwordVisible,
   }) = _LoginState;
+
+  factory LoginState.fromJson(Map<String, dynamic> json) =>
+      _$LoginStateFromJson(json);
 }

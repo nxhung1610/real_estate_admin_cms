@@ -14,10 +14,15 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
+ConnectivityState _$ConnectivityStateFromJson(Map<String, dynamic> json) {
+  return _ConnectivityState.fromJson(json);
+}
+
 /// @nodoc
 mixin _$ConnectivityState {
   ConnectivityStatus get status => throw _privateConstructorUsedError;
 
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $ConnectivityStateCopyWith<ConnectivityState> get copyWith =>
       throw _privateConstructorUsedError;
@@ -90,9 +95,12 @@ class __$$_ConnectivityStateCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
+@JsonSerializable()
 class _$_ConnectivityState implements _ConnectivityState {
   const _$_ConnectivityState({this.status = ConnectivityStatus.none});
+
+  factory _$_ConnectivityState.fromJson(Map<String, dynamic> json) =>
+      _$$_ConnectivityStateFromJson(json);
 
   @override
   @JsonKey()
@@ -111,6 +119,7 @@ class _$_ConnectivityState implements _ConnectivityState {
             (identical(other.status, status) || other.status == status));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, status);
 
@@ -120,11 +129,21 @@ class _$_ConnectivityState implements _ConnectivityState {
   _$$_ConnectivityStateCopyWith<_$_ConnectivityState> get copyWith =>
       __$$_ConnectivityStateCopyWithImpl<_$_ConnectivityState>(
           this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_ConnectivityStateToJson(
+      this,
+    );
+  }
 }
 
 abstract class _ConnectivityState implements ConnectivityState {
   const factory _ConnectivityState({final ConnectivityStatus status}) =
       _$_ConnectivityState;
+
+  factory _ConnectivityState.fromJson(Map<String, dynamic> json) =
+      _$_ConnectivityState.fromJson;
 
   @override
   ConnectivityStatus get status;
