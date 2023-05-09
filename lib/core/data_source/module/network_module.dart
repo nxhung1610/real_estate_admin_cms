@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:dio/dio.dart';
 import 'package:dio/browser.dart';
+import 'package:dio/io.dart';
 import 'package:injectable/injectable.dart';
 import 'package:real_estate_admin_cms/config/app_config.dart';
 import 'package:real_estate_admin_cms/core/data_source/network/common/interceptor/auth_interceptor.dart';
@@ -71,7 +72,7 @@ abstract class NetworkModule {
       //   responseHeader: false,
       //   error: true,
       // ))
-      dio.httpClientAdapter = BrowserHttpClientAdapter();
+      dio.httpClientAdapter = IOHttpClientAdapter();
     } catch (e, trace) {
       printLog(this, message: e, error: e, trace: trace);
     }
