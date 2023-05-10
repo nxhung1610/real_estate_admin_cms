@@ -52,6 +52,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "applicationSettings":
             MessageLookupByLibrary.simpleMessage("Cài đặt ứng dụng"),
         "apply": MessageLookupByLibrary.simpleMessage("Áp dụng"),
+        "approval": MessageLookupByLibrary.simpleMessage("Xét duyệt"),
         "approved": MessageLookupByLibrary.simpleMessage("Xác nhận"),
         "area": MessageLookupByLibrary.simpleMessage("Diện tích"),
         "associateAgency": MessageLookupByLibrary.simpleMessage(
@@ -60,6 +61,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "bar": MessageLookupByLibrary.simpleMessage("Bar"),
         "bathRoom": MessageLookupByLibrary.simpleMessage("Phòng tắm"),
         "bedRoom": MessageLookupByLibrary.simpleMessage("Phòng ngủ"),
+        "bid": MessageLookupByLibrary.simpleMessage("Đấu giá"),
         "builtAt": MessageLookupByLibrary.simpleMessage("Được xây dựng"),
         "cancel": MessageLookupByLibrary.simpleMessage("Huỷ"),
         "changeLanguage":

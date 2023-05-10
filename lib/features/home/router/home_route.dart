@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:go_router/go_router.dart';
 import 'package:real_estate_admin_cms/features/common/presentation/base_page.dart';
 import 'package:real_estate_admin_cms/features/common/router/base_router.dart';
+import 'package:real_estate_admin_cms/features/home/application/home/home_bloc.dart';
 import 'package:real_estate_admin_cms/features/home/presentation/home_page.dart';
 
 class HomeRoute extends BaseRoute {
@@ -17,7 +18,7 @@ class HomeRoute extends BaseRoute {
               path: url,
               pageBuilder: (context, state) {
                 return CupertinoPage(
-                  child: ContainerPage(
+                  child: ContainerPage<HomeBloc, HomeState>(
                     page: const HomePage(),
                   ),
                 );

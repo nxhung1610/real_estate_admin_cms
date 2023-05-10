@@ -231,8 +231,10 @@ abstract class ApiService implements IApiService {
     } on DioError catch (e, trace) {
       printLog(this, message: e, error: e, trace: trace);
       res = e.response;
+    } catch (e, trace) {
+      printLog(this, message: e, error: e, trace: trace);
     }
-    return BaseResponse.fromJson(response: res?.data, parse: resultParser);
+    return BaseResponse.fromJson(response: res, parse: resultParser);
   }
 
   Future<BaseResponse<T>> _put<T>(
@@ -248,7 +250,7 @@ abstract class ApiService implements IApiService {
       printLog(this, message: e, error: e, trace: trace);
       res = e.response;
     }
-    return BaseResponse.fromJson(response: res?.data, parse: resultParser);
+    return BaseResponse.fromJson(response: res, parse: resultParser);
   }
 
   Future<BaseResponse<T>> _get<T>(
@@ -263,7 +265,7 @@ abstract class ApiService implements IApiService {
       printLog(this, message: e, error: e, trace: trace);
       res = e.response;
     }
-    return BaseResponse.fromJson(response: res?.data, parse: resultParser);
+    return BaseResponse.fromJson(response: res, parse: resultParser);
   }
 
   Future<BaseResponse<T>> _delete<T>(
@@ -279,7 +281,7 @@ abstract class ApiService implements IApiService {
       printLog(this, message: e, error: e, trace: trace);
       res = e.response;
     }
-    return BaseResponse.fromJson(response: res?.data, parse: resultParser);
+    return BaseResponse.fromJson(response: res, parse: resultParser);
   }
 
   @override

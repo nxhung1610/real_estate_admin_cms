@@ -1,44 +1,49 @@
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:injectable/injectable.dart';
 import 'package:real_estate_admin_cms/core/data_source/local/auth/i_auth_local_data_source.dart';
 
 @LazySingleton(as: IAuthLocalDataSource)
 class AuthLocalDataSource implements IAuthLocalDataSource {
+  final _accessTokenKey = 'ACCESS_TOKEN';
+  final _refreshTokenKey = 'REFRESH_TOKEN';
+  final FlutterSecureStorage storage;
+
+  AuthLocalDataSource(this.storage);
   @override
-  Future<String?> accessToken() => Future.value(null);
+  Future<String?> accessToken() {
+    return storage.read(key: _accessTokenKey);
+  }
 
   @override
   Future<String?> refreshToken() {
-    // TODO: implement getRefreshToken
-    throw UnimplementedError();
+    return storage.read(key: _refreshTokenKey);
   }
 
   @override
   Future<void> removeAccessToken() {
-    // TODO: implement removeAccessToken
-    throw UnimplementedError();
+    return storage.delete(key: _accessTokenKey);
   }
 
   @override
-  Future<void> removeAllToken() {
-    // TODO: implement removeAllToken
-    throw UnimplementedError();
+  Future<void> removeAllToken() async {
+    await Future.wait([
+      storage.delete(key: _accessTokenKey),
+      storage.delete(key: _refreshTokenKey)
+    ]);
   }
 
   @override
   Future<void> removeRefreshToken() {
-    // TODO: implement removeRefreshToken
-    throw UnimplementedError();
+    return storage.delete(key: _refreshTokenKey);
   }
 
   @override
   Future<void> setAccessToken({required String accessToken}) {
-    // TODO: implement setAccessToken
-    throw UnimplementedError();
+    return storage.write(key: _accessTokenKey, value: accessToken);
   }
 
   @override
   Future<void> setRefreshToken({required String refreshToken}) {
-    // TODO: implement setRefreshToken
-    throw UnimplementedError();
+    return storage.write(key: _refreshTokenKey, value: refreshToken);
   }
 }

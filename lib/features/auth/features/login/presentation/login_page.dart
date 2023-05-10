@@ -6,6 +6,7 @@ import 'package:real_estate_admin_cms/config/app_size.dart';
 import 'package:real_estate_admin_cms/features/app/presentation/widgets/button/button_app.dart';
 import 'package:real_estate_admin_cms/features/app/presentation/widgets/button/button_enums.dart';
 import 'package:real_estate_admin_cms/features/app/presentation/widgets/input/input_primary_form.dart';
+import 'package:real_estate_admin_cms/features/auth/application/auth_bloc.dart';
 import 'package:real_estate_admin_cms/features/auth/features/login/application/login_bloc.dart';
 import 'package:real_estate_admin_cms/helper/extensions/context.dart';
 import 'package:real_estate_admin_cms/languages/generated/l10n.dart';
@@ -24,7 +25,9 @@ class _LoginPageState extends State<LoginPage> {
     return BlocListener<LoginBloc, LoginState>(
       listener: (context, state) {
         state.status.whenOrNull(
-          success: (value) {},
+          success: (value) {
+            context.read<AuthBloc>().add(const AuthEvent.onAuthentication());
+          },
         );
       },
       child: Scaffold(
@@ -60,6 +63,11 @@ class _LoginPageState extends State<LoginPage> {
                         height: 12,
                       ),
                       InputPrimaryForm(
+                        initialValue: context
+                            .read<LoginBloc>()
+                            .state
+                            .phoneNumberAuth
+                            ?.valueData,
                         inputFormatters: [
                           FilteringTextInputFormatter.digitsOnly,
                         ],
@@ -90,6 +98,11 @@ class _LoginPageState extends State<LoginPage> {
                         },
                         builder: (context, state) {
                           return InputPrimaryForm(
+                            initialValue: context
+                                .read<LoginBloc>()
+                                .state
+                                .passwordAuth
+                                ?.valueData,
                             obscureText: !state,
                             // hint: s.password,
                             keyboardType: TextInputType.visiblePassword,

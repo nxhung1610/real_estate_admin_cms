@@ -11,7 +11,6 @@ class BaseResponse<T> {
   final int statusCode;
   final String? errorKey;
   final String? log;
-  final Response? response;
 
   factory BaseResponse.fromJson({
     Response? response,
@@ -25,13 +24,11 @@ class BaseResponse<T> {
       statusCode: response?.statusCode ?? json?['status_code'] ?? 503,
       errorKey: json?['error_key'],
       log: json?['log'],
-      response: response,
     );
   }
 
   BaseResponse._({
     required this.statusCode,
-    this.response,
     this.errorKey,
     this.log,
     required this.success,

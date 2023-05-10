@@ -205,6 +205,8 @@
     "rejected" : "Rejected",
     "date" : "Date",
     "time" : "Time",
-    "associateAgency" : "Realust staff will take you on a tour!"
+    "associateAgency" : "Realust staff will take you on a tour!",
+    "bid" : "Bid",
+    "approval" : "Approval"
   }
   

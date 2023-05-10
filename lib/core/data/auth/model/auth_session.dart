@@ -1,30 +1,22 @@
 import 'package:equatable/equatable.dart';
+import 'package:flutter/foundation.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:real_estate_admin_cms/core/data_source/network/auth/dto/login_response_dto.dart';
-
+import 'package:freezed_annotation/freezed_annotation.dart';
 import 'auth_token.dart';
 
-class AuthSession extends Equatable {
-  final AuthToken? refreshToken;
-  final AuthToken? token;
+part 'auth_session.freezed.dart';
+part 'auth_session.g.dart';
 
-  const AuthSession({this.refreshToken, this.token});
-
-  AuthSession copyWith({
+@freezed
+class AuthSession with _$AuthSession {
+  const factory AuthSession({
     AuthToken? refreshToken,
     AuthToken? token,
-  }) {
-    return AuthSession(
-      refreshToken: refreshToken ?? this.refreshToken,
-      token: token ?? this.token,
-    );
-  }
+  }) = _AuthSession;
 
-  @override
-  bool get stringify => true;
-
-  @override
-  List<Object?> get props => [refreshToken, token];
+  factory AuthSession.fromJson(Map<String, dynamic> json) =>
+      _$AuthSessionFromJson(json);
 
   factory AuthSession.fromDto(LoginResponseDto dto) {
     return AuthSession(

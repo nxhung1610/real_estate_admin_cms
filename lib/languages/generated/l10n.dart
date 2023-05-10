@@ -2069,6 +2069,26 @@ class S {
       args: [],
     );
   }
+
+  /// `Bid`
+  String get bid {
+    return Intl.message(
+      'Bid',
+      name: 'bid',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Approval`
+  String get approval {
+    return Intl.message(
+      'Approval',
+      name: 'approval',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

@@ -53,6 +53,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "applicationSettings":
             MessageLookupByLibrary.simpleMessage("Application Settings"),
         "apply": MessageLookupByLibrary.simpleMessage("Apply"),
+        "approval": MessageLookupByLibrary.simpleMessage("Approval"),
         "approved": MessageLookupByLibrary.simpleMessage("Approved"),
         "area": MessageLookupByLibrary.simpleMessage("Area"),
         "associateAgency": MessageLookupByLibrary.simpleMessage(
@@ -61,6 +62,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "bar": MessageLookupByLibrary.simpleMessage("Bar"),
         "bathRoom": MessageLookupByLibrary.simpleMessage("Bath Room"),
         "bedRoom": MessageLookupByLibrary.simpleMessage("Bed Room"),
+        "bid": MessageLookupByLibrary.simpleMessage("Bid"),
         "builtAt": MessageLookupByLibrary.simpleMessage("Built At"),
         "cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
         "changeLanguage":

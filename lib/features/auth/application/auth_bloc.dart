@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
@@ -11,7 +13,10 @@ part 'auth_bloc.g.dart';
 
 @injectable
 class AuthBloc extends HydratedBloc<AuthEvent, AuthState> {
-  AuthBloc() : super(const AuthState.unknown()) {}
+  AuthBloc() : super(const AuthState.unknown()) {
+    on<AuthEventOnAuthentication>(_onAuthen);
+    on<AuthEventOnUnAuthentication>(_onUnAuthen);
+  }
 
   @override
   AuthState? fromJson(Map<String, dynamic> json) {
@@ -21,5 +26,19 @@ class AuthBloc extends HydratedBloc<AuthEvent, AuthState> {
   @override
   Map<String, dynamic>? toJson(AuthState state) {
     return state.toJson();
+  }
+
+  FutureOr<void> _onAuthen(
+    AuthEventOnAuthentication event,
+    Emitter<AuthState> emit,
+  ) {
+    emit(const AuthState.authentication());
+  }
+
+  FutureOr<void> _onUnAuthen(
+    AuthEventOnUnAuthentication event,
+    Emitter<AuthState> emit,
+  ) {
+    emit(const AuthState.unAuthentication());
   }
 }

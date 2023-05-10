@@ -92,6 +92,9 @@ class $AssetsIconsGen {
   /// File path: assets/icons/ic_bed.svg
   SvgGenImage get icBed => const SvgGenImage('assets/icons/ic_bed.svg');
 
+  /// File path: assets/icons/ic_bid.svg
+  SvgGenImage get icBid => const SvgGenImage('assets/icons/ic_bid.svg');
+
   /// File path: assets/icons/ic_btn_plus.svg
   SvgGenImage get icBtnPlus =>
       const SvgGenImage('assets/icons/ic_btn_plus.svg');
@@ -220,6 +223,9 @@ class $AssetsIconsGen {
   SvgGenImage get icProfileLight =>
       const SvgGenImage('assets/icons/ic_profile_light.svg');
 
+  /// File path: assets/icons/ic_quality.svg
+  SvgGenImage get icQuality => const SvgGenImage('assets/icons/ic_quality.svg');
+
   /// File path: assets/icons/ic_remove.svg
   SvgGenImage get icRemove => const SvgGenImage('assets/icons/ic_remove.svg');
 
@@ -273,6 +279,7 @@ class $AssetsIconsGen {
         icBar,
         icBathroom,
         icBed,
+        icBid,
         icBtnPlus,
         icCamera,
         icCameraSolid,
@@ -307,6 +314,7 @@ class $AssetsIconsGen {
         icPool,
         icProfileBold,
         icProfileLight,
+        icQuality,
         icRemove,
         icScenery,
         icSearchLight,
