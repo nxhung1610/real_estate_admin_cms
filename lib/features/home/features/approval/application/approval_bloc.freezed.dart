@@ -18,9 +18,7 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$ApprovalState {
   bool get shimmer => throw _privateConstructorUsedError;
   List<Tour> get tours => throw _privateConstructorUsedError;
-  List<Tour>? get newTours => throw _privateConstructorUsedError;
   int get page => throw _privateConstructorUsedError;
-  bool get canLoadMore => throw _privateConstructorUsedError;
   Status get status => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -34,13 +32,7 @@ abstract class $ApprovalStateCopyWith<$Res> {
           ApprovalState value, $Res Function(ApprovalState) then) =
       _$ApprovalStateCopyWithImpl<$Res, ApprovalState>;
   @useResult
-  $Res call(
-      {bool shimmer,
-      List<Tour> tours,
-      List<Tour>? newTours,
-      int page,
-      bool canLoadMore,
-      Status status});
+  $Res call({bool shimmer, List<Tour> tours, int page, Status status});
 
   $StatusCopyWith<$Res> get status;
 }
@@ -60,9 +52,7 @@ class _$ApprovalStateCopyWithImpl<$Res, $Val extends ApprovalState>
   $Res call({
     Object? shimmer = null,
     Object? tours = null,
-    Object? newTours = freezed,
     Object? page = null,
-    Object? canLoadMore = null,
     Object? status = null,
   }) {
     return _then(_value.copyWith(
@@ -74,18 +64,10 @@ class _$ApprovalStateCopyWithImpl<$Res, $Val extends ApprovalState>
           ? _value.tours
           : tours // ignore: cast_nullable_to_non_nullable
               as List<Tour>,
-      newTours: freezed == newTours
-          ? _value.newTours
-          : newTours // ignore: cast_nullable_to_non_nullable
-              as List<Tour>?,
       page: null == page
           ? _value.page
           : page // ignore: cast_nullable_to_non_nullable
               as int,
-      canLoadMore: null == canLoadMore
-          ? _value.canLoadMore
-          : canLoadMore // ignore: cast_nullable_to_non_nullable
-              as bool,
       status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
@@ -110,13 +92,7 @@ abstract class _$$_ApprovalStateCopyWith<$Res>
       __$$_ApprovalStateCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {bool shimmer,
-      List<Tour> tours,
-      List<Tour>? newTours,
-      int page,
-      bool canLoadMore,
-      Status status});
+  $Res call({bool shimmer, List<Tour> tours, int page, Status status});
 
   @override
   $StatusCopyWith<$Res> get status;
@@ -135,9 +111,7 @@ class __$$_ApprovalStateCopyWithImpl<$Res>
   $Res call({
     Object? shimmer = null,
     Object? tours = null,
-    Object? newTours = freezed,
     Object? page = null,
-    Object? canLoadMore = null,
     Object? status = null,
   }) {
     return _then(_$_ApprovalState(
@@ -149,18 +123,10 @@ class __$$_ApprovalStateCopyWithImpl<$Res>
           ? _value._tours
           : tours // ignore: cast_nullable_to_non_nullable
               as List<Tour>,
-      newTours: freezed == newTours
-          ? _value._newTours
-          : newTours // ignore: cast_nullable_to_non_nullable
-              as List<Tour>?,
       page: null == page
           ? _value.page
           : page // ignore: cast_nullable_to_non_nullable
               as int,
-      canLoadMore: null == canLoadMore
-          ? _value.canLoadMore
-          : canLoadMore // ignore: cast_nullable_to_non_nullable
-              as bool,
       status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
@@ -175,12 +141,9 @@ class _$_ApprovalState implements _ApprovalState {
   const _$_ApprovalState(
       {this.shimmer = false,
       final List<Tour> tours = const [],
-      final List<Tour>? newTours,
       this.page = 0,
-      this.canLoadMore = true,
       this.status = const Status.idle()})
-      : _tours = tours,
-        _newTours = newTours;
+      : _tours = tours;
 
   @override
   @JsonKey()
@@ -194,29 +157,16 @@ class _$_ApprovalState implements _ApprovalState {
     return EqualUnmodifiableListView(_tours);
   }
 
-  final List<Tour>? _newTours;
-  @override
-  List<Tour>? get newTours {
-    final value = _newTours;
-    if (value == null) return null;
-    if (_newTours is EqualUnmodifiableListView) return _newTours;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(value);
-  }
-
   @override
   @JsonKey()
   final int page;
-  @override
-  @JsonKey()
-  final bool canLoadMore;
   @override
   @JsonKey()
   final Status status;
 
   @override
   String toString() {
-    return 'ApprovalState(shimmer: $shimmer, tours: $tours, newTours: $newTours, page: $page, canLoadMore: $canLoadMore, status: $status)';
+    return 'ApprovalState(shimmer: $shimmer, tours: $tours, page: $page, status: $status)';
   }
 
   @override
@@ -226,22 +176,13 @@ class _$_ApprovalState implements _ApprovalState {
             other is _$_ApprovalState &&
             (identical(other.shimmer, shimmer) || other.shimmer == shimmer) &&
             const DeepCollectionEquality().equals(other._tours, _tours) &&
-            const DeepCollectionEquality().equals(other._newTours, _newTours) &&
             (identical(other.page, page) || other.page == page) &&
-            (identical(other.canLoadMore, canLoadMore) ||
-                other.canLoadMore == canLoadMore) &&
             (identical(other.status, status) || other.status == status));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      shimmer,
-      const DeepCollectionEquality().hash(_tours),
-      const DeepCollectionEquality().hash(_newTours),
-      page,
-      canLoadMore,
-      status);
+  int get hashCode => Object.hash(runtimeType, shimmer,
+      const DeepCollectionEquality().hash(_tours), page, status);
 
   @JsonKey(ignore: true)
   @override
@@ -254,9 +195,7 @@ abstract class _ApprovalState implements ApprovalState {
   const factory _ApprovalState(
       {final bool shimmer,
       final List<Tour> tours,
-      final List<Tour>? newTours,
       final int page,
-      final bool canLoadMore,
       final Status status}) = _$_ApprovalState;
 
   @override
@@ -264,11 +203,7 @@ abstract class _ApprovalState implements ApprovalState {
   @override
   List<Tour> get tours;
   @override
-  List<Tour>? get newTours;
-  @override
   int get page;
-  @override
-  bool get canLoadMore;
   @override
   Status get status;
   @override

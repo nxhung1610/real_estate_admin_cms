@@ -116,7 +116,6 @@ class _HomePageState extends State<HomePage> {
                 index: state,
                 children: [
                   Container(),
-                  Container(),
                   ContainerPage<ApprovalBloc, ApprovalState>(
                     page: const ApprovalPage(),
                   ),
@@ -153,15 +152,15 @@ class _RowItemState extends State<_RowItem> {
     String title;
     Widget icon;
     switch (widget.type) {
-      case TabType.home:
-        title = s.home;
-        icon = Assets.icons.icHome2.svg(
-          colorFilter: ColorFilter.mode(
-            context.colorScheme.background,
-            BlendMode.srcIn,
-          ),
-        );
-        break;
+      // case TabType.home:
+      //   title = s.home;
+      //   icon = Assets.icons.icHome2.svg(
+      //     colorFilter: ColorFilter.mode(
+      //       context.colorScheme.background,
+      //       BlendMode.srcIn,
+      //     ),
+      //   );
+      //   break;
       case TabType.bid:
         title = s.bid;
         icon = Assets.icons.icBid.svg(

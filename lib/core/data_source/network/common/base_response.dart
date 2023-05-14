@@ -18,7 +18,9 @@ class BaseResponse<T> {
   }) {
     final Map<String, dynamic>? json = response?.data;
     return BaseResponse._(
-      success: json?["success"] ?? false,
+      success: json?["success"] ??
+          [201, 200].contains(response?.statusCode) ??
+          false,
       data: json?["data"] != null ? parse?.call(json?["data"]) : null,
       message: json?["message"],
       statusCode: response?.statusCode ?? json?['status_code'] ?? 503,

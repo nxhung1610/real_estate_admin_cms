@@ -72,7 +72,7 @@ abstract class NetworkModule {
       //   responseHeader: false,
       //   error: true,
       // ))
-      dio.httpClientAdapter = IOHttpClientAdapter();
+      dio.httpClientAdapter = BrowserHttpClientAdapter();
     } catch (e, trace) {
       printLog(this, message: e, error: e, trace: trace);
     }

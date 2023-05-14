@@ -58,25 +58,25 @@ class ApprovalBloc extends Bloc<ApprovalEvent, ApprovalState> {
       tours.fold(
         (l) => throw l,
         (r) {
-          if (event.page == 0) {
-            return emit(
-              state.copyWith(
-                tours: [],
-                newTours: r,
-                canLoadMore: r.isNotEmpty,
-                page: event.page,
-                status: const Status.success(),
-              ),
-            );
-          }
+          // if (event.page == 0) {
+          //   return emit(
+          //     state.copyWith(
+          //       tours: [],
+          //       newTours: r,
+          //       canLoadMore: r.isNotEmpty,
+          //       page: event.page,
+          //       status: const Status.success(),
+          //     ),
+          //   );
+          // }
 
-          final tourss = List<Tour>.from(state.tours);
-          tourss.addAll(r);
+          // final tourss = List<Tour>.from(state.tours);
+          // tourss.addAll(r);
           emit(
             state.copyWith(
-              tours: tourss,
-              newTours: r,
-              canLoadMore: r.isNotEmpty,
+              tours: r,
+              // newTours: r,
+              // canLoadMore: r.isNotEmpty,
               status: const Status.success(),
               page: event.page,
             ),
@@ -94,7 +94,7 @@ class ApprovalBloc extends Bloc<ApprovalEvent, ApprovalState> {
       emit(
         state.copyWith(
           status: const Status.idle(),
-          newTours: null,
+          // newTours: null,
         ),
       );
     }

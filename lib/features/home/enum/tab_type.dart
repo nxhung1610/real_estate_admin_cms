@@ -1,5 +1,5 @@
 enum TabType {
-  home,
+  // home,
   bid,
   approval;
 }

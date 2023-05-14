@@ -10,4 +10,13 @@ enum TourType {
       orElse: () => TourType.virtual,
     );
   }
+
+  String get title {
+    switch (this) {
+      case TourType.virtual:
+        return 'Online';
+      case TourType.inPerson:
+        return 'Trực tiếp';
+    }
+  }
 }

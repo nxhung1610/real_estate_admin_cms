@@ -1,0 +1,18 @@
+{
+    "id": 95,
+    "date": "2023-05-14T06:55:45Z",
+    "type": "in_person",
+    "extra_data": "",
+    "staff": {
+        "id": 4,
+        "phone": "0933970827",
+        "last_name": "Truong",
+        "first_name": "Hoang",
+        "role": "staff",
+        "avatar_url": ""
+    },
+    "status": 1,
+    "re_id": 172,
+    "user_id": 1,
+    "reason": ""
+}
