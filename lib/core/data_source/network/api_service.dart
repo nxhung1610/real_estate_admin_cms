@@ -10,6 +10,7 @@ abstract class IApiService {
     String path,
     Object? body, {
     Map<String, dynamic>? queryParameters,
+    Options? options,
     T Function(Map<String, dynamic> json)? resultParser,
   });
 
@@ -49,6 +50,7 @@ abstract class IApiService {
 
   Future<BaseResponse<List<T>>> getWithListResponse<T>(
     String path, {
+    Object? body,
     Map<String, dynamic>? queryParams,
     List<T> Function(List<Map<String, dynamic>> result)? resultParser,
   });
@@ -79,11 +81,13 @@ abstract class ApiService implements IApiService {
     String path,
     Object? body, {
     Map<String, dynamic>? queryParameters,
+    Options? options,
     T Function(Map<String, dynamic> json)? resultParser,
   }) async {
     return _post<T>(
       path,
       body,
+      options: options,
       queryParameters: queryParameters,
       resultParser:
           resultParser != null ? (value) => resultParser.call(value) : null,
@@ -163,11 +167,13 @@ abstract class ApiService implements IApiService {
   @override
   Future<BaseResponse<List<T>>> getWithListResponse<T>(
     String path, {
+    Object? body,
     Map<String, dynamic>? queryParams,
     List<T> Function(List<Map<String, dynamic>> result)? resultParser,
   }) {
     return _get<List<T>>(
       path,
+      body: body,
       queryParams: queryParams,
       resultParser: resultParser != null
           ? (value) {
@@ -183,11 +189,13 @@ abstract class ApiService implements IApiService {
   Future<BaseResponse<List<T>>> postWithListResponse<T>(
       String path, Object body,
       {Map<String, dynamic>? queryParameters,
+      Options? options,
       List<T> Function(List<Map<String, dynamic>> result)? resultParser}) {
     return _post<List<T>>(
       path,
       body,
       queryParameters: queryParameters,
+      options: options,
       resultParser: resultParser != null
           ? (value) {
               return resultParser.call((value as List<dynamic>)
@@ -223,6 +231,7 @@ abstract class ApiService implements IApiService {
     String path,
     Object? body, {
     Map<String, dynamic>? queryParameters,
+    Options? options,
     T Function(dynamic value)? resultParser,
   }) async {
     Response? res;
@@ -255,12 +264,13 @@ abstract class ApiService implements IApiService {
 
   Future<BaseResponse<T>> _get<T>(
     String path, {
+    Object? body,
     Map<String, dynamic>? queryParams,
     T Function(dynamic value)? resultParser,
   }) async {
     Response? res;
     try {
-      res = await dio.get(path, queryParameters: queryParams);
+      res = await dio.get(path, data: body, queryParameters: queryParams);
     } on DioError catch (e, trace) {
       printLog(this, message: e, error: e, trace: trace);
       res = e.response;
@@ -303,6 +313,12 @@ abstract class ApiService implements IApiService {
 @LazySingleton(as: IApiService)
 class AuthApiService extends ApiService {
   AuthApiService(@Named('authDio') super.dio);
+}
+
+@named
+@LazySingleton(as: IApiService)
+class TokenApiService extends ApiService {
+  TokenApiService(@Named('tokenDio') super.dio);
 }
 
 @named

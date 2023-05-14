@@ -27,6 +27,8 @@ abstract class NetworkModule {
 
   @Named('authDio')
   Dio get dioAuth => _dio(AppConfig.instance, _authInterceptors);
+  @Named('tokenDio')
+  Dio get dioToken => _dio(AppConfig.instance, _authInterceptors);
   @Named('defaultDio')
   Dio get dioDefault => _dio(AppConfig.instance, _normalInterceptors);
 
@@ -55,6 +57,9 @@ abstract class NetworkModule {
         ..options.headers = {
           'Content-Type': 'application/json; charset=utf-8',
           "Accept": "application/json",
+          // "Access-Control-Allow-Origin": "*",
+          // "Access-Control-Allow-Methods":
+          //     "POST, GET, OPTIONS, PUT, DELETE, HEAD",
         }
         ..interceptors.add(QueuedInterceptorsWrapper())
         ..interceptors.addAll(interceptors);

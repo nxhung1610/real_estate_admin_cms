@@ -32,7 +32,7 @@ class AuthInterceptor extends QueuedInterceptorsWrapper {
         final refreshAccessToken =
             await authenticationLocalDataSource.refreshToken();
         if (refreshAccessToken != null) {
-          options.headers["Authorization"] = refreshAccessToken;
+          options.headers["authorization"] = 'Bearer $refreshAccessToken';
         } else {
           handler.reject(DioError(requestOptions: options));
         }
@@ -46,7 +46,7 @@ class AuthInterceptor extends QueuedInterceptorsWrapper {
     } else {
       printLog(this,
           message: 'Authorized! Put access token to header: $accessToken');
-      options.headers["Authorization"] = accessToken;
+      options.headers["authorization"] = 'Bearer $accessToken';
     }
 
     super.onRequest(options, handler);

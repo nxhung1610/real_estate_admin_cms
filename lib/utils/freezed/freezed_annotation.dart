@@ -31,6 +31,21 @@ const freezedFailure = Freezed(
   equal: false,
 );
 
+class DateTimeOrNull implements JsonConverter<DateTime?, String?> {
+  const DateTimeOrNull();
+
+  @override
+  DateTime? fromJson(String? dateTime) {
+    return dateTime != null ? DateTime.parse(dateTime) : null;
+  }
+
+  @override
+  String? toJson(DateTime? date) {
+    final string = date?.toUtc().toIso8601String();
+    return string;
+  }
+}
+
 class DateTimeConverterFromString implements JsonConverter<DateTime, String> {
   const DateTimeConverterFromString();
 
