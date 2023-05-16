@@ -14,9 +14,9 @@ import 'package:get_it/get_it.dart' as _i1;
 import 'package:grpc/grpc.dart' as _i4;
 import 'package:injectable/injectable.dart' as _i2;
 import 'package:real_estate_admin_cms/core/data/admin/admin_repository.dart'
-    as _i37;
+    as _i39;
 import 'package:real_estate_admin_cms/core/data/admin/i_admin_repository.dart'
-    as _i36;
+    as _i38;
 import 'package:real_estate_admin_cms/core/data/auth/auth_repository.dart'
     as _i16;
 import 'package:real_estate_admin_cms/core/data/auth/i_auth_repository.dart'
@@ -34,9 +34,9 @@ import 'package:real_estate_admin_cms/core/data/file/file_repository.dart'
 import 'package:real_estate_admin_cms/core/data/file/i_file_repository.dart'
     as _i21;
 import 'package:real_estate_admin_cms/core/data/tour/i_tour_repository.dart'
-    as _i38;
+    as _i40;
 import 'package:real_estate_admin_cms/core/data/tour/tour_repository.dart'
-    as _i39;
+    as _i41;
 import 'package:real_estate_admin_cms/core/data_source/grpc/admin/service.pbgrpc.dart'
     as _i31;
 import 'package:real_estate_admin_cms/core/data_source/grpc/grpc_service.dart'
@@ -53,6 +53,10 @@ import 'package:real_estate_admin_cms/core/data_source/local/connectivity/connec
     as _i18;
 import 'package:real_estate_admin_cms/core/data_source/local/connectivity/i_connectivity_datasource.dart'
     as _i17;
+import 'package:real_estate_admin_cms/core/data_source/network/admin/admin_datasource.dart'
+    as _i37;
+import 'package:real_estate_admin_cms/core/data_source/network/admin/i_admin_datasource.dart'
+    as _i36;
 import 'package:real_estate_admin_cms/core/data_source/network/api_service.dart'
     as _i10;
 import 'package:real_estate_admin_cms/core/data_source/network/auth/auth_datasource.dart'
@@ -71,19 +75,21 @@ import 'package:real_estate_admin_cms/features/auth/application/auth_bloc.dart'
     as _i32;
 import 'package:real_estate_admin_cms/features/auth/features/login/application/login_bloc.dart'
     as _i27;
+import 'package:real_estate_admin_cms/features/common/features/staff/cubit/staff_selected_cubit.dart'
+    as _i42;
 import 'package:real_estate_admin_cms/features/connectivity/application/connectivity_bloc.dart'
     as _i35;
 import 'package:real_estate_admin_cms/features/home/application/home/home_bloc.dart'
     as _i9;
 import 'package:real_estate_admin_cms/features/home/features/approval/application/approval_bloc.dart'
-    as _i40;
+    as _i43;
 import 'package:shared_preferences/shared_preferences.dart' as _i29;
 
-import '../core/data_source/grpc/grpc_module.dart' as _i41;
-import '../core/data_source/module/local_module.dart' as _i43;
-import '../core/data_source/module/network_module.dart' as _i44;
+import '../core/data_source/grpc/grpc_module.dart' as _i44;
+import '../core/data_source/module/local_module.dart' as _i46;
+import '../core/data_source/module/network_module.dart' as _i47;
 import '../core/data_source/module/thirt_module.dart'
-    as _i42; // ignore_for_file: unnecessary_lambdas
+    as _i45; // ignore_for_file: unnecessary_lambdas
 
 // ignore_for_file: lines_longer_than_80_chars
 extension GetItInjectableX on _i1.GetIt {
@@ -193,25 +199,32 @@ extension GetItInjectableX on _i1.GetIt {
         ));
     gh.factory<_i35.ConnectivityBloc>(
         () => _i35.ConnectivityBloc(gh<_i19.IConnectivityRepository>()));
-    gh.lazySingleton<_i36.IAdminRepository>(() => _i37.AdminRepository(
-        gh<_i31.AdminServiceClient>(instanceName: 'GRPC_ADMIN_SERVICE')));
-    gh.lazySingleton<_i38.ITourRepository>(() => _i39.TourRepository(
+    gh.lazySingleton<_i36.IAdminDataSource>(() => _i37.AdminDataSource(
+        gh<_i10.IApiService>(instanceName: 'AuthApiService')));
+    gh.lazySingleton<_i38.IAdminRepository>(() => _i39.AdminRepository(
+          gh<_i31.AdminServiceClient>(instanceName: 'GRPC_ADMIN_SERVICE'),
+          gh<_i25.ITourDataSource>(),
+          gh<_i36.IAdminDataSource>(),
+        ));
+    gh.lazySingleton<_i40.ITourRepository>(() => _i41.TourRepository(
           gh<_i30.TourServiceClient>(instanceName: 'GRPC_TOUR_SERVICE'),
           gh<_i25.ITourDataSource>(),
         ));
-    gh.factory<_i40.ApprovalBloc>(() => _i40.ApprovalBloc(
-          gh<_i38.ITourRepository>(),
-          gh<_i36.IAdminRepository>(),
+    gh.factory<_i42.StaffSelectedCubit>(
+        () => _i42.StaffSelectedCubit(gh<_i38.IAdminRepository>()));
+    gh.factory<_i43.ApprovalBloc>(() => _i43.ApprovalBloc(
+          gh<_i40.ITourRepository>(),
+          gh<_i38.IAdminRepository>(),
           gh<_i23.IRealEstateRepository>(),
         ));
     return this;
   }
 }
 
-class _$GrpcModule extends _i41.GrpcModule {}
+class _$GrpcModule extends _i44.GrpcModule {}
 
-class _$ThirtModule extends _i42.ThirtModule {}
+class _$ThirtModule extends _i45.ThirtModule {}
 
-class _$LocalModule extends _i43.LocalModule {}
+class _$LocalModule extends _i46.LocalModule {}
 
-class _$NetworkModule extends _i44.NetworkModule {}
+class _$NetworkModule extends _i47.NetworkModule {}

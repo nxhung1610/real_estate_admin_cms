@@ -14,6 +14,10 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
+Tour _$TourFromJson(Map<String, dynamic> json) {
+  return _Tour.fromJson(json);
+}
+
 /// @nodoc
 mixin _$Tour {
   int get id => throw _privateConstructorUsedError;
@@ -25,6 +29,7 @@ mixin _$Tour {
   int get reId => throw _privateConstructorUsedError;
   int get userId => throw _privateConstructorUsedError;
 
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $TourCopyWith<Tour> get copyWith => throw _privateConstructorUsedError;
 }
@@ -194,7 +199,7 @@ class __$$_TourCopyWithImpl<$Res> extends _$TourCopyWithImpl<$Res, _$_Tour>
 }
 
 /// @nodoc
-
+@JsonSerializable()
 class _$_Tour implements _Tour {
   const _$_Tour(
       {required this.id,
@@ -205,6 +210,8 @@ class _$_Tour implements _Tour {
       required this.status,
       required this.reId,
       required this.userId});
+
+  factory _$_Tour.fromJson(Map<String, dynamic> json) => _$$_TourFromJson(json);
 
   @override
   final int id;
@@ -244,6 +251,7 @@ class _$_Tour implements _Tour {
             (identical(other.userId, userId) || other.userId == userId));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType, id, date, type, extraData, staff, status, reId, userId);
@@ -253,6 +261,13 @@ class _$_Tour implements _Tour {
   @pragma('vm:prefer-inline')
   _$$_TourCopyWith<_$_Tour> get copyWith =>
       __$$_TourCopyWithImpl<_$_Tour>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_TourToJson(
+      this,
+    );
+  }
 }
 
 abstract class _Tour implements Tour {
@@ -265,6 +280,8 @@ abstract class _Tour implements Tour {
       required final TourStatus status,
       required final int reId,
       required final int userId}) = _$_Tour;
+
+  factory _Tour.fromJson(Map<String, dynamic> json) = _$_Tour.fromJson;
 
   @override
   int get id;

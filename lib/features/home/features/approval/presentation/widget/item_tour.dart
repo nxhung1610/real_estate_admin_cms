@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:real_estate_admin_cms/assets/assets.gen.dart';
 import 'package:real_estate_admin_cms/config/app_color.dart';
 import 'package:real_estate_admin_cms/core/data/tour/enum/contact_tour_type.dart';
 import 'package:real_estate_admin_cms/core/data/tour/enum/tour_status.dart';
 import 'package:real_estate_admin_cms/core/data/tour/model/tour.dart';
+import 'package:real_estate_admin_cms/features/common/features/staff/popup/staff_selected_popup.dart';
+import 'package:real_estate_admin_cms/features/home/features/approval/application/approval_bloc.dart';
 import 'package:real_estate_admin_cms/helper/extensions/context.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -161,7 +164,8 @@ class ItemTour extends StatelessWidget {
             ),
             TableCell(
               verticalAlignment: TableCellVerticalAlignment.middle,
-              child: item.status == TourStatus.rejected
+              child: [TourStatus.approved, TourStatus.rejected]
+                      .contains(item.status)
                   ? const SizedBox.shrink()
                   : Center(
                       child: Row(
@@ -169,7 +173,26 @@ class ItemTour extends StatelessWidget {
                         mainAxisSize: MainAxisSize.min,
                         children: [
                           GestureDetector(
-                            onTap: () {},
+                            onTap: () {
+                              showDialog(
+                                context: context,
+                                builder: (_) {
+                                  return Dialog(
+                                    backgroundColor: Colors.transparent,
+                                    child: StaffSelectedPopup(
+                                      onStaffSelected: (user) {
+                                        context.read<ApprovalBloc>().add(
+                                              ApprovalEvent.onAssignStaff(
+                                                item.id,
+                                                user.id,
+                                              ),
+                                            );
+                                      },
+                                    ),
+                                  );
+                                },
+                              );
+                            },
                             child: Container(
                               decoration: BoxDecoration(
                                 color: Colors.greenAccent,

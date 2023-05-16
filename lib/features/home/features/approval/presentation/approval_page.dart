@@ -4,11 +4,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 import 'package:real_estate_admin_cms/config/app_color.dart';
+import 'package:real_estate_admin_cms/core/data/auth/model/user.dart';
 import 'package:real_estate_admin_cms/core/data/tour/model/tour.dart';
+import 'package:real_estate_admin_cms/features/app/presentation/widgets/widget.dart';
 import 'package:real_estate_admin_cms/features/common/presentation/widget/w_custom_refresh_scroll_view.dart';
 import 'package:real_estate_admin_cms/features/home/features/approval/application/approval_bloc.dart';
 import 'package:real_estate_admin_cms/features/home/features/approval/presentation/widget/item_tour.dart';
 import 'package:real_estate_admin_cms/helper/extensions/context.dart';
+import 'package:dartz/dartz.dart' as dartz;
 
 class ApprovalPage extends StatefulWidget {
   const ApprovalPage({super.key});
@@ -42,6 +45,79 @@ class _ApprovalPageState extends State<ApprovalPage> {
     return Scaffold(
       body: Column(
         children: [
+          Container(
+            padding: const EdgeInsets.symmetric(
+              horizontal: 16,
+              vertical: 16,
+            ),
+            child: Row(
+              children: [
+                Row(
+                  children: [
+                    Text(
+                      'Nhân viên',
+                      style: context.textTheme.titleSmall,
+                    ),
+                    const SizedBox(
+                      width: 16,
+                    ),
+                    SizedBox(
+                      width: 170,
+                      child: BlocSelector<ApprovalBloc, ApprovalState,
+                          dartz.Tuple2<User?, List<User>>>(
+                        selector: (state) {
+                          return dartz.Tuple2(state.staffFilter, state.staffs);
+                        },
+                        builder: (context, state) {
+                          final staffs = [null, ...state.value2];
+                          final selectedStaff = state.value1;
+                          return DropdownApp(
+                            isExpanded: true,
+                            onChanged: (value) {
+                              bloc.add(
+                                  ApprovalEvent.onStaffFilterChange(value));
+                            },
+                            value: selectedStaff,
+                            selectedItemBuilder: (context) {
+                              return staffs
+                                  .map(
+                                    (e) => Text(
+                                      e?.fullName ?? 'Tất cả',
+                                      style: context.textTheme.titleMedium
+                                          ?.copyWith(),
+                                      overflow: TextOverflow.visible,
+                                      maxLines: 1,
+                                    ),
+                                  )
+                                  .toList();
+                            },
+                            items: staffs
+                                .map(
+                                  (e) => DropdownMenuItem<User>(
+                                    value: e,
+                                    child: Padding(
+                                      padding: const EdgeInsets.symmetric(
+                                          horizontal: 16),
+                                      child: Text(
+                                        e?.fullName ?? 'Tất cả',
+                                        style: context.textTheme.titleMedium
+                                            ?.copyWith(),
+                                        overflow: TextOverflow.visible,
+                                        maxLines: 1,
+                                      ),
+                                    ),
+                                  ),
+                                )
+                                .toList(),
+                          );
+                        },
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
           Table(
             border: const TableBorder(
               horizontalInside: BorderSide(
@@ -140,51 +216,35 @@ class _ApprovalPageState extends State<ApprovalPage> {
               ),
             ],
           ),
-          // Expanded(
-          //   child: WCustomRefreshScrollView(
-          //     onRefresh: () async {
-          //       refresh = Completer();
-          //       bloc.add(const ApprovalEvent.onStarted());
-          //       await refresh?.future;
-          //     },
-          //     children: [
-          //       PagedSliverList.separated(
-          //         pagingController: pageController,
-          //         builderDelegate: PagedChildBuilderDelegate<Tour>(
-          //           firstPageErrorIndicatorBuilder: (context) {
-          //             return const Center(
-          //               child: Text('Có lỗi xảy ra'),
-          //             );
-          //           },
-          //           itemBuilder: (context, item, index) {
-          //             return ItemTour(item: item);
-          //           },
-          //         ),
-          //         separatorBuilder: (context, index) {
-          //           return const Divider(
-          //             height: 0,
-          //           );
-          //         },
-          //       )
-          //     ],
-          //   ),
-          // )
           Expanded(
-            child: BlocSelector<ApprovalBloc, ApprovalState, List<Tour>>(
+            child: BlocSelector<ApprovalBloc, ApprovalState, bool>(
               selector: (state) {
-                return state.tours;
+                return state.shimmer;
               },
               builder: (context, state) {
-                return ListView.separated(
-                  itemBuilder: (context, index) {
-                    return ItemTour(item: state[index]);
+                if (state) {
+                  return const Center(
+                    child: CircularProgressIndicator(),
+                  );
+                }
+
+                return BlocSelector<ApprovalBloc, ApprovalState, List<Tour>>(
+                  selector: (state) {
+                    return state.tours;
                   },
-                  separatorBuilder: (context, index) {
-                    return const Divider(
-                      height: 0,
+                  builder: (context, state) {
+                    return ListView.separated(
+                      itemBuilder: (context, index) {
+                        return ItemTour(item: state[index]);
+                      },
+                      separatorBuilder: (context, index) {
+                        return const Divider(
+                          height: 0,
+                        );
+                      },
+                      itemCount: state.length,
                     );
                   },
-                  itemCount: state.length,
                 );
               },
             ),

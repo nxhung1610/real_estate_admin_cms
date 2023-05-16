@@ -1,6 +1,6 @@
 part of 'approval_bloc.dart';
 
-@freezed
+@freezedBlocEvent
 class ApprovalEvent with _$ApprovalEvent {
   const factory ApprovalEvent.onStarted() = ApprovalEventOnStarted;
   const factory ApprovalEvent.onFetch({
@@ -9,4 +9,11 @@ class ApprovalEvent with _$ApprovalEvent {
     TourStatus? status,
     int? staffId,
   }) = ApprovalEventOnFetch;
+  const factory ApprovalEvent.onFetchStaffs() = ApprovalEventOnFetchStaffs;
+  const factory ApprovalEvent.onAssignStaff(int tourId, int staffId) =
+      ApprovalEventOnAssignStaff;
+  const factory ApprovalEvent.onReject(int tourId, String reason) =
+      ApprovalEventOnReject;
+  const factory ApprovalEvent.onStaffFilterChange(User? staff) =
+      ApprovalEventOnStaffFilterChange;
 }

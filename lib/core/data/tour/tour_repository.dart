@@ -70,31 +70,10 @@ class TourRepository
   ) async {
     try {
       final res = await invokeWithData(
-          action: tourDataSource.tourAdmin(filter.toDtoRequest()));
-      // final stat = List.generate(
-      //   50,
-      //   (index) => TourResponse.fromJson(
-      //     {
-      //       "id": index,
-      //       "date": "2023-05-14T06:55:45Z",
-      //       "type": "in_person",
-      //       "extra_data": "",
-      //       "staff": {
-      //         "id": 4,
-      //         "phone": "0933970827",
-      //         "last_name": "Truong",
-      //         "first_name": "Hoang",
-      //         "role": "staff",
-      //         "avatar_url": ""
-      //       },
-      //       "status": 1,
-      //       "re_id": 172,
-      //       "user_id": 1,
-      //       "reason": ""
-      //     },
-      //   ),
-      // );
-
+        action: tourDataSource.tourAdmin(
+          filter.toDtoRequest(),
+        ),
+      );
       return right(res.map(Tour.fromResponse).toList());
     } on Exception catch (e, trace) {
       return left(handleException(e, trace));

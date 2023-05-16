@@ -8,6 +8,7 @@ import '../enum/tour_status.dart';
 import '../enum/tour_type.dart';
 
 part 'tour.freezed.dart';
+part 'tour.g.dart';
 
 @freezed
 class Tour with _$Tour {
@@ -22,6 +23,9 @@ class Tour with _$Tour {
     required int userId,
   }) = _Tour;
 
+  factory Tour.fromJson(Map<String, dynamic> json) => _$TourFromJson(json);
+
+  @unfreezed
   factory Tour.fromDto(TourInfo dto) {
     return Tour(
       id: dto.id,
@@ -34,7 +38,7 @@ class Tour with _$Tour {
       extraData: dto.extraData,
     );
   }
-
+  @unfreezed
   factory Tour.fromResponse(TourResponse dto) {
     return Tour(
       id: dto.id,

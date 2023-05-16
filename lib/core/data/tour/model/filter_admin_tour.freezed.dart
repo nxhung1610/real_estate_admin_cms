@@ -19,10 +19,10 @@ mixin _$FilterAdminTour {
   int? get reId => throw _privateConstructorUsedError;
   int? get page => throw _privateConstructorUsedError;
   int? get size => throw _privateConstructorUsedError;
-  int? get status => throw _privateConstructorUsedError;
+  TourStatus? get status => throw _privateConstructorUsedError;
   int? get staffId => throw _privateConstructorUsedError;
   int? get userId => throw _privateConstructorUsedError;
-  String? get type => throw _privateConstructorUsedError;
+  ContactTourType? get type => throw _privateConstructorUsedError;
   String? get fromDate => throw _privateConstructorUsedError;
   String? get toDate => throw _privateConstructorUsedError;
 
@@ -41,10 +41,10 @@ abstract class $FilterAdminTourCopyWith<$Res> {
       {int? reId,
       int? page,
       int? size,
-      int? status,
+      TourStatus? status,
       int? staffId,
       int? userId,
-      String? type,
+      ContactTourType? type,
       String? fromDate,
       String? toDate});
 }
@@ -88,7 +88,7 @@ class _$FilterAdminTourCopyWithImpl<$Res, $Val extends FilterAdminTour>
       status: freezed == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as TourStatus?,
       staffId: freezed == staffId
           ? _value.staffId
           : staffId // ignore: cast_nullable_to_non_nullable
@@ -100,7 +100,7 @@ class _$FilterAdminTourCopyWithImpl<$Res, $Val extends FilterAdminTour>
       type: freezed == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as ContactTourType?,
       fromDate: freezed == fromDate
           ? _value.fromDate
           : fromDate // ignore: cast_nullable_to_non_nullable
@@ -125,10 +125,10 @@ abstract class _$$_FilterAdminTourCopyWith<$Res>
       {int? reId,
       int? page,
       int? size,
-      int? status,
+      TourStatus? status,
       int? staffId,
       int? userId,
-      String? type,
+      ContactTourType? type,
       String? fromDate,
       String? toDate});
 }
@@ -170,7 +170,7 @@ class __$$_FilterAdminTourCopyWithImpl<$Res>
       status: freezed == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as TourStatus?,
       staffId: freezed == staffId
           ? _value.staffId
           : staffId // ignore: cast_nullable_to_non_nullable
@@ -182,7 +182,7 @@ class __$$_FilterAdminTourCopyWithImpl<$Res>
       type: freezed == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as ContactTourType?,
       fromDate: freezed == fromDate
           ? _value.fromDate
           : fromDate // ignore: cast_nullable_to_non_nullable
@@ -216,13 +216,13 @@ class _$_FilterAdminTour implements _FilterAdminTour {
   @override
   final int? size;
   @override
-  final int? status;
+  final TourStatus? status;
   @override
   final int? staffId;
   @override
   final int? userId;
   @override
-  final String? type;
+  final ContactTourType? type;
   @override
   final String? fromDate;
   @override
@@ -266,10 +266,10 @@ abstract class _FilterAdminTour implements FilterAdminTour {
       {final int? reId,
       final int? page,
       final int? size,
-      final int? status,
+      final TourStatus? status,
       final int? staffId,
       final int? userId,
-      final String? type,
+      final ContactTourType? type,
       final String? fromDate,
       final String? toDate}) = _$_FilterAdminTour;
 
@@ -280,13 +280,13 @@ abstract class _FilterAdminTour implements FilterAdminTour {
   @override
   int? get size;
   @override
-  int? get status;
+  TourStatus? get status;
   @override
   int? get staffId;
   @override
   int? get userId;
   @override
-  String? get type;
+  ContactTourType? get type;
   @override
   String? get fromDate;
   @override

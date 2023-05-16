@@ -57,7 +57,7 @@ class DropdownApp<T> extends StatelessWidget {
                 padding: EdgeInsets.symmetric(
                   horizontal: horizontalSpace,
                 ),
-                height: 60,
+                height: 50,
               ),
               iconStyleData: IconStyleData(
                 icon: Assets.icons.icArrowDown.svg(
@@ -70,7 +70,7 @@ class DropdownApp<T> extends StatelessWidget {
                 ),
               ),
               menuItemStyleData: const MenuItemStyleData(
-                height: 60,
+                height: 50,
                 padding: EdgeInsets.zero,
               ),
               // dropdownMaxHeight: ,
@@ -97,7 +97,6 @@ class DropdownApp<T> extends StatelessWidget {
               //     AppSize.extraRadius,
               //   ),
               // ),
-
               decoration: const InputDecoration().applyDefaults(
                 context.theme.inputDecorationTheme.copyWith(
                   contentPadding: EdgeInsets.zero,
