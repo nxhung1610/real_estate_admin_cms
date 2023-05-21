@@ -16,9 +16,8 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$PagingModel<T> {
-  int get totalElements => throw _privateConstructorUsedError;
-  int get totalPages => throw _privateConstructorUsedError;
-  List<T>? get content => throw _privateConstructorUsedError;
+  int get total => throw _privateConstructorUsedError;
+  List<T>? get data => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $PagingModelCopyWith<T, PagingModel<T>> get copyWith =>
@@ -31,7 +30,7 @@ abstract class $PagingModelCopyWith<T, $Res> {
           PagingModel<T> value, $Res Function(PagingModel<T>) then) =
       _$PagingModelCopyWithImpl<T, $Res, PagingModel<T>>;
   @useResult
-  $Res call({int totalElements, int totalPages, List<T>? content});
+  $Res call({int total, List<T>? data});
 }
 
 /// @nodoc
@@ -47,22 +46,17 @@ class _$PagingModelCopyWithImpl<T, $Res, $Val extends PagingModel<T>>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? totalElements = null,
-    Object? totalPages = null,
-    Object? content = freezed,
+    Object? total = null,
+    Object? data = freezed,
   }) {
     return _then(_value.copyWith(
-      totalElements: null == totalElements
-          ? _value.totalElements
-          : totalElements // ignore: cast_nullable_to_non_nullable
+      total: null == total
+          ? _value.total
+          : total // ignore: cast_nullable_to_non_nullable
               as int,
-      totalPages: null == totalPages
-          ? _value.totalPages
-          : totalPages // ignore: cast_nullable_to_non_nullable
-              as int,
-      content: freezed == content
-          ? _value.content
-          : content // ignore: cast_nullable_to_non_nullable
+      data: freezed == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
               as List<T>?,
     ) as $Val);
   }
@@ -76,7 +70,7 @@ abstract class _$$_PagingModelCopyWith<T, $Res>
       __$$_PagingModelCopyWithImpl<T, $Res>;
   @override
   @useResult
-  $Res call({int totalElements, int totalPages, List<T>? content});
+  $Res call({int total, List<T>? data});
 }
 
 /// @nodoc
@@ -90,22 +84,17 @@ class __$$_PagingModelCopyWithImpl<T, $Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? totalElements = null,
-    Object? totalPages = null,
-    Object? content = freezed,
+    Object? total = null,
+    Object? data = freezed,
   }) {
     return _then(_$_PagingModel<T>(
-      totalElements: null == totalElements
-          ? _value.totalElements
-          : totalElements // ignore: cast_nullable_to_non_nullable
+      total: null == total
+          ? _value.total
+          : total // ignore: cast_nullable_to_non_nullable
               as int,
-      totalPages: null == totalPages
-          ? _value.totalPages
-          : totalPages // ignore: cast_nullable_to_non_nullable
-              as int,
-      content: freezed == content
-          ? _value._content
-          : content // ignore: cast_nullable_to_non_nullable
+      data: freezed == data
+          ? _value._data
+          : data // ignore: cast_nullable_to_non_nullable
               as List<T>?,
     ));
   }
@@ -114,29 +103,24 @@ class __$$_PagingModelCopyWithImpl<T, $Res>
 /// @nodoc
 
 class _$_PagingModel<T> implements _PagingModel<T> {
-  const _$_PagingModel(
-      {required this.totalElements,
-      required this.totalPages,
-      final List<T>? content})
-      : _content = content;
+  const _$_PagingModel({required this.total, final List<T>? data})
+      : _data = data;
 
   @override
-  final int totalElements;
+  final int total;
+  final List<T>? _data;
   @override
-  final int totalPages;
-  final List<T>? _content;
-  @override
-  List<T>? get content {
-    final value = _content;
+  List<T>? get data {
+    final value = _data;
     if (value == null) return null;
-    if (_content is EqualUnmodifiableListView) return _content;
+    if (_data is EqualUnmodifiableListView) return _data;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(value);
   }
 
   @override
   String toString() {
-    return 'PagingModel<$T>(totalElements: $totalElements, totalPages: $totalPages, content: $content)';
+    return 'PagingModel<$T>(total: $total, data: $data)';
   }
 
   @override
@@ -144,16 +128,13 @@ class _$_PagingModel<T> implements _PagingModel<T> {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_PagingModel<T> &&
-            (identical(other.totalElements, totalElements) ||
-                other.totalElements == totalElements) &&
-            (identical(other.totalPages, totalPages) ||
-                other.totalPages == totalPages) &&
-            const DeepCollectionEquality().equals(other._content, _content));
+            (identical(other.total, total) || other.total == total) &&
+            const DeepCollectionEquality().equals(other._data, _data));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, totalElements, totalPages,
-      const DeepCollectionEquality().hash(_content));
+  int get hashCode => Object.hash(
+      runtimeType, total, const DeepCollectionEquality().hash(_data));
 
   @JsonKey(ignore: true)
   @override
@@ -163,17 +144,13 @@ class _$_PagingModel<T> implements _PagingModel<T> {
 }
 
 abstract class _PagingModel<T> implements PagingModel<T> {
-  const factory _PagingModel(
-      {required final int totalElements,
-      required final int totalPages,
-      final List<T>? content}) = _$_PagingModel<T>;
+  const factory _PagingModel({required final int total, final List<T>? data}) =
+      _$_PagingModel<T>;
 
   @override
-  int get totalElements;
+  int get total;
   @override
-  int get totalPages;
-  @override
-  List<T>? get content;
+  List<T>? get data;
   @override
   @JsonKey(ignore: true)
   _$$_PagingModelCopyWith<T, _$_PagingModel<T>> get copyWith =>

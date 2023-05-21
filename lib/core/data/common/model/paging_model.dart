@@ -6,9 +6,8 @@ part 'paging_model.freezed.dart';
 @freezed
 class PagingModel<T> with _$PagingModel<T> {
   const factory PagingModel({
-    required int totalElements,
-    required int totalPages,
-    List<T>? content,
+    required int total,
+    List<T>? data,
   }) = _PagingModel;
 
   /// {T} is Paging of model
@@ -16,9 +15,8 @@ class PagingModel<T> with _$PagingModel<T> {
   static PagingModel<M> fromDto<M, D>(
       PagingResponse<D> dto, M Function(D dto) convert) {
     return PagingModel<M>(
-      totalElements: dto.totalElements,
-      totalPages: dto.totalPages,
-      content: dto.content
+      total: dto.total,
+      data: dto.data
           ?.map(
             (e) => convert.call(e),
           )

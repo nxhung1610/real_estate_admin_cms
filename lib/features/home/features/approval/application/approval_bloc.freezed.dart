@@ -25,6 +25,8 @@ mixin _$ApprovalState {
   List<Tour> get tours => throw _privateConstructorUsedError;
   int get page => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
+  int get totalPage => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
   Status get status => throw _privateConstructorUsedError; // Filter
   @JsonKey(ignore: true)
   List<User> get staffs => throw _privateConstructorUsedError;
@@ -51,6 +53,7 @@ abstract class $ApprovalStateCopyWith<$Res> {
       {bool shimmer,
       @JsonKey(ignore: true) List<Tour> tours,
       int page,
+      @JsonKey(ignore: true) int totalPage,
       @JsonKey(ignore: true) Status status,
       @JsonKey(ignore: true) List<User> staffs,
       @JsonKey(ignore: true) User? staffFilter,
@@ -77,6 +80,7 @@ class _$ApprovalStateCopyWithImpl<$Res, $Val extends ApprovalState>
     Object? shimmer = null,
     Object? tours = null,
     Object? page = null,
+    Object? totalPage = null,
     Object? status = null,
     Object? staffs = null,
     Object? staffFilter = freezed,
@@ -95,6 +99,10 @@ class _$ApprovalStateCopyWithImpl<$Res, $Val extends ApprovalState>
       page: null == page
           ? _value.page
           : page // ignore: cast_nullable_to_non_nullable
+              as int,
+      totalPage: null == totalPage
+          ? _value.totalPage
+          : totalPage // ignore: cast_nullable_to_non_nullable
               as int,
       status: null == status
           ? _value.status
@@ -152,6 +160,7 @@ abstract class _$$_ApprovalStateCopyWith<$Res>
       {bool shimmer,
       @JsonKey(ignore: true) List<Tour> tours,
       int page,
+      @JsonKey(ignore: true) int totalPage,
       @JsonKey(ignore: true) Status status,
       @JsonKey(ignore: true) List<User> staffs,
       @JsonKey(ignore: true) User? staffFilter,
@@ -178,6 +187,7 @@ class __$$_ApprovalStateCopyWithImpl<$Res>
     Object? shimmer = null,
     Object? tours = null,
     Object? page = null,
+    Object? totalPage = null,
     Object? status = null,
     Object? staffs = null,
     Object? staffFilter = freezed,
@@ -196,6 +206,10 @@ class __$$_ApprovalStateCopyWithImpl<$Res>
       page: null == page
           ? _value.page
           : page // ignore: cast_nullable_to_non_nullable
+              as int,
+      totalPage: null == totalPage
+          ? _value.totalPage
+          : totalPage // ignore: cast_nullable_to_non_nullable
               as int,
       status: null == status
           ? _value.status
@@ -227,7 +241,8 @@ class _$_ApprovalState implements _ApprovalState {
   const _$_ApprovalState(
       {this.shimmer = false,
       @JsonKey(ignore: true) final List<Tour> tours = const [],
-      this.page = 0,
+      this.page = 1,
+      @JsonKey(ignore: true) this.totalPage = 0,
       @JsonKey(ignore: true) this.status = const Status.idle(),
       @JsonKey(ignore: true) final List<User> staffs = const [],
       @JsonKey(ignore: true) this.staffFilter,
@@ -256,6 +271,9 @@ class _$_ApprovalState implements _ApprovalState {
   final int page;
   @override
   @JsonKey(ignore: true)
+  final int totalPage;
+  @override
+  @JsonKey(ignore: true)
   final Status status;
 // Filter
   final List<User> _staffs;
@@ -280,7 +298,7 @@ class _$_ApprovalState implements _ApprovalState {
 
   @override
   String toString() {
-    return 'ApprovalState(shimmer: $shimmer, tours: $tours, page: $page, status: $status, staffs: $staffs, staffFilter: $staffFilter, tourType: $tourType, tourStatus: $tourStatus)';
+    return 'ApprovalState(shimmer: $shimmer, tours: $tours, page: $page, totalPage: $totalPage, status: $status, staffs: $staffs, staffFilter: $staffFilter, tourType: $tourType, tourStatus: $tourStatus)';
   }
 
   @override
@@ -291,6 +309,8 @@ class _$_ApprovalState implements _ApprovalState {
             (identical(other.shimmer, shimmer) || other.shimmer == shimmer) &&
             const DeepCollectionEquality().equals(other._tours, _tours) &&
             (identical(other.page, page) || other.page == page) &&
+            (identical(other.totalPage, totalPage) ||
+                other.totalPage == totalPage) &&
             (identical(other.status, status) || other.status == status) &&
             const DeepCollectionEquality().equals(other._staffs, _staffs) &&
             (identical(other.staffFilter, staffFilter) ||
@@ -308,6 +328,7 @@ class _$_ApprovalState implements _ApprovalState {
       shimmer,
       const DeepCollectionEquality().hash(_tours),
       page,
+      totalPage,
       status,
       const DeepCollectionEquality().hash(_staffs),
       staffFilter,
@@ -333,6 +354,7 @@ abstract class _ApprovalState implements ApprovalState {
       {final bool shimmer,
       @JsonKey(ignore: true) final List<Tour> tours,
       final int page,
+      @JsonKey(ignore: true) final int totalPage,
       @JsonKey(ignore: true) final Status status,
       @JsonKey(ignore: true) final List<User> staffs,
       @JsonKey(ignore: true) final User? staffFilter,
@@ -349,6 +371,9 @@ abstract class _ApprovalState implements ApprovalState {
   List<Tour> get tours;
   @override
   int get page;
+  @override
+  @JsonKey(ignore: true)
+  int get totalPage;
   @override
   @JsonKey(ignore: true)
   Status get status;
@@ -396,7 +421,7 @@ abstract class ApprovalEventOnStarted implements ApprovalEvent {
 
 class _$ApprovalEventOnFetch implements ApprovalEventOnFetch {
   const _$ApprovalEventOnFetch(
-      {this.page = 0, this.size = 15, this.status, this.staffId});
+      {this.page = 1, this.size = 15, this.status, this.staffId});
 
   @override
   @JsonKey()

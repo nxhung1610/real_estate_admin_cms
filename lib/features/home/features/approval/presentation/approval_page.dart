@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -13,8 +14,10 @@ import 'package:real_estate_admin_cms/features/app/presentation/widgets/widget.d
 import 'package:real_estate_admin_cms/features/common/presentation/widget/w_custom_refresh_scroll_view.dart';
 import 'package:real_estate_admin_cms/features/home/features/approval/application/approval_bloc.dart';
 import 'package:real_estate_admin_cms/features/home/features/approval/presentation/widget/item_tour.dart';
+import 'package:real_estate_admin_cms/helper/.helper.dart';
 import 'package:real_estate_admin_cms/helper/extensions/context.dart';
 import 'package:dartz/dartz.dart' as dartz;
+import 'package:collection/collection.dart';
 
 class ApprovalPage extends StatefulWidget {
   const ApprovalPage({super.key});
@@ -322,6 +325,68 @@ class _ApprovalPageState extends State<ApprovalPage> {
                   },
                 );
               },
+            ),
+          ),
+          Container(
+            padding: const EdgeInsets.symmetric(
+              horizontal: 24,
+              vertical: 16,
+            ),
+            child: Align(
+              child: BlocBuilder<ApprovalBloc, ApprovalState>(
+                builder: (context, state) {
+                  log(state.page.toString());
+                  return SingleChildScrollView(
+                    child: Row(
+                      children: List.generate(
+                        state.totalPage,
+                        (index) {
+                          return GestureDetector(
+                            onTap: () {
+                              context.read<ApprovalBloc>().add(
+                                    ApprovalEvent.onFetch(
+                                      page: index + 1,
+                                    ),
+                                  );
+                            },
+                            child: Container(
+                              width: 35,
+                              padding: const EdgeInsets.symmetric(vertical: 10),
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(8),
+                                color: (index + 1) == state.page
+                                    ? AppColor.kNeutrals2
+                                    : context.colorScheme.background,
+                                border: const Border.fromBorderSide(
+                                  BorderSide(
+                                    color: AppColor.kNeutrals4,
+                                  ),
+                                ),
+                              ),
+                              child: Center(
+                                child: Text(
+                                  (index + 1).toString(),
+                                  style: context.textTheme.bodyMedium?.copyWith(
+                                    color: (index + 1) == state.page
+                                        ? context.colorScheme.background
+                                        : AppColor.kNeutrals4,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          );
+                        },
+                      )
+                          .joinWidget(
+                            const SizedBox(
+                              width: 15,
+                            ),
+                          )
+                          .toList(),
+                    ),
+                  );
+                },
+              ),
             ),
           )
         ],

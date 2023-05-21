@@ -127,16 +127,16 @@ extension GetItInjectableX on _i1.GetIt {
     gh.lazySingleton<_i8.GrpcService>(() => _i8.GrpcService());
     gh.factory<_i9.HomeBloc>(() => _i9.HomeBloc());
     gh.lazySingleton<_i10.IApiService>(
-      () => _i10.AuthApiService(gh<_i6.Dio>(instanceName: 'authDio')),
-      instanceName: 'AuthApiService',
-    );
-    gh.lazySingleton<_i10.IApiService>(
       () => _i10.TokenApiService(gh<_i6.Dio>(instanceName: 'tokenDio')),
       instanceName: 'TokenApiService',
     );
     gh.lazySingleton<_i10.IApiService>(
       () => _i10.DefaultApiService(gh<_i6.Dio>(instanceName: 'defaultDio')),
       instanceName: 'DefaultApiService',
+    );
+    gh.lazySingleton<_i10.IApiService>(
+      () => _i10.AuthApiService(gh<_i6.Dio>(instanceName: 'authDio')),
+      instanceName: 'AuthApiService',
     );
     gh.lazySingleton<_i11.IAuthDataSource>(() => _i12.AuthDataSource(
         gh<_i10.IApiService>(instanceName: 'DefaultApiService')));

@@ -75,7 +75,10 @@ class ApprovalBloc extends HydratedBloc<ApprovalEvent, ApprovalState> {
         (r) {
           emit(
             state.copyWith(
-              tours: r,
+              tours: r.data ?? [],
+              totalPage: r.total % event.size == 0
+                  ? r.total ~/ event.size
+                  : (r.total ~/ event.size) + 1,
               status: const Status.success(),
               page: event.page,
             ),

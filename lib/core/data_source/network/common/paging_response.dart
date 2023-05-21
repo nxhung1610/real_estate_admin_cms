@@ -5,9 +5,8 @@ part 'paging_response.freezed.dart';
 @freezed
 class PagingResponse<T> with _$PagingResponse<T> {
   const factory PagingResponse({
-    required int totalElements,
-    required int totalPages,
-    List<T>? content,
+    required int total,
+    List<T>? data,
   }) = _PagingResponse;
 
   factory PagingResponse.fromJson(
@@ -15,10 +14,9 @@ class PagingResponse<T> with _$PagingResponse<T> {
     T Function(Map<String, dynamic> value)? parse,
   }) {
     return PagingResponse<T>(
-      totalElements: json["totalElements"],
-      totalPages: json["totalPages"],
-      content: parse != null
-          ? (json['content'] as List<dynamic>)
+      total: json["total"],
+      data: parse != null
+          ? (json['data'] as List<dynamic>)
               .map((e) => parse.call(e as Map<String, dynamic>))
               .toList()
           : null,

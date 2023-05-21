@@ -208,5 +208,6 @@
   "time" : "Thời gian",
   "associateAgency" : "Nhân viên của Realust sẽ đưa bạn đi tham quan!",
   "bid" :"Đấu giá",
-  "approval" : "Xét duyệt"
+  "approval" : "Xét duyệt",
+  "reason" : "Lý do"
 }

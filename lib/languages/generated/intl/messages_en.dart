@@ -238,6 +238,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Real estate name"),
         "realEstateType":
             MessageLookupByLibrary.simpleMessage("Real estate type"),
+        "reason": MessageLookupByLibrary.simpleMessage("Reason"),
         "registerCreateANameAccount1":
             MessageLookupByLibrary.simpleMessage("Create a"),
         "registerCreateANameAccount2":

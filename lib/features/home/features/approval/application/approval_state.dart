@@ -5,7 +5,8 @@ class ApprovalState with _$ApprovalState, ILoadingState {
   const factory ApprovalState({
     @Default(false) bool shimmer,
     @JsonKey(ignore: true) @Default([]) List<Tour> tours,
-    @Default(0) int page,
+    @Default(1) int page,
+    @JsonKey(ignore: true) @Default(0) int totalPage,
     @JsonKey(ignore: true) @Default(Status.idle()) Status status,
     // Filter
     @JsonKey(ignore: true) @Default([]) List<User> staffs,

@@ -7,6 +7,7 @@ import 'package:real_estate_admin_cms/core/data/tour/enum/tour_status.dart';
 import 'package:real_estate_admin_cms/core/data/tour/model/tour.dart';
 import 'package:real_estate_admin_cms/features/common/features/staff/popup/staff_selected_popup.dart';
 import 'package:real_estate_admin_cms/features/home/features/approval/application/approval_bloc.dart';
+import 'package:real_estate_admin_cms/features/home/features/approval/presentation/popup/reject_tour_popup.dart';
 import 'package:real_estate_admin_cms/helper/extensions/context.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -204,7 +205,26 @@ class ItemTour extends StatelessWidget {
                             ),
                           ),
                           GestureDetector(
-                            onTap: () {},
+                            onTap: () {
+                              showDialog(
+                                context: context,
+                                builder: (_) {
+                                  return Dialog(
+                                    backgroundColor: Colors.transparent,
+                                    child: RejectTourPopup(
+                                      onReject: (String value) {
+                                        context.read<ApprovalBloc>().add(
+                                              ApprovalEvent.onReject(
+                                                item.id,
+                                                value,
+                                              ),
+                                            );
+                                      },
+                                    ),
+                                  );
+                                },
+                              );
+                            },
                             child: Container(
                               decoration: BoxDecoration(
                                 color: Colors.redAccent,

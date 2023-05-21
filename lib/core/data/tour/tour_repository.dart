@@ -19,6 +19,7 @@ import 'package:real_estate_admin_cms/utils/logger/logger.dart';
 
 import '../../data_source/grpc/core/request.pb.dart';
 import '../../data_source/grpc/tour/service.pbgrpc.dart';
+import '../common/model/paging_model.dart';
 import 'i_tour_repository.dart';
 import 'model/filter_admin_tour.dart';
 
@@ -65,7 +66,7 @@ class TourRepository
   }
 
   @override
-  Future<OutputRepository<List<Tour>>> toursAdmin(
+  Future<OutputRepository<PagingModel<Tour>>> toursAdmin(
     FilterAdminTour filter,
   ) async {
     try {
@@ -74,7 +75,12 @@ class TourRepository
           filter.toDtoRequest(),
         ),
       );
-      return right(res.map(Tour.fromResponse).toList());
+      return right(PagingModel.fromDto(
+        res,
+        (dto) {
+          return Tour.fromResponse(dto);
+        },
+      ));
     } on Exception catch (e, trace) {
       return left(handleException(e, trace));
     }

@@ -9,7 +9,7 @@ part of 'approval_bloc.dart';
 _$_ApprovalState _$$_ApprovalStateFromJson(Map<String, dynamic> json) =>
     _$_ApprovalState(
       shimmer: json['shimmer'] as bool? ?? false,
-      page: json['page'] as int? ?? 0,
+      page: json['page'] as int? ?? 1,
     );
 
 Map<String, dynamic> _$$_ApprovalStateToJson(_$_ApprovalState instance) =>
