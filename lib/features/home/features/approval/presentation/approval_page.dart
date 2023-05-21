@@ -5,6 +5,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 import 'package:real_estate_admin_cms/config/app_color.dart';
 import 'package:real_estate_admin_cms/core/data/auth/model/user.dart';
+import 'package:real_estate_admin_cms/core/data/tour/enum/contact_tour_type.dart';
+import 'package:real_estate_admin_cms/core/data/tour/enum/tour_status.dart';
+import 'package:real_estate_admin_cms/core/data/tour/enum/tour_type.dart';
 import 'package:real_estate_admin_cms/core/data/tour/model/tour.dart';
 import 'package:real_estate_admin_cms/features/app/presentation/widgets/widget.dart';
 import 'package:real_estate_admin_cms/features/common/presentation/widget/w_custom_refresh_scroll_view.dart';
@@ -53,6 +56,7 @@ class _ApprovalPageState extends State<ApprovalPage> {
             child: Row(
               children: [
                 Row(
+                  mainAxisSize: MainAxisSize.min,
                   children: [
                     Text(
                       'Nhân viên',
@@ -100,6 +104,77 @@ class _ApprovalPageState extends State<ApprovalPage> {
                                           horizontal: 16),
                                       child: Text(
                                         e?.fullName ?? 'Tất cả',
+                                        style: context.textTheme.titleMedium
+                                            ?.copyWith(),
+                                        overflow: TextOverflow.visible,
+                                        maxLines: 1,
+                                      ),
+                                    ),
+                                  ),
+                                )
+                                .toList(),
+                          );
+                        },
+                      ),
+                    ),
+                  ],
+                ),
+                const SizedBox(
+                  width: 20,
+                ),
+                Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Text(
+                      'Trạng thái',
+                      style: context.textTheme.titleSmall,
+                    ),
+                    const SizedBox(
+                      width: 16,
+                    ),
+                    SizedBox(
+                      width: 170,
+                      child: BlocSelector<ApprovalBloc, ApprovalState,
+                          dartz.Tuple2<TourStatus?, List<TourStatus>>>(
+                        selector: (state) {
+                          return dartz.Tuple2(
+                            state.tourStatus,
+                            TourStatus.values,
+                          );
+                        },
+                        builder: (context, state) {
+                          final tourStatuses = [null, ...state.value2];
+                          final tourStatus = state.value1;
+                          return DropdownApp(
+                            isExpanded: true,
+                            onChanged: (value) {
+                              bloc.add(
+                                ApprovalEvent.onContactTourStatusChange(value),
+                              );
+                            },
+                            value: tourStatus,
+                            selectedItemBuilder: (context) {
+                              return tourStatuses
+                                  .map(
+                                    (e) => Text(
+                                      e?.title ?? 'Tất cả',
+                                      style: context.textTheme.titleMedium
+                                          ?.copyWith(),
+                                      overflow: TextOverflow.visible,
+                                      maxLines: 1,
+                                    ),
+                                  )
+                                  .toList();
+                            },
+                            items: tourStatuses
+                                .map(
+                                  (e) => DropdownMenuItem<TourStatus>(
+                                    value: e,
+                                    child: Padding(
+                                      padding: const EdgeInsets.symmetric(
+                                          horizontal: 16),
+                                      child: Text(
+                                        e?.title ?? 'Tất cả',
                                         style: context.textTheme.titleMedium
                                             ?.copyWith(),
                                         overflow: TextOverflow.visible,

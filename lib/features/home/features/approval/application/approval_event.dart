@@ -16,4 +16,8 @@ class ApprovalEvent with _$ApprovalEvent {
       ApprovalEventOnReject;
   const factory ApprovalEvent.onStaffFilterChange(User? staff) =
       ApprovalEventOnStaffFilterChange;
+  // const factory ApprovalEvent.onTourTypeChange(TourType? tourType) =
+  //     ApprovalEventOnTourTypeChange;
+  const factory ApprovalEvent.onContactTourStatusChange(
+      TourStatus? tourStatus) = ApprovalEventOnContactTourStatusChange;
 }

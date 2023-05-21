@@ -33,7 +33,7 @@ Map<String, dynamic> _$$_TourToJson(_$_Tour instance) => <String, dynamic>{
 
 const _$TourTypeEnumMap = {
   TourType.virtual: 'virtual',
-  TourType.inPerson: 'inPerson',
+  TourType.inPerson: 'in_person',
 };
 
 const _$TourStatusEnumMap = {

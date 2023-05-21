@@ -7,7 +7,9 @@ import 'package:injectable/injectable.dart';
 import 'package:real_estate_admin_cms/core/data/admin/i_admin_repository.dart';
 import 'package:real_estate_admin_cms/core/data/auth/model/user.dart';
 import 'package:real_estate_admin_cms/core/data/estate/i_real_estate_repository.dart';
+import 'package:real_estate_admin_cms/core/data/tour/enum/contact_tour_type.dart';
 import 'package:real_estate_admin_cms/core/data/tour/enum/tour_status.dart';
+import 'package:real_estate_admin_cms/core/data/tour/enum/tour_type.dart';
 import 'package:real_estate_admin_cms/core/data/tour/i_tour_repository.dart';
 import 'package:real_estate_admin_cms/core/data/tour/model/filter_admin_tour.dart';
 import 'package:real_estate_admin_cms/core/data/tour/model/tour.dart';
@@ -36,6 +38,9 @@ class ApprovalBloc extends HydratedBloc<ApprovalEvent, ApprovalState> {
     on<ApprovalEventOnFetchStaffs>(_onFetchStaffs);
     on<ApprovalEventOnAssignStaff>(_onAssignStaff);
     on<ApprovalEventOnStaffFilterChange>(_onStaffFilterChanged);
+    on<ApprovalEventOnContactTourStatusChange>(_onTourStatusChange);
+    on<ApprovalEventOnReject>(_onReject);
+    // on<ApprovalEventOnTourTypeChange>(_onTourTypeChange);
   }
 
   FutureOr<void> _onStarted(
@@ -61,7 +66,7 @@ class ApprovalBloc extends HydratedBloc<ApprovalEvent, ApprovalState> {
       final tours = await tourRepository.toursAdmin(FilterAdminTour(
         page: event.page,
         size: event.size,
-        status: event.status,
+        status: event.status ?? state.tourStatus,
         staffId: event.staffId ?? state.staffFilter?.id,
       ));
 
@@ -150,5 +155,42 @@ class ApprovalBloc extends HydratedBloc<ApprovalEvent, ApprovalState> {
     } catch (e, trace) {
       printLog(e, message: e, trace: trace);
     } finally {}
+  }
+
+  FutureOr<void> _onTourStatusChange(
+    ApprovalEventOnContactTourStatusChange event,
+    Emitter<ApprovalState> emit,
+  ) {
+    emit(state.copyWith(
+      tourStatus: event.tourStatus,
+    ));
+    add(const ApprovalEvent.onFetch());
+  }
+
+  FutureOr<void> _onReject(
+    ApprovalEventOnReject event,
+    Emitter<ApprovalState> emit,
+  ) async {
+    try {
+      emit(state.copyWith(status: const Status.loading()));
+      final data = await adminRepository.rejectTour(
+        event.tourId.toString(),
+        event.reason.toString(),
+      );
+      data.fold(
+        (l) => throw l,
+        (r) => emit(
+          state.copyWith(
+            status: const Status.success(),
+          ),
+        ),
+      );
+      add(const ApprovalEvent.onFetch());
+    } catch (e, trace) {
+      printLog(e, message: e, trace: trace);
+      emit(state.copyWith(status: const Status.failure()));
+    } finally {
+      emit(state.copyWith(status: const Status.idle()));
+    }
   }
 }

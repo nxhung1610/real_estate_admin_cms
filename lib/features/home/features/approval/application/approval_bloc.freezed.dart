@@ -21,11 +21,19 @@ ApprovalState _$ApprovalStateFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$ApprovalState {
   bool get shimmer => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
   List<Tour> get tours => throw _privateConstructorUsedError;
   int get page => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
   Status get status => throw _privateConstructorUsedError; // Filter
+  @JsonKey(ignore: true)
   List<User> get staffs => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
   User? get staffFilter => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  TourType? get tourType => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  TourStatus? get tourStatus => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -41,11 +49,13 @@ abstract class $ApprovalStateCopyWith<$Res> {
   @useResult
   $Res call(
       {bool shimmer,
-      List<Tour> tours,
+      @JsonKey(ignore: true) List<Tour> tours,
       int page,
-      Status status,
-      List<User> staffs,
-      User? staffFilter});
+      @JsonKey(ignore: true) Status status,
+      @JsonKey(ignore: true) List<User> staffs,
+      @JsonKey(ignore: true) User? staffFilter,
+      @JsonKey(ignore: true) TourType? tourType,
+      @JsonKey(ignore: true) TourStatus? tourStatus});
 
   $StatusCopyWith<$Res> get status;
   $UserCopyWith<$Res>? get staffFilter;
@@ -70,6 +80,8 @@ class _$ApprovalStateCopyWithImpl<$Res, $Val extends ApprovalState>
     Object? status = null,
     Object? staffs = null,
     Object? staffFilter = freezed,
+    Object? tourType = freezed,
+    Object? tourStatus = freezed,
   }) {
     return _then(_value.copyWith(
       shimmer: null == shimmer
@@ -96,6 +108,14 @@ class _$ApprovalStateCopyWithImpl<$Res, $Val extends ApprovalState>
           ? _value.staffFilter
           : staffFilter // ignore: cast_nullable_to_non_nullable
               as User?,
+      tourType: freezed == tourType
+          ? _value.tourType
+          : tourType // ignore: cast_nullable_to_non_nullable
+              as TourType?,
+      tourStatus: freezed == tourStatus
+          ? _value.tourStatus
+          : tourStatus // ignore: cast_nullable_to_non_nullable
+              as TourStatus?,
     ) as $Val);
   }
 
@@ -130,11 +150,13 @@ abstract class _$$_ApprovalStateCopyWith<$Res>
   @useResult
   $Res call(
       {bool shimmer,
-      List<Tour> tours,
+      @JsonKey(ignore: true) List<Tour> tours,
       int page,
-      Status status,
-      List<User> staffs,
-      User? staffFilter});
+      @JsonKey(ignore: true) Status status,
+      @JsonKey(ignore: true) List<User> staffs,
+      @JsonKey(ignore: true) User? staffFilter,
+      @JsonKey(ignore: true) TourType? tourType,
+      @JsonKey(ignore: true) TourStatus? tourStatus});
 
   @override
   $StatusCopyWith<$Res> get status;
@@ -159,6 +181,8 @@ class __$$_ApprovalStateCopyWithImpl<$Res>
     Object? status = null,
     Object? staffs = null,
     Object? staffFilter = freezed,
+    Object? tourType = freezed,
+    Object? tourStatus = freezed,
   }) {
     return _then(_$_ApprovalState(
       shimmer: null == shimmer
@@ -185,6 +209,14 @@ class __$$_ApprovalStateCopyWithImpl<$Res>
           ? _value.staffFilter
           : staffFilter // ignore: cast_nullable_to_non_nullable
               as User?,
+      tourType: freezed == tourType
+          ? _value.tourType
+          : tourType // ignore: cast_nullable_to_non_nullable
+              as TourType?,
+      tourStatus: freezed == tourStatus
+          ? _value.tourStatus
+          : tourStatus // ignore: cast_nullable_to_non_nullable
+              as TourStatus?,
     ));
   }
 }
@@ -194,11 +226,13 @@ class __$$_ApprovalStateCopyWithImpl<$Res>
 class _$_ApprovalState implements _ApprovalState {
   const _$_ApprovalState(
       {this.shimmer = false,
-      final List<Tour> tours = const [],
+      @JsonKey(ignore: true) final List<Tour> tours = const [],
       this.page = 0,
-      this.status = const Status.idle(),
-      final List<User> staffs = const [],
-      this.staffFilter})
+      @JsonKey(ignore: true) this.status = const Status.idle(),
+      @JsonKey(ignore: true) final List<User> staffs = const [],
+      @JsonKey(ignore: true) this.staffFilter,
+      @JsonKey(ignore: true) this.tourType,
+      @JsonKey(ignore: true) this.tourStatus})
       : _tours = tours,
         _staffs = staffs;
 
@@ -210,7 +244,7 @@ class _$_ApprovalState implements _ApprovalState {
   final bool shimmer;
   final List<Tour> _tours;
   @override
-  @JsonKey()
+  @JsonKey(ignore: true)
   List<Tour> get tours {
     if (_tours is EqualUnmodifiableListView) return _tours;
     // ignore: implicit_dynamic_type
@@ -221,13 +255,13 @@ class _$_ApprovalState implements _ApprovalState {
   @JsonKey()
   final int page;
   @override
-  @JsonKey()
+  @JsonKey(ignore: true)
   final Status status;
 // Filter
   final List<User> _staffs;
 // Filter
   @override
-  @JsonKey()
+  @JsonKey(ignore: true)
   List<User> get staffs {
     if (_staffs is EqualUnmodifiableListView) return _staffs;
     // ignore: implicit_dynamic_type
@@ -235,11 +269,18 @@ class _$_ApprovalState implements _ApprovalState {
   }
 
   @override
+  @JsonKey(ignore: true)
   final User? staffFilter;
+  @override
+  @JsonKey(ignore: true)
+  final TourType? tourType;
+  @override
+  @JsonKey(ignore: true)
+  final TourStatus? tourStatus;
 
   @override
   String toString() {
-    return 'ApprovalState(shimmer: $shimmer, tours: $tours, page: $page, status: $status, staffs: $staffs, staffFilter: $staffFilter)';
+    return 'ApprovalState(shimmer: $shimmer, tours: $tours, page: $page, status: $status, staffs: $staffs, staffFilter: $staffFilter, tourType: $tourType, tourStatus: $tourStatus)';
   }
 
   @override
@@ -253,7 +294,11 @@ class _$_ApprovalState implements _ApprovalState {
             (identical(other.status, status) || other.status == status) &&
             const DeepCollectionEquality().equals(other._staffs, _staffs) &&
             (identical(other.staffFilter, staffFilter) ||
-                other.staffFilter == staffFilter));
+                other.staffFilter == staffFilter) &&
+            (identical(other.tourType, tourType) ||
+                other.tourType == tourType) &&
+            (identical(other.tourStatus, tourStatus) ||
+                other.tourStatus == tourStatus));
   }
 
   @JsonKey(ignore: true)
@@ -265,7 +310,9 @@ class _$_ApprovalState implements _ApprovalState {
       page,
       status,
       const DeepCollectionEquality().hash(_staffs),
-      staffFilter);
+      staffFilter,
+      tourType,
+      tourStatus);
 
   @JsonKey(ignore: true)
   @override
@@ -284,11 +331,13 @@ class _$_ApprovalState implements _ApprovalState {
 abstract class _ApprovalState implements ApprovalState {
   const factory _ApprovalState(
       {final bool shimmer,
-      final List<Tour> tours,
+      @JsonKey(ignore: true) final List<Tour> tours,
       final int page,
-      final Status status,
-      final List<User> staffs,
-      final User? staffFilter}) = _$_ApprovalState;
+      @JsonKey(ignore: true) final Status status,
+      @JsonKey(ignore: true) final List<User> staffs,
+      @JsonKey(ignore: true) final User? staffFilter,
+      @JsonKey(ignore: true) final TourType? tourType,
+      @JsonKey(ignore: true) final TourStatus? tourStatus}) = _$_ApprovalState;
 
   factory _ApprovalState.fromJson(Map<String, dynamic> json) =
       _$_ApprovalState.fromJson;
@@ -296,15 +345,25 @@ abstract class _ApprovalState implements ApprovalState {
   @override
   bool get shimmer;
   @override
+  @JsonKey(ignore: true)
   List<Tour> get tours;
   @override
   int get page;
   @override
+  @JsonKey(ignore: true)
   Status get status;
   @override // Filter
+  @JsonKey(ignore: true)
   List<User> get staffs;
   @override
+  @JsonKey(ignore: true)
   User? get staffFilter;
+  @override
+  @JsonKey(ignore: true)
+  TourType? get tourType;
+  @override
+  @JsonKey(ignore: true)
+  TourStatus? get tourStatus;
   @override
   @JsonKey(ignore: true)
   _$$_ApprovalStateCopyWith<_$_ApprovalState> get copyWith =>
@@ -486,4 +545,33 @@ abstract class ApprovalEventOnStaffFilterChange implements ApprovalEvent {
       _$ApprovalEventOnStaffFilterChange;
 
   User? get staff;
+}
+
+/// @nodoc
+
+class _$ApprovalEventOnContactTourStatusChange
+    implements ApprovalEventOnContactTourStatusChange {
+  const _$ApprovalEventOnContactTourStatusChange(this.tourStatus);
+
+  @override
+  final TourStatus? tourStatus;
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ApprovalEventOnContactTourStatusChange &&
+            (identical(other.tourStatus, tourStatus) ||
+                other.tourStatus == tourStatus));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, tourStatus);
+}
+
+abstract class ApprovalEventOnContactTourStatusChange implements ApprovalEvent {
+  const factory ApprovalEventOnContactTourStatusChange(
+      final TourStatus? tourStatus) = _$ApprovalEventOnContactTourStatusChange;
+
+  TourStatus? get tourStatus;
 }

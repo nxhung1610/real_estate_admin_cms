@@ -4,12 +4,14 @@ part of 'approval_bloc.dart';
 class ApprovalState with _$ApprovalState, ILoadingState {
   const factory ApprovalState({
     @Default(false) bool shimmer,
-    @Default([]) List<Tour> tours,
+    @JsonKey(ignore: true) @Default([]) List<Tour> tours,
     @Default(0) int page,
-    @Default(Status.idle()) Status status,
+    @JsonKey(ignore: true) @Default(Status.idle()) Status status,
     // Filter
-    @Default([]) List<User> staffs,
-    User? staffFilter,
+    @JsonKey(ignore: true) @Default([]) List<User> staffs,
+    @JsonKey(ignore: true) User? staffFilter,
+    @JsonKey(ignore: true) TourType? tourType,
+    @JsonKey(ignore: true) TourStatus? tourStatus,
   }) = _ApprovalState;
 
   factory ApprovalState.fromJson(Map<String, dynamic> json) =>
