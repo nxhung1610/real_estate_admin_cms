@@ -1,5 +1,5 @@
 abstract class AuthConstant {
-  static const String login = '/users/login';
+  static const String login = '/users/login-cms';
   static const String register = '/users';
   static const String userInfo = '/users/user_info';
   static const String refreshToken = '/users/refresh_token';

@@ -1,4 +1,5 @@
 import 'package:flutter/foundation.dart';
+import 'package:real_estate_admin_cms/core/data/auth/auth_failures.dart';
 import 'package:real_estate_admin_cms/core/data_source/network/common/base_response.dart';
 import 'package:real_estate_admin_cms/utils/logger/logger.dart';
 
@@ -39,6 +40,12 @@ mixin RepositoryActionMixin<F extends IFailureRepository> {
         }
         if (ex != null) throw ex;
       } else {
+        if (result.errorKey == "ErrPermissionDenied") {
+          throw const AuthFailuresPermissionDenied();
+        } else if (result.errorKey == "ErrLoginFailed") {
+          throw const AuthFailuresPasswordInvalid();
+        }
+
         throw const ServerFailure.unknow();
       }
     }

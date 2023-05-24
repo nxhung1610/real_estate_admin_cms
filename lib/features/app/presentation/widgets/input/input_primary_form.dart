@@ -25,6 +25,8 @@ class InputPrimaryForm extends StatefulWidget {
   final int? maxLines;
   final bool enable;
   final Key? textKey;
+  final Iterable<String>? autofillHints;
+
   const InputPrimaryForm({
     super.key,
     this.lable,
@@ -47,6 +49,7 @@ class InputPrimaryForm extends StatefulWidget {
     this.enable = true,
     this.textKey,
     this.inputFormatters,
+    this.autofillHints,
   });
 
   @override
@@ -96,6 +99,7 @@ class _InputPrimaryFormState extends State<InputPrimaryForm> {
             focusNode: widget.focusNode,
             onFieldSubmitted: widget.onFieldSubmitted,
             initialValue: widget.initialValue,
+            autofillHints: widget.autofillHints,
             style: context.textTheme.bodyMedium?.copyWith(
               fontWeight: FontWeight.w500,
               color: AppColor.kNeutrals_.shade800,

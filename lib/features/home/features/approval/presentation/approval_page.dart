@@ -1,23 +1,17 @@
-import 'dart:async';
 import 'dart:developer';
 
+import 'package:dartz/dartz.dart' as dartz;
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 import 'package:real_estate_admin_cms/config/app_color.dart';
 import 'package:real_estate_admin_cms/core/data/auth/model/user.dart';
-import 'package:real_estate_admin_cms/core/data/tour/enum/contact_tour_type.dart';
 import 'package:real_estate_admin_cms/core/data/tour/enum/tour_status.dart';
-import 'package:real_estate_admin_cms/core/data/tour/enum/tour_type.dart';
 import 'package:real_estate_admin_cms/core/data/tour/model/tour.dart';
 import 'package:real_estate_admin_cms/features/app/presentation/widgets/widget.dart';
-import 'package:real_estate_admin_cms/features/common/presentation/widget/w_custom_refresh_scroll_view.dart';
 import 'package:real_estate_admin_cms/features/home/features/approval/application/approval_bloc.dart';
 import 'package:real_estate_admin_cms/features/home/features/approval/presentation/widget/item_tour.dart';
 import 'package:real_estate_admin_cms/helper/.helper.dart';
 import 'package:real_estate_admin_cms/helper/extensions/context.dart';
-import 'package:dartz/dartz.dart' as dartz;
-import 'package:collection/collection.dart';
 
 class ApprovalPage extends StatefulWidget {
   const ApprovalPage({super.key});
@@ -223,7 +217,7 @@ class _ApprovalPageState extends State<ApprovalPage> {
                 children: <Widget>[
                   TableCell(
                     verticalAlignment: TableCellVerticalAlignment.middle,
-                    child: Container(
+                    child: SizedBox(
                       height: 40,
                       child: Center(
                         child: Text(

@@ -1,7 +1,7 @@
 #!/bin/sh
 # This is a generated file; do not edit or check into version control.
-export "FLUTTER_ROOT=/Users/nguyenxuanhung/Environments/flutter"
-export "FLUTTER_APPLICATION_PATH=/Users/nguyenxuanhung/Documents/Projects/Webs/real_estate_admin_cms"
+export "FLUTTER_ROOT=/Users/huytruong/fvm/versions/stable"
+export "FLUTTER_APPLICATION_PATH=/Users/huytruong/Project/Personal/app/real_estate_admin_cms"
 export "COCOAPODS_PARALLEL_CODE_SIGN=true"
 export "FLUTTER_BUILD_DIR=build"
 export "FLUTTER_BUILD_NAME=1.0.0"

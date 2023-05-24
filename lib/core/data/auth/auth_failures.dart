@@ -16,7 +16,8 @@ class AuthFailures with _$AuthFailures, IFailureRepository {
   const factory AuthFailures.combinePhoneNumberOrPasswordInvalid() =
       AuthFailureCombinePhoneOrPasswordInvlaid;
   const factory AuthFailures.userAlreadyExist() = AuthFailureUserAlreadyExist;
-  const factory AuthFailures.unknow() = AuthFailuresUnknow;
-  const factory AuthFailures.unAuthoiation() = AuthFailuresUnAuthorization;
+  const factory AuthFailures.unknown() = AuthFailuresUnknow;
+  const factory AuthFailures.unauthorized() = AuthFailuresUnAuthorization;
   const factory AuthFailures.cannotCreateUser() = AuthFailuresCannotCreateUser;
+  const factory AuthFailures.permissionDenied() = AuthFailuresPermissionDenied;
 }

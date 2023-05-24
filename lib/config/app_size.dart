@@ -4,7 +4,7 @@ class AppSize {
   AppSize._internal();
 
   // Iphone 12 Pro Max
-  static const Size designSize = Size(375, 812);
+  static const Size designSize = Size(1280, 850);
 
   /// 4
   static const double smallHeightDimens = 4;

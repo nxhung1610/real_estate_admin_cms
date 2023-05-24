@@ -14,6 +14,106 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
+/// @nodoc
+mixin _$LoginEvent {}
+
+/// @nodoc
+
+class _$LoginEventOnPhoneNumberChange implements LoginEventOnPhoneNumberChange {
+  const _$LoginEventOnPhoneNumberChange(this.phoneNumber);
+
+  @override
+  final String phoneNumber;
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$LoginEventOnPhoneNumberChange &&
+            (identical(other.phoneNumber, phoneNumber) ||
+                other.phoneNumber == phoneNumber));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, phoneNumber);
+}
+
+abstract class LoginEventOnPhoneNumberChange implements LoginEvent {
+  const factory LoginEventOnPhoneNumberChange(final String phoneNumber) =
+      _$LoginEventOnPhoneNumberChange;
+
+  String get phoneNumber;
+}
+
+/// @nodoc
+
+class _$LoginEventOnPasswordChange implements LoginEventOnPasswordChange {
+  const _$LoginEventOnPasswordChange(this.password);
+
+  @override
+  final String password;
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$LoginEventOnPasswordChange &&
+            (identical(other.password, password) ||
+                other.password == password));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, password);
+}
+
+abstract class LoginEventOnPasswordChange implements LoginEvent {
+  const factory LoginEventOnPasswordChange(final String password) =
+      _$LoginEventOnPasswordChange;
+
+  String get password;
+}
+
+/// @nodoc
+
+class _$LoginEventOnLogin implements LoginEventOnLogin {
+  const _$LoginEventOnLogin();
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$LoginEventOnLogin);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+}
+
+abstract class LoginEventOnLogin implements LoginEvent {
+  const factory LoginEventOnLogin() = _$LoginEventOnLogin;
+}
+
+/// @nodoc
+
+class _$LoginEventOnPasswordVisibleChange
+    implements LoginEventOnPasswordVisibleChange {
+  const _$LoginEventOnPasswordVisibleChange();
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$LoginEventOnPasswordVisibleChange);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+}
+
+abstract class LoginEventOnPasswordVisibleChange implements LoginEvent {
+  const factory LoginEventOnPasswordVisibleChange() =
+      _$LoginEventOnPasswordVisibleChange;
+}
+
 LoginState _$LoginStateFromJson(Map<String, dynamic> json) {
   return _LoginState.fromJson(json);
 }
@@ -231,104 +331,4 @@ abstract class _LoginState implements LoginState {
   @JsonKey(ignore: true)
   _$$_LoginStateCopyWith<_$_LoginState> get copyWith =>
       throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-mixin _$LoginEvent {}
-
-/// @nodoc
-
-class _$LoginEventOnPhoneNumberChange implements LoginEventOnPhoneNumberChange {
-  const _$LoginEventOnPhoneNumberChange(this.phoneNumber);
-
-  @override
-  final String phoneNumber;
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$LoginEventOnPhoneNumberChange &&
-            (identical(other.phoneNumber, phoneNumber) ||
-                other.phoneNumber == phoneNumber));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, phoneNumber);
-}
-
-abstract class LoginEventOnPhoneNumberChange implements LoginEvent {
-  const factory LoginEventOnPhoneNumberChange(final String phoneNumber) =
-      _$LoginEventOnPhoneNumberChange;
-
-  String get phoneNumber;
-}
-
-/// @nodoc
-
-class _$LoginEventOnPasswordChange implements LoginEventOnPasswordChange {
-  const _$LoginEventOnPasswordChange(this.password);
-
-  @override
-  final String password;
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$LoginEventOnPasswordChange &&
-            (identical(other.password, password) ||
-                other.password == password));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, password);
-}
-
-abstract class LoginEventOnPasswordChange implements LoginEvent {
-  const factory LoginEventOnPasswordChange(final String password) =
-      _$LoginEventOnPasswordChange;
-
-  String get password;
-}
-
-/// @nodoc
-
-class _$LoginEventOnLogin implements LoginEventOnLogin {
-  const _$LoginEventOnLogin();
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$LoginEventOnLogin);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-}
-
-abstract class LoginEventOnLogin implements LoginEvent {
-  const factory LoginEventOnLogin() = _$LoginEventOnLogin;
-}
-
-/// @nodoc
-
-class _$LoginEventOnPasswordVisibleChange
-    implements LoginEventOnPasswordVisibleChange {
-  const _$LoginEventOnPasswordVisibleChange();
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$LoginEventOnPasswordVisibleChange);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-}
-
-abstract class LoginEventOnPasswordVisibleChange implements LoginEvent {
-  const factory LoginEventOnPasswordVisibleChange() =
-      _$LoginEventOnPasswordVisibleChange;
 }

@@ -4,8 +4,10 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:loader_overlay/loader_overlay.dart';
+import 'package:real_estate_admin_cms/config/app_size.dart';
 import 'package:real_estate_admin_cms/config/app_theme.dart';
 import 'package:real_estate_admin_cms/dependency_injection/dependencies_injection.dart';
 import 'package:real_estate_admin_cms/features/common/presentation/error_page.dart';
@@ -137,22 +139,29 @@ class __AppViewState extends State<_AppView> {
   @override
   Widget build(BuildContext context) {
     return GlobalLoaderOverlay(
-      child: MaterialApp.router(
-        theme: AppTheme.light,
-        scrollBehavior: const ScrollBehaviorModified(),
-        debugShowCheckedModeBanner: false,
-        darkTheme: AppTheme.dark,
-        // themeMode: appBloc.state.mode,
-        themeMode: ThemeMode.light,
-        locale: const Locale('vi'),
-        localizationsDelegates: const [
-          S.delegate,
-          GlobalMaterialLocalizations.delegate,
-          GlobalWidgetsLocalizations.delegate,
-          GlobalCupertinoLocalizations.delegate,
-        ],
-        routerConfig: appRoute,
-        supportedLocales: S.delegate.supportedLocales,
+      child: ScreenUtilInit(
+        designSize: AppSize.designSize,
+        builder: (BuildContext context, Widget? child) {
+          return child!;
+        },
+        child: MaterialApp.router(
+          theme: AppTheme.light,
+          title: "Realust CMS",
+          scrollBehavior: const ScrollBehaviorModified(),
+          debugShowCheckedModeBanner: false,
+          darkTheme: AppTheme.dark,
+          // themeMode: appBloc.state.mode,
+          themeMode: ThemeMode.light,
+          locale: const Locale('vi'),
+          localizationsDelegates: const [
+            S.delegate,
+            GlobalMaterialLocalizations.delegate,
+            GlobalWidgetsLocalizations.delegate,
+            GlobalCupertinoLocalizations.delegate,
+          ],
+          routerConfig: appRoute,
+          supportedLocales: S.delegate.supportedLocales,
+        ),
       ),
     );
   }

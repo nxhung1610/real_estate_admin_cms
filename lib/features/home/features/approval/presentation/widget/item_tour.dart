@@ -44,7 +44,7 @@ class ItemTour extends StatelessWidget {
           children: <Widget>[
             TableCell(
               verticalAlignment: TableCellVerticalAlignment.middle,
-              child: Container(
+              child: SizedBox(
                 height: 40,
                 child: Center(
                   child: Text(

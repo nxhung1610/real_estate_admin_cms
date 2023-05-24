@@ -1,6 +1,5 @@
 import 'dart:async';
 
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:injectable/injectable.dart';
@@ -11,10 +10,10 @@ import 'package:real_estate_admin_cms/features/common/model/status.dart';
 import 'package:real_estate_admin_cms/utils/freezed/freezed_annotation.dart';
 import 'package:real_estate_admin_cms/utils/logger/logger.dart';
 
-part 'login_state.dart';
-part 'login_event.dart';
 part 'login_bloc.freezed.dart';
 part 'login_bloc.g.dart';
+part 'login_event.dart';
+part 'login_state.dart';
 
 @injectable
 class LoginBloc extends HydratedBloc<LoginEvent, LoginState> {
@@ -63,8 +62,12 @@ class LoginBloc extends HydratedBloc<LoginEvent, LoginState> {
         state.phoneNumberAuth!,
         state.passwordAuth!,
       );
+
       res.fold(
-        (l) => throw l,
+        (l) {
+          printLog(this, message: l);
+          throw l;
+        },
         (r) => emit(
           state.copyWith(
             status: Status.success(
@@ -74,7 +77,10 @@ class LoginBloc extends HydratedBloc<LoginEvent, LoginState> {
         ),
       );
     } catch (e, trace) {
-      printLog(this, message: e, error: e, trace: trace);
+      dynamic error;
+
+      error ??= e;
+      printLog(this, message: e, error: error, trace: trace);
       emit(state.copyWith(status: Status.failure(value: e)));
     } finally {
       emit(state.copyWith(status: const Status.idle()));
@@ -95,6 +101,7 @@ class LoginBloc extends HydratedBloc<LoginEvent, LoginState> {
 
   @override
   Map<String, dynamic>? toJson(LoginState state) {
-    return state.toJson();
+    final temp = state.copyWith(status: const Status.idle());
+    return temp.toJson();
   }
 }

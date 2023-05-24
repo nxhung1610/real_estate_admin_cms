@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:loader_overlay/loader_overlay.dart';
+import 'package:real_estate_admin_cms/config/w_dialog.dart';
 import 'package:real_estate_admin_cms/languages/generated/l10n.dart';
 
 class AppDialog {
@@ -48,7 +49,15 @@ class AppDialog {
           barrierDismissible: false,
           context: _buildContext,
           builder: (context) {
-            return Container();
+            return WDialog(
+              dialogType: type,
+              title: title,
+              message: message,
+              onNegative: onNegative,
+              onPositive: onPositive,
+              positiveText: positiveText,
+              negativeText: negativeText,
+            );
           },
         ).then((value) {
           isShowing = false;

@@ -25,9 +25,10 @@ mixin _$AuthFailures {
     required TResult Function() phoneNumberInvalid,
     required TResult Function() combinePhoneNumberOrPasswordInvalid,
     required TResult Function() userAlreadyExist,
-    required TResult Function() unknow,
-    required TResult Function() unAuthoiation,
+    required TResult Function() unknown,
+    required TResult Function() unauthorized,
     required TResult Function() cannotCreateUser,
+    required TResult Function() permissionDenied,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -39,9 +40,10 @@ mixin _$AuthFailures {
     TResult? Function()? phoneNumberInvalid,
     TResult? Function()? combinePhoneNumberOrPasswordInvalid,
     TResult? Function()? userAlreadyExist,
-    TResult? Function()? unknow,
-    TResult? Function()? unAuthoiation,
+    TResult? Function()? unknown,
+    TResult? Function()? unauthorized,
     TResult? Function()? cannotCreateUser,
+    TResult? Function()? permissionDenied,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -53,9 +55,10 @@ mixin _$AuthFailures {
     TResult Function()? phoneNumberInvalid,
     TResult Function()? combinePhoneNumberOrPasswordInvalid,
     TResult Function()? userAlreadyExist,
-    TResult Function()? unknow,
-    TResult Function()? unAuthoiation,
+    TResult Function()? unknown,
+    TResult Function()? unauthorized,
     TResult Function()? cannotCreateUser,
+    TResult Function()? permissionDenied,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -73,10 +76,12 @@ mixin _$AuthFailures {
         combinePhoneNumberOrPasswordInvalid,
     required TResult Function(AuthFailureUserAlreadyExist value)
         userAlreadyExist,
-    required TResult Function(AuthFailuresUnknow value) unknow,
-    required TResult Function(AuthFailuresUnAuthorization value) unAuthoiation,
+    required TResult Function(AuthFailuresUnknow value) unknown,
+    required TResult Function(AuthFailuresUnAuthorization value) unauthorized,
     required TResult Function(AuthFailuresCannotCreateUser value)
         cannotCreateUser,
+    required TResult Function(AuthFailuresPermissionDenied value)
+        permissionDenied,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -90,9 +95,10 @@ mixin _$AuthFailures {
     TResult? Function(AuthFailureCombinePhoneOrPasswordInvlaid value)?
         combinePhoneNumberOrPasswordInvalid,
     TResult? Function(AuthFailureUserAlreadyExist value)? userAlreadyExist,
-    TResult? Function(AuthFailuresUnknow value)? unknow,
-    TResult? Function(AuthFailuresUnAuthorization value)? unAuthoiation,
+    TResult? Function(AuthFailuresUnknow value)? unknown,
+    TResult? Function(AuthFailuresUnAuthorization value)? unauthorized,
     TResult? Function(AuthFailuresCannotCreateUser value)? cannotCreateUser,
+    TResult? Function(AuthFailuresPermissionDenied value)? permissionDenied,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -106,9 +112,10 @@ mixin _$AuthFailures {
     TResult Function(AuthFailureCombinePhoneOrPasswordInvlaid value)?
         combinePhoneNumberOrPasswordInvalid,
     TResult Function(AuthFailureUserAlreadyExist value)? userAlreadyExist,
-    TResult Function(AuthFailuresUnknow value)? unknow,
-    TResult Function(AuthFailuresUnAuthorization value)? unAuthoiation,
+    TResult Function(AuthFailuresUnknow value)? unknown,
+    TResult Function(AuthFailuresUnAuthorization value)? unauthorized,
     TResult Function(AuthFailuresCannotCreateUser value)? cannotCreateUser,
+    TResult Function(AuthFailuresPermissionDenied value)? permissionDenied,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -130,9 +137,10 @@ class _$AuthFailuresEmailAddressInvalid
     required TResult Function() phoneNumberInvalid,
     required TResult Function() combinePhoneNumberOrPasswordInvalid,
     required TResult Function() userAlreadyExist,
-    required TResult Function() unknow,
-    required TResult Function() unAuthoiation,
+    required TResult Function() unknown,
+    required TResult Function() unauthorized,
     required TResult Function() cannotCreateUser,
+    required TResult Function() permissionDenied,
   }) {
     return emailAddressInvalid();
   }
@@ -147,9 +155,10 @@ class _$AuthFailuresEmailAddressInvalid
     TResult? Function()? phoneNumberInvalid,
     TResult? Function()? combinePhoneNumberOrPasswordInvalid,
     TResult? Function()? userAlreadyExist,
-    TResult? Function()? unknow,
-    TResult? Function()? unAuthoiation,
+    TResult? Function()? unknown,
+    TResult? Function()? unauthorized,
     TResult? Function()? cannotCreateUser,
+    TResult? Function()? permissionDenied,
   }) {
     return emailAddressInvalid?.call();
   }
@@ -164,9 +173,10 @@ class _$AuthFailuresEmailAddressInvalid
     TResult Function()? phoneNumberInvalid,
     TResult Function()? combinePhoneNumberOrPasswordInvalid,
     TResult Function()? userAlreadyExist,
-    TResult Function()? unknow,
-    TResult Function()? unAuthoiation,
+    TResult Function()? unknown,
+    TResult Function()? unauthorized,
     TResult Function()? cannotCreateUser,
+    TResult Function()? permissionDenied,
     required TResult orElse(),
   }) {
     if (emailAddressInvalid != null) {
@@ -190,10 +200,12 @@ class _$AuthFailuresEmailAddressInvalid
         combinePhoneNumberOrPasswordInvalid,
     required TResult Function(AuthFailureUserAlreadyExist value)
         userAlreadyExist,
-    required TResult Function(AuthFailuresUnknow value) unknow,
-    required TResult Function(AuthFailuresUnAuthorization value) unAuthoiation,
+    required TResult Function(AuthFailuresUnknow value) unknown,
+    required TResult Function(AuthFailuresUnAuthorization value) unauthorized,
     required TResult Function(AuthFailuresCannotCreateUser value)
         cannotCreateUser,
+    required TResult Function(AuthFailuresPermissionDenied value)
+        permissionDenied,
   }) {
     return emailAddressInvalid(this);
   }
@@ -210,9 +222,10 @@ class _$AuthFailuresEmailAddressInvalid
     TResult? Function(AuthFailureCombinePhoneOrPasswordInvlaid value)?
         combinePhoneNumberOrPasswordInvalid,
     TResult? Function(AuthFailureUserAlreadyExist value)? userAlreadyExist,
-    TResult? Function(AuthFailuresUnknow value)? unknow,
-    TResult? Function(AuthFailuresUnAuthorization value)? unAuthoiation,
+    TResult? Function(AuthFailuresUnknow value)? unknown,
+    TResult? Function(AuthFailuresUnAuthorization value)? unauthorized,
     TResult? Function(AuthFailuresCannotCreateUser value)? cannotCreateUser,
+    TResult? Function(AuthFailuresPermissionDenied value)? permissionDenied,
   }) {
     return emailAddressInvalid?.call(this);
   }
@@ -229,9 +242,10 @@ class _$AuthFailuresEmailAddressInvalid
     TResult Function(AuthFailureCombinePhoneOrPasswordInvlaid value)?
         combinePhoneNumberOrPasswordInvalid,
     TResult Function(AuthFailureUserAlreadyExist value)? userAlreadyExist,
-    TResult Function(AuthFailuresUnknow value)? unknow,
-    TResult Function(AuthFailuresUnAuthorization value)? unAuthoiation,
+    TResult Function(AuthFailuresUnknow value)? unknown,
+    TResult Function(AuthFailuresUnAuthorization value)? unauthorized,
     TResult Function(AuthFailuresCannotCreateUser value)? cannotCreateUser,
+    TResult Function(AuthFailuresPermissionDenied value)? permissionDenied,
     required TResult orElse(),
   }) {
     if (emailAddressInvalid != null) {
@@ -261,9 +275,10 @@ class _$AuthFailuresPasswordInvalid implements AuthFailuresPasswordInvalid {
     required TResult Function() phoneNumberInvalid,
     required TResult Function() combinePhoneNumberOrPasswordInvalid,
     required TResult Function() userAlreadyExist,
-    required TResult Function() unknow,
-    required TResult Function() unAuthoiation,
+    required TResult Function() unknown,
+    required TResult Function() unauthorized,
     required TResult Function() cannotCreateUser,
+    required TResult Function() permissionDenied,
   }) {
     return passwordInvalid();
   }
@@ -278,9 +293,10 @@ class _$AuthFailuresPasswordInvalid implements AuthFailuresPasswordInvalid {
     TResult? Function()? phoneNumberInvalid,
     TResult? Function()? combinePhoneNumberOrPasswordInvalid,
     TResult? Function()? userAlreadyExist,
-    TResult? Function()? unknow,
-    TResult? Function()? unAuthoiation,
+    TResult? Function()? unknown,
+    TResult? Function()? unauthorized,
     TResult? Function()? cannotCreateUser,
+    TResult? Function()? permissionDenied,
   }) {
     return passwordInvalid?.call();
   }
@@ -295,9 +311,10 @@ class _$AuthFailuresPasswordInvalid implements AuthFailuresPasswordInvalid {
     TResult Function()? phoneNumberInvalid,
     TResult Function()? combinePhoneNumberOrPasswordInvalid,
     TResult Function()? userAlreadyExist,
-    TResult Function()? unknow,
-    TResult Function()? unAuthoiation,
+    TResult Function()? unknown,
+    TResult Function()? unauthorized,
     TResult Function()? cannotCreateUser,
+    TResult Function()? permissionDenied,
     required TResult orElse(),
   }) {
     if (passwordInvalid != null) {
@@ -321,10 +338,12 @@ class _$AuthFailuresPasswordInvalid implements AuthFailuresPasswordInvalid {
         combinePhoneNumberOrPasswordInvalid,
     required TResult Function(AuthFailureUserAlreadyExist value)
         userAlreadyExist,
-    required TResult Function(AuthFailuresUnknow value) unknow,
-    required TResult Function(AuthFailuresUnAuthorization value) unAuthoiation,
+    required TResult Function(AuthFailuresUnknow value) unknown,
+    required TResult Function(AuthFailuresUnAuthorization value) unauthorized,
     required TResult Function(AuthFailuresCannotCreateUser value)
         cannotCreateUser,
+    required TResult Function(AuthFailuresPermissionDenied value)
+        permissionDenied,
   }) {
     return passwordInvalid(this);
   }
@@ -341,9 +360,10 @@ class _$AuthFailuresPasswordInvalid implements AuthFailuresPasswordInvalid {
     TResult? Function(AuthFailureCombinePhoneOrPasswordInvlaid value)?
         combinePhoneNumberOrPasswordInvalid,
     TResult? Function(AuthFailureUserAlreadyExist value)? userAlreadyExist,
-    TResult? Function(AuthFailuresUnknow value)? unknow,
-    TResult? Function(AuthFailuresUnAuthorization value)? unAuthoiation,
+    TResult? Function(AuthFailuresUnknow value)? unknown,
+    TResult? Function(AuthFailuresUnAuthorization value)? unauthorized,
     TResult? Function(AuthFailuresCannotCreateUser value)? cannotCreateUser,
+    TResult? Function(AuthFailuresPermissionDenied value)? permissionDenied,
   }) {
     return passwordInvalid?.call(this);
   }
@@ -360,9 +380,10 @@ class _$AuthFailuresPasswordInvalid implements AuthFailuresPasswordInvalid {
     TResult Function(AuthFailureCombinePhoneOrPasswordInvlaid value)?
         combinePhoneNumberOrPasswordInvalid,
     TResult Function(AuthFailureUserAlreadyExist value)? userAlreadyExist,
-    TResult Function(AuthFailuresUnknow value)? unknow,
-    TResult Function(AuthFailuresUnAuthorization value)? unAuthoiation,
+    TResult Function(AuthFailuresUnknow value)? unknown,
+    TResult Function(AuthFailuresUnAuthorization value)? unauthorized,
     TResult Function(AuthFailuresCannotCreateUser value)? cannotCreateUser,
+    TResult Function(AuthFailuresPermissionDenied value)? permissionDenied,
     required TResult orElse(),
   }) {
     if (passwordInvalid != null) {
@@ -391,9 +412,10 @@ class _$AuthFailureFullNameInvalid implements AuthFailureFullNameInvalid {
     required TResult Function() phoneNumberInvalid,
     required TResult Function() combinePhoneNumberOrPasswordInvalid,
     required TResult Function() userAlreadyExist,
-    required TResult Function() unknow,
-    required TResult Function() unAuthoiation,
+    required TResult Function() unknown,
+    required TResult Function() unauthorized,
     required TResult Function() cannotCreateUser,
+    required TResult Function() permissionDenied,
   }) {
     return fullNameInvalid();
   }
@@ -408,9 +430,10 @@ class _$AuthFailureFullNameInvalid implements AuthFailureFullNameInvalid {
     TResult? Function()? phoneNumberInvalid,
     TResult? Function()? combinePhoneNumberOrPasswordInvalid,
     TResult? Function()? userAlreadyExist,
-    TResult? Function()? unknow,
-    TResult? Function()? unAuthoiation,
+    TResult? Function()? unknown,
+    TResult? Function()? unauthorized,
     TResult? Function()? cannotCreateUser,
+    TResult? Function()? permissionDenied,
   }) {
     return fullNameInvalid?.call();
   }
@@ -425,9 +448,10 @@ class _$AuthFailureFullNameInvalid implements AuthFailureFullNameInvalid {
     TResult Function()? phoneNumberInvalid,
     TResult Function()? combinePhoneNumberOrPasswordInvalid,
     TResult Function()? userAlreadyExist,
-    TResult Function()? unknow,
-    TResult Function()? unAuthoiation,
+    TResult Function()? unknown,
+    TResult Function()? unauthorized,
     TResult Function()? cannotCreateUser,
+    TResult Function()? permissionDenied,
     required TResult orElse(),
   }) {
     if (fullNameInvalid != null) {
@@ -451,10 +475,12 @@ class _$AuthFailureFullNameInvalid implements AuthFailureFullNameInvalid {
         combinePhoneNumberOrPasswordInvalid,
     required TResult Function(AuthFailureUserAlreadyExist value)
         userAlreadyExist,
-    required TResult Function(AuthFailuresUnknow value) unknow,
-    required TResult Function(AuthFailuresUnAuthorization value) unAuthoiation,
+    required TResult Function(AuthFailuresUnknow value) unknown,
+    required TResult Function(AuthFailuresUnAuthorization value) unauthorized,
     required TResult Function(AuthFailuresCannotCreateUser value)
         cannotCreateUser,
+    required TResult Function(AuthFailuresPermissionDenied value)
+        permissionDenied,
   }) {
     return fullNameInvalid(this);
   }
@@ -471,9 +497,10 @@ class _$AuthFailureFullNameInvalid implements AuthFailureFullNameInvalid {
     TResult? Function(AuthFailureCombinePhoneOrPasswordInvlaid value)?
         combinePhoneNumberOrPasswordInvalid,
     TResult? Function(AuthFailureUserAlreadyExist value)? userAlreadyExist,
-    TResult? Function(AuthFailuresUnknow value)? unknow,
-    TResult? Function(AuthFailuresUnAuthorization value)? unAuthoiation,
+    TResult? Function(AuthFailuresUnknow value)? unknown,
+    TResult? Function(AuthFailuresUnAuthorization value)? unauthorized,
     TResult? Function(AuthFailuresCannotCreateUser value)? cannotCreateUser,
+    TResult? Function(AuthFailuresPermissionDenied value)? permissionDenied,
   }) {
     return fullNameInvalid?.call(this);
   }
@@ -490,9 +517,10 @@ class _$AuthFailureFullNameInvalid implements AuthFailureFullNameInvalid {
     TResult Function(AuthFailureCombinePhoneOrPasswordInvlaid value)?
         combinePhoneNumberOrPasswordInvalid,
     TResult Function(AuthFailureUserAlreadyExist value)? userAlreadyExist,
-    TResult Function(AuthFailuresUnknow value)? unknow,
-    TResult Function(AuthFailuresUnAuthorization value)? unAuthoiation,
+    TResult Function(AuthFailuresUnknow value)? unknown,
+    TResult Function(AuthFailuresUnAuthorization value)? unauthorized,
     TResult Function(AuthFailuresCannotCreateUser value)? cannotCreateUser,
+    TResult Function(AuthFailuresPermissionDenied value)? permissionDenied,
     required TResult orElse(),
   }) {
     if (fullNameInvalid != null) {
@@ -521,9 +549,10 @@ class _$AuthFailureNameInvalid implements AuthFailureNameInvalid {
     required TResult Function() phoneNumberInvalid,
     required TResult Function() combinePhoneNumberOrPasswordInvalid,
     required TResult Function() userAlreadyExist,
-    required TResult Function() unknow,
-    required TResult Function() unAuthoiation,
+    required TResult Function() unknown,
+    required TResult Function() unauthorized,
     required TResult Function() cannotCreateUser,
+    required TResult Function() permissionDenied,
   }) {
     return nameInvalid();
   }
@@ -538,9 +567,10 @@ class _$AuthFailureNameInvalid implements AuthFailureNameInvalid {
     TResult? Function()? phoneNumberInvalid,
     TResult? Function()? combinePhoneNumberOrPasswordInvalid,
     TResult? Function()? userAlreadyExist,
-    TResult? Function()? unknow,
-    TResult? Function()? unAuthoiation,
+    TResult? Function()? unknown,
+    TResult? Function()? unauthorized,
     TResult? Function()? cannotCreateUser,
+    TResult? Function()? permissionDenied,
   }) {
     return nameInvalid?.call();
   }
@@ -555,9 +585,10 @@ class _$AuthFailureNameInvalid implements AuthFailureNameInvalid {
     TResult Function()? phoneNumberInvalid,
     TResult Function()? combinePhoneNumberOrPasswordInvalid,
     TResult Function()? userAlreadyExist,
-    TResult Function()? unknow,
-    TResult Function()? unAuthoiation,
+    TResult Function()? unknown,
+    TResult Function()? unauthorized,
     TResult Function()? cannotCreateUser,
+    TResult Function()? permissionDenied,
     required TResult orElse(),
   }) {
     if (nameInvalid != null) {
@@ -581,10 +612,12 @@ class _$AuthFailureNameInvalid implements AuthFailureNameInvalid {
         combinePhoneNumberOrPasswordInvalid,
     required TResult Function(AuthFailureUserAlreadyExist value)
         userAlreadyExist,
-    required TResult Function(AuthFailuresUnknow value) unknow,
-    required TResult Function(AuthFailuresUnAuthorization value) unAuthoiation,
+    required TResult Function(AuthFailuresUnknow value) unknown,
+    required TResult Function(AuthFailuresUnAuthorization value) unauthorized,
     required TResult Function(AuthFailuresCannotCreateUser value)
         cannotCreateUser,
+    required TResult Function(AuthFailuresPermissionDenied value)
+        permissionDenied,
   }) {
     return nameInvalid(this);
   }
@@ -601,9 +634,10 @@ class _$AuthFailureNameInvalid implements AuthFailureNameInvalid {
     TResult? Function(AuthFailureCombinePhoneOrPasswordInvlaid value)?
         combinePhoneNumberOrPasswordInvalid,
     TResult? Function(AuthFailureUserAlreadyExist value)? userAlreadyExist,
-    TResult? Function(AuthFailuresUnknow value)? unknow,
-    TResult? Function(AuthFailuresUnAuthorization value)? unAuthoiation,
+    TResult? Function(AuthFailuresUnknow value)? unknown,
+    TResult? Function(AuthFailuresUnAuthorization value)? unauthorized,
     TResult? Function(AuthFailuresCannotCreateUser value)? cannotCreateUser,
+    TResult? Function(AuthFailuresPermissionDenied value)? permissionDenied,
   }) {
     return nameInvalid?.call(this);
   }
@@ -620,9 +654,10 @@ class _$AuthFailureNameInvalid implements AuthFailureNameInvalid {
     TResult Function(AuthFailureCombinePhoneOrPasswordInvlaid value)?
         combinePhoneNumberOrPasswordInvalid,
     TResult Function(AuthFailureUserAlreadyExist value)? userAlreadyExist,
-    TResult Function(AuthFailuresUnknow value)? unknow,
-    TResult Function(AuthFailuresUnAuthorization value)? unAuthoiation,
+    TResult Function(AuthFailuresUnknow value)? unknown,
+    TResult Function(AuthFailuresUnAuthorization value)? unauthorized,
     TResult Function(AuthFailuresCannotCreateUser value)? cannotCreateUser,
+    TResult Function(AuthFailuresPermissionDenied value)? permissionDenied,
     required TResult orElse(),
   }) {
     if (nameInvalid != null) {
@@ -651,9 +686,10 @@ class _$AuthFailurePhoneNumberInvalid implements AuthFailurePhoneNumberInvalid {
     required TResult Function() phoneNumberInvalid,
     required TResult Function() combinePhoneNumberOrPasswordInvalid,
     required TResult Function() userAlreadyExist,
-    required TResult Function() unknow,
-    required TResult Function() unAuthoiation,
+    required TResult Function() unknown,
+    required TResult Function() unauthorized,
     required TResult Function() cannotCreateUser,
+    required TResult Function() permissionDenied,
   }) {
     return phoneNumberInvalid();
   }
@@ -668,9 +704,10 @@ class _$AuthFailurePhoneNumberInvalid implements AuthFailurePhoneNumberInvalid {
     TResult? Function()? phoneNumberInvalid,
     TResult? Function()? combinePhoneNumberOrPasswordInvalid,
     TResult? Function()? userAlreadyExist,
-    TResult? Function()? unknow,
-    TResult? Function()? unAuthoiation,
+    TResult? Function()? unknown,
+    TResult? Function()? unauthorized,
     TResult? Function()? cannotCreateUser,
+    TResult? Function()? permissionDenied,
   }) {
     return phoneNumberInvalid?.call();
   }
@@ -685,9 +722,10 @@ class _$AuthFailurePhoneNumberInvalid implements AuthFailurePhoneNumberInvalid {
     TResult Function()? phoneNumberInvalid,
     TResult Function()? combinePhoneNumberOrPasswordInvalid,
     TResult Function()? userAlreadyExist,
-    TResult Function()? unknow,
-    TResult Function()? unAuthoiation,
+    TResult Function()? unknown,
+    TResult Function()? unauthorized,
     TResult Function()? cannotCreateUser,
+    TResult Function()? permissionDenied,
     required TResult orElse(),
   }) {
     if (phoneNumberInvalid != null) {
@@ -711,10 +749,12 @@ class _$AuthFailurePhoneNumberInvalid implements AuthFailurePhoneNumberInvalid {
         combinePhoneNumberOrPasswordInvalid,
     required TResult Function(AuthFailureUserAlreadyExist value)
         userAlreadyExist,
-    required TResult Function(AuthFailuresUnknow value) unknow,
-    required TResult Function(AuthFailuresUnAuthorization value) unAuthoiation,
+    required TResult Function(AuthFailuresUnknow value) unknown,
+    required TResult Function(AuthFailuresUnAuthorization value) unauthorized,
     required TResult Function(AuthFailuresCannotCreateUser value)
         cannotCreateUser,
+    required TResult Function(AuthFailuresPermissionDenied value)
+        permissionDenied,
   }) {
     return phoneNumberInvalid(this);
   }
@@ -731,9 +771,10 @@ class _$AuthFailurePhoneNumberInvalid implements AuthFailurePhoneNumberInvalid {
     TResult? Function(AuthFailureCombinePhoneOrPasswordInvlaid value)?
         combinePhoneNumberOrPasswordInvalid,
     TResult? Function(AuthFailureUserAlreadyExist value)? userAlreadyExist,
-    TResult? Function(AuthFailuresUnknow value)? unknow,
-    TResult? Function(AuthFailuresUnAuthorization value)? unAuthoiation,
+    TResult? Function(AuthFailuresUnknow value)? unknown,
+    TResult? Function(AuthFailuresUnAuthorization value)? unauthorized,
     TResult? Function(AuthFailuresCannotCreateUser value)? cannotCreateUser,
+    TResult? Function(AuthFailuresPermissionDenied value)? permissionDenied,
   }) {
     return phoneNumberInvalid?.call(this);
   }
@@ -750,9 +791,10 @@ class _$AuthFailurePhoneNumberInvalid implements AuthFailurePhoneNumberInvalid {
     TResult Function(AuthFailureCombinePhoneOrPasswordInvlaid value)?
         combinePhoneNumberOrPasswordInvalid,
     TResult Function(AuthFailureUserAlreadyExist value)? userAlreadyExist,
-    TResult Function(AuthFailuresUnknow value)? unknow,
-    TResult Function(AuthFailuresUnAuthorization value)? unAuthoiation,
+    TResult Function(AuthFailuresUnknow value)? unknown,
+    TResult Function(AuthFailuresUnAuthorization value)? unauthorized,
     TResult Function(AuthFailuresCannotCreateUser value)? cannotCreateUser,
+    TResult Function(AuthFailuresPermissionDenied value)? permissionDenied,
     required TResult orElse(),
   }) {
     if (phoneNumberInvalid != null) {
@@ -783,9 +825,10 @@ class _$AuthFailureCombinePhoneOrPasswordInvlaid
     required TResult Function() phoneNumberInvalid,
     required TResult Function() combinePhoneNumberOrPasswordInvalid,
     required TResult Function() userAlreadyExist,
-    required TResult Function() unknow,
-    required TResult Function() unAuthoiation,
+    required TResult Function() unknown,
+    required TResult Function() unauthorized,
     required TResult Function() cannotCreateUser,
+    required TResult Function() permissionDenied,
   }) {
     return combinePhoneNumberOrPasswordInvalid();
   }
@@ -800,9 +843,10 @@ class _$AuthFailureCombinePhoneOrPasswordInvlaid
     TResult? Function()? phoneNumberInvalid,
     TResult? Function()? combinePhoneNumberOrPasswordInvalid,
     TResult? Function()? userAlreadyExist,
-    TResult? Function()? unknow,
-    TResult? Function()? unAuthoiation,
+    TResult? Function()? unknown,
+    TResult? Function()? unauthorized,
     TResult? Function()? cannotCreateUser,
+    TResult? Function()? permissionDenied,
   }) {
     return combinePhoneNumberOrPasswordInvalid?.call();
   }
@@ -817,9 +861,10 @@ class _$AuthFailureCombinePhoneOrPasswordInvlaid
     TResult Function()? phoneNumberInvalid,
     TResult Function()? combinePhoneNumberOrPasswordInvalid,
     TResult Function()? userAlreadyExist,
-    TResult Function()? unknow,
-    TResult Function()? unAuthoiation,
+    TResult Function()? unknown,
+    TResult Function()? unauthorized,
     TResult Function()? cannotCreateUser,
+    TResult Function()? permissionDenied,
     required TResult orElse(),
   }) {
     if (combinePhoneNumberOrPasswordInvalid != null) {
@@ -843,10 +888,12 @@ class _$AuthFailureCombinePhoneOrPasswordInvlaid
         combinePhoneNumberOrPasswordInvalid,
     required TResult Function(AuthFailureUserAlreadyExist value)
         userAlreadyExist,
-    required TResult Function(AuthFailuresUnknow value) unknow,
-    required TResult Function(AuthFailuresUnAuthorization value) unAuthoiation,
+    required TResult Function(AuthFailuresUnknow value) unknown,
+    required TResult Function(AuthFailuresUnAuthorization value) unauthorized,
     required TResult Function(AuthFailuresCannotCreateUser value)
         cannotCreateUser,
+    required TResult Function(AuthFailuresPermissionDenied value)
+        permissionDenied,
   }) {
     return combinePhoneNumberOrPasswordInvalid(this);
   }
@@ -863,9 +910,10 @@ class _$AuthFailureCombinePhoneOrPasswordInvlaid
     TResult? Function(AuthFailureCombinePhoneOrPasswordInvlaid value)?
         combinePhoneNumberOrPasswordInvalid,
     TResult? Function(AuthFailureUserAlreadyExist value)? userAlreadyExist,
-    TResult? Function(AuthFailuresUnknow value)? unknow,
-    TResult? Function(AuthFailuresUnAuthorization value)? unAuthoiation,
+    TResult? Function(AuthFailuresUnknow value)? unknown,
+    TResult? Function(AuthFailuresUnAuthorization value)? unauthorized,
     TResult? Function(AuthFailuresCannotCreateUser value)? cannotCreateUser,
+    TResult? Function(AuthFailuresPermissionDenied value)? permissionDenied,
   }) {
     return combinePhoneNumberOrPasswordInvalid?.call(this);
   }
@@ -882,9 +930,10 @@ class _$AuthFailureCombinePhoneOrPasswordInvlaid
     TResult Function(AuthFailureCombinePhoneOrPasswordInvlaid value)?
         combinePhoneNumberOrPasswordInvalid,
     TResult Function(AuthFailureUserAlreadyExist value)? userAlreadyExist,
-    TResult Function(AuthFailuresUnknow value)? unknow,
-    TResult Function(AuthFailuresUnAuthorization value)? unAuthoiation,
+    TResult Function(AuthFailuresUnknow value)? unknown,
+    TResult Function(AuthFailuresUnAuthorization value)? unauthorized,
     TResult Function(AuthFailuresCannotCreateUser value)? cannotCreateUser,
+    TResult Function(AuthFailuresPermissionDenied value)? permissionDenied,
     required TResult orElse(),
   }) {
     if (combinePhoneNumberOrPasswordInvalid != null) {
@@ -915,9 +964,10 @@ class _$AuthFailureUserAlreadyExist implements AuthFailureUserAlreadyExist {
     required TResult Function() phoneNumberInvalid,
     required TResult Function() combinePhoneNumberOrPasswordInvalid,
     required TResult Function() userAlreadyExist,
-    required TResult Function() unknow,
-    required TResult Function() unAuthoiation,
+    required TResult Function() unknown,
+    required TResult Function() unauthorized,
     required TResult Function() cannotCreateUser,
+    required TResult Function() permissionDenied,
   }) {
     return userAlreadyExist();
   }
@@ -932,9 +982,10 @@ class _$AuthFailureUserAlreadyExist implements AuthFailureUserAlreadyExist {
     TResult? Function()? phoneNumberInvalid,
     TResult? Function()? combinePhoneNumberOrPasswordInvalid,
     TResult? Function()? userAlreadyExist,
-    TResult? Function()? unknow,
-    TResult? Function()? unAuthoiation,
+    TResult? Function()? unknown,
+    TResult? Function()? unauthorized,
     TResult? Function()? cannotCreateUser,
+    TResult? Function()? permissionDenied,
   }) {
     return userAlreadyExist?.call();
   }
@@ -949,9 +1000,10 @@ class _$AuthFailureUserAlreadyExist implements AuthFailureUserAlreadyExist {
     TResult Function()? phoneNumberInvalid,
     TResult Function()? combinePhoneNumberOrPasswordInvalid,
     TResult Function()? userAlreadyExist,
-    TResult Function()? unknow,
-    TResult Function()? unAuthoiation,
+    TResult Function()? unknown,
+    TResult Function()? unauthorized,
     TResult Function()? cannotCreateUser,
+    TResult Function()? permissionDenied,
     required TResult orElse(),
   }) {
     if (userAlreadyExist != null) {
@@ -975,10 +1027,12 @@ class _$AuthFailureUserAlreadyExist implements AuthFailureUserAlreadyExist {
         combinePhoneNumberOrPasswordInvalid,
     required TResult Function(AuthFailureUserAlreadyExist value)
         userAlreadyExist,
-    required TResult Function(AuthFailuresUnknow value) unknow,
-    required TResult Function(AuthFailuresUnAuthorization value) unAuthoiation,
+    required TResult Function(AuthFailuresUnknow value) unknown,
+    required TResult Function(AuthFailuresUnAuthorization value) unauthorized,
     required TResult Function(AuthFailuresCannotCreateUser value)
         cannotCreateUser,
+    required TResult Function(AuthFailuresPermissionDenied value)
+        permissionDenied,
   }) {
     return userAlreadyExist(this);
   }
@@ -995,9 +1049,10 @@ class _$AuthFailureUserAlreadyExist implements AuthFailureUserAlreadyExist {
     TResult? Function(AuthFailureCombinePhoneOrPasswordInvlaid value)?
         combinePhoneNumberOrPasswordInvalid,
     TResult? Function(AuthFailureUserAlreadyExist value)? userAlreadyExist,
-    TResult? Function(AuthFailuresUnknow value)? unknow,
-    TResult? Function(AuthFailuresUnAuthorization value)? unAuthoiation,
+    TResult? Function(AuthFailuresUnknow value)? unknown,
+    TResult? Function(AuthFailuresUnAuthorization value)? unauthorized,
     TResult? Function(AuthFailuresCannotCreateUser value)? cannotCreateUser,
+    TResult? Function(AuthFailuresPermissionDenied value)? permissionDenied,
   }) {
     return userAlreadyExist?.call(this);
   }
@@ -1014,9 +1069,10 @@ class _$AuthFailureUserAlreadyExist implements AuthFailureUserAlreadyExist {
     TResult Function(AuthFailureCombinePhoneOrPasswordInvlaid value)?
         combinePhoneNumberOrPasswordInvalid,
     TResult Function(AuthFailureUserAlreadyExist value)? userAlreadyExist,
-    TResult Function(AuthFailuresUnknow value)? unknow,
-    TResult Function(AuthFailuresUnAuthorization value)? unAuthoiation,
+    TResult Function(AuthFailuresUnknow value)? unknown,
+    TResult Function(AuthFailuresUnAuthorization value)? unauthorized,
     TResult Function(AuthFailuresCannotCreateUser value)? cannotCreateUser,
+    TResult Function(AuthFailuresPermissionDenied value)? permissionDenied,
     required TResult orElse(),
   }) {
     if (userAlreadyExist != null) {
@@ -1045,11 +1101,12 @@ class _$AuthFailuresUnknow implements AuthFailuresUnknow {
     required TResult Function() phoneNumberInvalid,
     required TResult Function() combinePhoneNumberOrPasswordInvalid,
     required TResult Function() userAlreadyExist,
-    required TResult Function() unknow,
-    required TResult Function() unAuthoiation,
+    required TResult Function() unknown,
+    required TResult Function() unauthorized,
     required TResult Function() cannotCreateUser,
+    required TResult Function() permissionDenied,
   }) {
-    return unknow();
+    return unknown();
   }
 
   @override
@@ -1062,11 +1119,12 @@ class _$AuthFailuresUnknow implements AuthFailuresUnknow {
     TResult? Function()? phoneNumberInvalid,
     TResult? Function()? combinePhoneNumberOrPasswordInvalid,
     TResult? Function()? userAlreadyExist,
-    TResult? Function()? unknow,
-    TResult? Function()? unAuthoiation,
+    TResult? Function()? unknown,
+    TResult? Function()? unauthorized,
     TResult? Function()? cannotCreateUser,
+    TResult? Function()? permissionDenied,
   }) {
-    return unknow?.call();
+    return unknown?.call();
   }
 
   @override
@@ -1079,13 +1137,14 @@ class _$AuthFailuresUnknow implements AuthFailuresUnknow {
     TResult Function()? phoneNumberInvalid,
     TResult Function()? combinePhoneNumberOrPasswordInvalid,
     TResult Function()? userAlreadyExist,
-    TResult Function()? unknow,
-    TResult Function()? unAuthoiation,
+    TResult Function()? unknown,
+    TResult Function()? unauthorized,
     TResult Function()? cannotCreateUser,
+    TResult Function()? permissionDenied,
     required TResult orElse(),
   }) {
-    if (unknow != null) {
-      return unknow();
+    if (unknown != null) {
+      return unknown();
     }
     return orElse();
   }
@@ -1105,12 +1164,14 @@ class _$AuthFailuresUnknow implements AuthFailuresUnknow {
         combinePhoneNumberOrPasswordInvalid,
     required TResult Function(AuthFailureUserAlreadyExist value)
         userAlreadyExist,
-    required TResult Function(AuthFailuresUnknow value) unknow,
-    required TResult Function(AuthFailuresUnAuthorization value) unAuthoiation,
+    required TResult Function(AuthFailuresUnknow value) unknown,
+    required TResult Function(AuthFailuresUnAuthorization value) unauthorized,
     required TResult Function(AuthFailuresCannotCreateUser value)
         cannotCreateUser,
+    required TResult Function(AuthFailuresPermissionDenied value)
+        permissionDenied,
   }) {
-    return unknow(this);
+    return unknown(this);
   }
 
   @override
@@ -1125,11 +1186,12 @@ class _$AuthFailuresUnknow implements AuthFailuresUnknow {
     TResult? Function(AuthFailureCombinePhoneOrPasswordInvlaid value)?
         combinePhoneNumberOrPasswordInvalid,
     TResult? Function(AuthFailureUserAlreadyExist value)? userAlreadyExist,
-    TResult? Function(AuthFailuresUnknow value)? unknow,
-    TResult? Function(AuthFailuresUnAuthorization value)? unAuthoiation,
+    TResult? Function(AuthFailuresUnknow value)? unknown,
+    TResult? Function(AuthFailuresUnAuthorization value)? unauthorized,
     TResult? Function(AuthFailuresCannotCreateUser value)? cannotCreateUser,
+    TResult? Function(AuthFailuresPermissionDenied value)? permissionDenied,
   }) {
-    return unknow?.call(this);
+    return unknown?.call(this);
   }
 
   @override
@@ -1144,13 +1206,14 @@ class _$AuthFailuresUnknow implements AuthFailuresUnknow {
     TResult Function(AuthFailureCombinePhoneOrPasswordInvlaid value)?
         combinePhoneNumberOrPasswordInvalid,
     TResult Function(AuthFailureUserAlreadyExist value)? userAlreadyExist,
-    TResult Function(AuthFailuresUnknow value)? unknow,
-    TResult Function(AuthFailuresUnAuthorization value)? unAuthoiation,
+    TResult Function(AuthFailuresUnknow value)? unknown,
+    TResult Function(AuthFailuresUnAuthorization value)? unauthorized,
     TResult Function(AuthFailuresCannotCreateUser value)? cannotCreateUser,
+    TResult Function(AuthFailuresPermissionDenied value)? permissionDenied,
     required TResult orElse(),
   }) {
-    if (unknow != null) {
-      return unknow(this);
+    if (unknown != null) {
+      return unknown(this);
     }
     return orElse();
   }
@@ -1175,11 +1238,12 @@ class _$AuthFailuresUnAuthorization implements AuthFailuresUnAuthorization {
     required TResult Function() phoneNumberInvalid,
     required TResult Function() combinePhoneNumberOrPasswordInvalid,
     required TResult Function() userAlreadyExist,
-    required TResult Function() unknow,
-    required TResult Function() unAuthoiation,
+    required TResult Function() unknown,
+    required TResult Function() unauthorized,
     required TResult Function() cannotCreateUser,
+    required TResult Function() permissionDenied,
   }) {
-    return unAuthoiation();
+    return unauthorized();
   }
 
   @override
@@ -1192,11 +1256,12 @@ class _$AuthFailuresUnAuthorization implements AuthFailuresUnAuthorization {
     TResult? Function()? phoneNumberInvalid,
     TResult? Function()? combinePhoneNumberOrPasswordInvalid,
     TResult? Function()? userAlreadyExist,
-    TResult? Function()? unknow,
-    TResult? Function()? unAuthoiation,
+    TResult? Function()? unknown,
+    TResult? Function()? unauthorized,
     TResult? Function()? cannotCreateUser,
+    TResult? Function()? permissionDenied,
   }) {
-    return unAuthoiation?.call();
+    return unauthorized?.call();
   }
 
   @override
@@ -1209,13 +1274,14 @@ class _$AuthFailuresUnAuthorization implements AuthFailuresUnAuthorization {
     TResult Function()? phoneNumberInvalid,
     TResult Function()? combinePhoneNumberOrPasswordInvalid,
     TResult Function()? userAlreadyExist,
-    TResult Function()? unknow,
-    TResult Function()? unAuthoiation,
+    TResult Function()? unknown,
+    TResult Function()? unauthorized,
     TResult Function()? cannotCreateUser,
+    TResult Function()? permissionDenied,
     required TResult orElse(),
   }) {
-    if (unAuthoiation != null) {
-      return unAuthoiation();
+    if (unauthorized != null) {
+      return unauthorized();
     }
     return orElse();
   }
@@ -1235,12 +1301,14 @@ class _$AuthFailuresUnAuthorization implements AuthFailuresUnAuthorization {
         combinePhoneNumberOrPasswordInvalid,
     required TResult Function(AuthFailureUserAlreadyExist value)
         userAlreadyExist,
-    required TResult Function(AuthFailuresUnknow value) unknow,
-    required TResult Function(AuthFailuresUnAuthorization value) unAuthoiation,
+    required TResult Function(AuthFailuresUnknow value) unknown,
+    required TResult Function(AuthFailuresUnAuthorization value) unauthorized,
     required TResult Function(AuthFailuresCannotCreateUser value)
         cannotCreateUser,
+    required TResult Function(AuthFailuresPermissionDenied value)
+        permissionDenied,
   }) {
-    return unAuthoiation(this);
+    return unauthorized(this);
   }
 
   @override
@@ -1255,11 +1323,12 @@ class _$AuthFailuresUnAuthorization implements AuthFailuresUnAuthorization {
     TResult? Function(AuthFailureCombinePhoneOrPasswordInvlaid value)?
         combinePhoneNumberOrPasswordInvalid,
     TResult? Function(AuthFailureUserAlreadyExist value)? userAlreadyExist,
-    TResult? Function(AuthFailuresUnknow value)? unknow,
-    TResult? Function(AuthFailuresUnAuthorization value)? unAuthoiation,
+    TResult? Function(AuthFailuresUnknow value)? unknown,
+    TResult? Function(AuthFailuresUnAuthorization value)? unauthorized,
     TResult? Function(AuthFailuresCannotCreateUser value)? cannotCreateUser,
+    TResult? Function(AuthFailuresPermissionDenied value)? permissionDenied,
   }) {
-    return unAuthoiation?.call(this);
+    return unauthorized?.call(this);
   }
 
   @override
@@ -1274,13 +1343,14 @@ class _$AuthFailuresUnAuthorization implements AuthFailuresUnAuthorization {
     TResult Function(AuthFailureCombinePhoneOrPasswordInvlaid value)?
         combinePhoneNumberOrPasswordInvalid,
     TResult Function(AuthFailureUserAlreadyExist value)? userAlreadyExist,
-    TResult Function(AuthFailuresUnknow value)? unknow,
-    TResult Function(AuthFailuresUnAuthorization value)? unAuthoiation,
+    TResult Function(AuthFailuresUnknow value)? unknown,
+    TResult Function(AuthFailuresUnAuthorization value)? unauthorized,
     TResult Function(AuthFailuresCannotCreateUser value)? cannotCreateUser,
+    TResult Function(AuthFailuresPermissionDenied value)? permissionDenied,
     required TResult orElse(),
   }) {
-    if (unAuthoiation != null) {
-      return unAuthoiation(this);
+    if (unauthorized != null) {
+      return unauthorized(this);
     }
     return orElse();
   }
@@ -1305,9 +1375,10 @@ class _$AuthFailuresCannotCreateUser implements AuthFailuresCannotCreateUser {
     required TResult Function() phoneNumberInvalid,
     required TResult Function() combinePhoneNumberOrPasswordInvalid,
     required TResult Function() userAlreadyExist,
-    required TResult Function() unknow,
-    required TResult Function() unAuthoiation,
+    required TResult Function() unknown,
+    required TResult Function() unauthorized,
     required TResult Function() cannotCreateUser,
+    required TResult Function() permissionDenied,
   }) {
     return cannotCreateUser();
   }
@@ -1322,9 +1393,10 @@ class _$AuthFailuresCannotCreateUser implements AuthFailuresCannotCreateUser {
     TResult? Function()? phoneNumberInvalid,
     TResult? Function()? combinePhoneNumberOrPasswordInvalid,
     TResult? Function()? userAlreadyExist,
-    TResult? Function()? unknow,
-    TResult? Function()? unAuthoiation,
+    TResult? Function()? unknown,
+    TResult? Function()? unauthorized,
     TResult? Function()? cannotCreateUser,
+    TResult? Function()? permissionDenied,
   }) {
     return cannotCreateUser?.call();
   }
@@ -1339,9 +1411,10 @@ class _$AuthFailuresCannotCreateUser implements AuthFailuresCannotCreateUser {
     TResult Function()? phoneNumberInvalid,
     TResult Function()? combinePhoneNumberOrPasswordInvalid,
     TResult Function()? userAlreadyExist,
-    TResult Function()? unknow,
-    TResult Function()? unAuthoiation,
+    TResult Function()? unknown,
+    TResult Function()? unauthorized,
     TResult Function()? cannotCreateUser,
+    TResult Function()? permissionDenied,
     required TResult orElse(),
   }) {
     if (cannotCreateUser != null) {
@@ -1365,10 +1438,12 @@ class _$AuthFailuresCannotCreateUser implements AuthFailuresCannotCreateUser {
         combinePhoneNumberOrPasswordInvalid,
     required TResult Function(AuthFailureUserAlreadyExist value)
         userAlreadyExist,
-    required TResult Function(AuthFailuresUnknow value) unknow,
-    required TResult Function(AuthFailuresUnAuthorization value) unAuthoiation,
+    required TResult Function(AuthFailuresUnknow value) unknown,
+    required TResult Function(AuthFailuresUnAuthorization value) unauthorized,
     required TResult Function(AuthFailuresCannotCreateUser value)
         cannotCreateUser,
+    required TResult Function(AuthFailuresPermissionDenied value)
+        permissionDenied,
   }) {
     return cannotCreateUser(this);
   }
@@ -1385,9 +1460,10 @@ class _$AuthFailuresCannotCreateUser implements AuthFailuresCannotCreateUser {
     TResult? Function(AuthFailureCombinePhoneOrPasswordInvlaid value)?
         combinePhoneNumberOrPasswordInvalid,
     TResult? Function(AuthFailureUserAlreadyExist value)? userAlreadyExist,
-    TResult? Function(AuthFailuresUnknow value)? unknow,
-    TResult? Function(AuthFailuresUnAuthorization value)? unAuthoiation,
+    TResult? Function(AuthFailuresUnknow value)? unknown,
+    TResult? Function(AuthFailuresUnAuthorization value)? unauthorized,
     TResult? Function(AuthFailuresCannotCreateUser value)? cannotCreateUser,
+    TResult? Function(AuthFailuresPermissionDenied value)? permissionDenied,
   }) {
     return cannotCreateUser?.call(this);
   }
@@ -1404,9 +1480,10 @@ class _$AuthFailuresCannotCreateUser implements AuthFailuresCannotCreateUser {
     TResult Function(AuthFailureCombinePhoneOrPasswordInvlaid value)?
         combinePhoneNumberOrPasswordInvalid,
     TResult Function(AuthFailureUserAlreadyExist value)? userAlreadyExist,
-    TResult Function(AuthFailuresUnknow value)? unknow,
-    TResult Function(AuthFailuresUnAuthorization value)? unAuthoiation,
+    TResult Function(AuthFailuresUnknow value)? unknown,
+    TResult Function(AuthFailuresUnAuthorization value)? unauthorized,
     TResult Function(AuthFailuresCannotCreateUser value)? cannotCreateUser,
+    TResult Function(AuthFailuresPermissionDenied value)? permissionDenied,
     required TResult orElse(),
   }) {
     if (cannotCreateUser != null) {
@@ -1418,4 +1495,141 @@ class _$AuthFailuresCannotCreateUser implements AuthFailuresCannotCreateUser {
 
 abstract class AuthFailuresCannotCreateUser implements AuthFailures {
   const factory AuthFailuresCannotCreateUser() = _$AuthFailuresCannotCreateUser;
+}
+
+/// @nodoc
+
+class _$AuthFailuresPermissionDenied implements AuthFailuresPermissionDenied {
+  const _$AuthFailuresPermissionDenied();
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() emailAddressInvalid,
+    required TResult Function() passwordInvalid,
+    required TResult Function() fullNameInvalid,
+    required TResult Function() nameInvalid,
+    required TResult Function() phoneNumberInvalid,
+    required TResult Function() combinePhoneNumberOrPasswordInvalid,
+    required TResult Function() userAlreadyExist,
+    required TResult Function() unknown,
+    required TResult Function() unauthorized,
+    required TResult Function() cannotCreateUser,
+    required TResult Function() permissionDenied,
+  }) {
+    return permissionDenied();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? emailAddressInvalid,
+    TResult? Function()? passwordInvalid,
+    TResult? Function()? fullNameInvalid,
+    TResult? Function()? nameInvalid,
+    TResult? Function()? phoneNumberInvalid,
+    TResult? Function()? combinePhoneNumberOrPasswordInvalid,
+    TResult? Function()? userAlreadyExist,
+    TResult? Function()? unknown,
+    TResult? Function()? unauthorized,
+    TResult? Function()? cannotCreateUser,
+    TResult? Function()? permissionDenied,
+  }) {
+    return permissionDenied?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? emailAddressInvalid,
+    TResult Function()? passwordInvalid,
+    TResult Function()? fullNameInvalid,
+    TResult Function()? nameInvalid,
+    TResult Function()? phoneNumberInvalid,
+    TResult Function()? combinePhoneNumberOrPasswordInvalid,
+    TResult Function()? userAlreadyExist,
+    TResult Function()? unknown,
+    TResult Function()? unauthorized,
+    TResult Function()? cannotCreateUser,
+    TResult Function()? permissionDenied,
+    required TResult orElse(),
+  }) {
+    if (permissionDenied != null) {
+      return permissionDenied();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(AuthFailuresEmailAddressInvalid value)
+        emailAddressInvalid,
+    required TResult Function(AuthFailuresPasswordInvalid value)
+        passwordInvalid,
+    required TResult Function(AuthFailureFullNameInvalid value) fullNameInvalid,
+    required TResult Function(AuthFailureNameInvalid value) nameInvalid,
+    required TResult Function(AuthFailurePhoneNumberInvalid value)
+        phoneNumberInvalid,
+    required TResult Function(AuthFailureCombinePhoneOrPasswordInvlaid value)
+        combinePhoneNumberOrPasswordInvalid,
+    required TResult Function(AuthFailureUserAlreadyExist value)
+        userAlreadyExist,
+    required TResult Function(AuthFailuresUnknow value) unknown,
+    required TResult Function(AuthFailuresUnAuthorization value) unauthorized,
+    required TResult Function(AuthFailuresCannotCreateUser value)
+        cannotCreateUser,
+    required TResult Function(AuthFailuresPermissionDenied value)
+        permissionDenied,
+  }) {
+    return permissionDenied(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(AuthFailuresEmailAddressInvalid value)?
+        emailAddressInvalid,
+    TResult? Function(AuthFailuresPasswordInvalid value)? passwordInvalid,
+    TResult? Function(AuthFailureFullNameInvalid value)? fullNameInvalid,
+    TResult? Function(AuthFailureNameInvalid value)? nameInvalid,
+    TResult? Function(AuthFailurePhoneNumberInvalid value)? phoneNumberInvalid,
+    TResult? Function(AuthFailureCombinePhoneOrPasswordInvlaid value)?
+        combinePhoneNumberOrPasswordInvalid,
+    TResult? Function(AuthFailureUserAlreadyExist value)? userAlreadyExist,
+    TResult? Function(AuthFailuresUnknow value)? unknown,
+    TResult? Function(AuthFailuresUnAuthorization value)? unauthorized,
+    TResult? Function(AuthFailuresCannotCreateUser value)? cannotCreateUser,
+    TResult? Function(AuthFailuresPermissionDenied value)? permissionDenied,
+  }) {
+    return permissionDenied?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(AuthFailuresEmailAddressInvalid value)?
+        emailAddressInvalid,
+    TResult Function(AuthFailuresPasswordInvalid value)? passwordInvalid,
+    TResult Function(AuthFailureFullNameInvalid value)? fullNameInvalid,
+    TResult Function(AuthFailureNameInvalid value)? nameInvalid,
+    TResult Function(AuthFailurePhoneNumberInvalid value)? phoneNumberInvalid,
+    TResult Function(AuthFailureCombinePhoneOrPasswordInvlaid value)?
+        combinePhoneNumberOrPasswordInvalid,
+    TResult Function(AuthFailureUserAlreadyExist value)? userAlreadyExist,
+    TResult Function(AuthFailuresUnknow value)? unknown,
+    TResult Function(AuthFailuresUnAuthorization value)? unauthorized,
+    TResult Function(AuthFailuresCannotCreateUser value)? cannotCreateUser,
+    TResult Function(AuthFailuresPermissionDenied value)? permissionDenied,
+    required TResult orElse(),
+  }) {
+    if (permissionDenied != null) {
+      return permissionDenied(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class AuthFailuresPermissionDenied implements AuthFailures {
+  const factory AuthFailuresPermissionDenied() = _$AuthFailuresPermissionDenied;
 }
