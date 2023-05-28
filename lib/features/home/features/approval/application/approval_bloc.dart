@@ -1,13 +1,11 @@
 import 'dart:async';
 
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:injectable/injectable.dart';
 import 'package:real_estate_admin_cms/core/data/admin/i_admin_repository.dart';
 import 'package:real_estate_admin_cms/core/data/auth/model/user.dart';
-import 'package:real_estate_admin_cms/core/data/estate/i_real_estate_repository.dart';
-import 'package:real_estate_admin_cms/core/data/tour/enum/contact_tour_type.dart';
+import 'package:real_estate_admin_cms/core/data/estate/real_estate_repository.dart';
 import 'package:real_estate_admin_cms/core/data/tour/enum/tour_status.dart';
 import 'package:real_estate_admin_cms/core/data/tour/enum/tour_type.dart';
 import 'package:real_estate_admin_cms/core/data/tour/i_tour_repository.dart';
@@ -18,16 +16,17 @@ import 'package:real_estate_admin_cms/features/common/model/status.dart';
 import 'package:real_estate_admin_cms/utils/.utils.dart';
 import 'package:real_estate_admin_cms/utils/logger/logger.dart';
 
-part 'approval_state.dart';
-part 'approval_event.dart';
 part 'approval_bloc.freezed.dart';
 part 'approval_bloc.g.dart';
+part 'approval_event.dart';
+part 'approval_state.dart';
 
 @injectable
 class ApprovalBloc extends HydratedBloc<ApprovalEvent, ApprovalState> {
   final ITourRepository tourRepository;
   final IAdminRepository adminRepository;
-  final IRealEstateRepository realEstateRepository;
+  final RealEstateRepository realEstateRepository;
+
   ApprovalBloc(
     this.tourRepository,
     this.adminRepository,

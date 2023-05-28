@@ -4,14 +4,18 @@ import 'package:json_annotation/json_annotation.dart';
 import 'package:real_estate_admin_cms/languages/generated/l10n.dart';
 
 part 'real_estate_type.freezed.dart';
+part 'real_estate_type.g.dart';
 
 @freezed
 class RealEstateType with _$RealEstateType {
+  @JsonSerializable(explicitToJson: true,fieldRename: FieldRename.snake)
   const factory RealEstateType({
     required int id,
     required String name,
-    bool? isRent,
   }) = _RealEstateType;
+
+  factory RealEstateType.fromJson(Map<String, dynamic> json) =>
+      _$RealEstateTypeFromJson(json);
 }
 
 extension RealEstateTypeEx on RealEstateType {

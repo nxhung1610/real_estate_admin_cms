@@ -2099,6 +2099,26 @@ class S {
       args: [],
     );
   }
+
+  /// `Tour`
+  String get tour {
+    return Intl.message(
+      'Tour',
+      name: 'tour',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Real Estate`
+  String get realEstate {
+    return Intl.message(
+      'Real Estate',
+      name: 'realEstate',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

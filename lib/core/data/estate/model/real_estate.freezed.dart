@@ -14,6 +14,10 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
+RealEstate _$RealEstateFromJson(Map<String, dynamic> json) {
+  return _RealEstate.fromJson(json);
+}
+
 /// @nodoc
 mixin _$RealEstate {
   int get id => throw _privateConstructorUsedError;
@@ -43,6 +47,7 @@ mixin _$RealEstate {
   List<AppImage>? get images => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
 
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $RealEstateCopyWith<RealEstate> get copyWith =>
       throw _privateConstructorUsedError;
@@ -435,7 +440,8 @@ class __$$_RealEstateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_RealEstate implements _RealEstate {
+@JsonSerializable(fieldRename: FieldRename.snake, explicitToJson: true)
+class _$_RealEstate extends _RealEstate {
   _$_RealEstate(
       {required this.id,
       this.status,
@@ -464,7 +470,11 @@ class _$_RealEstate implements _RealEstate {
       final List<AppImage>? images,
       required this.name})
       : _amenities = amenities,
-        _images = images;
+        _images = images,
+        super._();
+
+  factory _$_RealEstate.fromJson(Map<String, dynamic> json) =>
+      _$$_RealEstateFromJson(json);
 
   @override
   final int id;
@@ -586,6 +596,7 @@ class _$_RealEstate implements _RealEstate {
             (identical(other.name, name) || other.name == name));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hashAll([
         runtimeType,
@@ -622,9 +633,16 @@ class _$_RealEstate implements _RealEstate {
   @pragma('vm:prefer-inline')
   _$$_RealEstateCopyWith<_$_RealEstate> get copyWith =>
       __$$_RealEstateCopyWithImpl<_$_RealEstate>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_RealEstateToJson(
+      this,
+    );
+  }
 }
 
-abstract class _RealEstate implements RealEstate {
+abstract class _RealEstate extends RealEstate {
   factory _RealEstate(
       {required final int id,
       final RealEstateStatus? status,
@@ -652,6 +670,10 @@ abstract class _RealEstate implements RealEstate {
       final List<Amenity>? amenities,
       final List<AppImage>? images,
       required final String name}) = _$_RealEstate;
+  _RealEstate._() : super._();
+
+  factory _RealEstate.fromJson(Map<String, dynamic> json) =
+      _$_RealEstate.fromJson;
 
   @override
   int get id;

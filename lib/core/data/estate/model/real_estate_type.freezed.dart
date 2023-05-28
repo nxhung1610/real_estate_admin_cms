@@ -14,12 +14,16 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
+RealEstateType _$RealEstateTypeFromJson(Map<String, dynamic> json) {
+  return _RealEstateType.fromJson(json);
+}
+
 /// @nodoc
 mixin _$RealEstateType {
   int get id => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
-  bool? get isRent => throw _privateConstructorUsedError;
 
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $RealEstateTypeCopyWith<RealEstateType> get copyWith =>
       throw _privateConstructorUsedError;
@@ -31,7 +35,7 @@ abstract class $RealEstateTypeCopyWith<$Res> {
           RealEstateType value, $Res Function(RealEstateType) then) =
       _$RealEstateTypeCopyWithImpl<$Res, RealEstateType>;
   @useResult
-  $Res call({int id, String name, bool? isRent});
+  $Res call({int id, String name});
 }
 
 /// @nodoc
@@ -49,7 +53,6 @@ class _$RealEstateTypeCopyWithImpl<$Res, $Val extends RealEstateType>
   $Res call({
     Object? id = null,
     Object? name = null,
-    Object? isRent = freezed,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -60,10 +63,6 @@ class _$RealEstateTypeCopyWithImpl<$Res, $Val extends RealEstateType>
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      isRent: freezed == isRent
-          ? _value.isRent
-          : isRent // ignore: cast_nullable_to_non_nullable
-              as bool?,
     ) as $Val);
   }
 }
@@ -76,7 +75,7 @@ abstract class _$$_RealEstateTypeCopyWith<$Res>
       __$$_RealEstateTypeCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int id, String name, bool? isRent});
+  $Res call({int id, String name});
 }
 
 /// @nodoc
@@ -92,7 +91,6 @@ class __$$_RealEstateTypeCopyWithImpl<$Res>
   $Res call({
     Object? id = null,
     Object? name = null,
-    Object? isRent = freezed,
   }) {
     return _then(_$_RealEstateType(
       id: null == id
@@ -103,29 +101,27 @@ class __$$_RealEstateTypeCopyWithImpl<$Res>
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      isRent: freezed == isRent
-          ? _value.isRent
-          : isRent // ignore: cast_nullable_to_non_nullable
-              as bool?,
     ));
   }
 }
 
 /// @nodoc
 
+@JsonSerializable(explicitToJson: true, fieldRename: FieldRename.snake)
 class _$_RealEstateType implements _RealEstateType {
-  const _$_RealEstateType({required this.id, required this.name, this.isRent});
+  const _$_RealEstateType({required this.id, required this.name});
+
+  factory _$_RealEstateType.fromJson(Map<String, dynamic> json) =>
+      _$$_RealEstateTypeFromJson(json);
 
   @override
   final int id;
   @override
   final String name;
-  @override
-  final bool? isRent;
 
   @override
   String toString() {
-    return 'RealEstateType(id: $id, name: $name, isRent: $isRent)';
+    return 'RealEstateType(id: $id, name: $name)';
   }
 
   @override
@@ -134,32 +130,38 @@ class _$_RealEstateType implements _RealEstateType {
         (other.runtimeType == runtimeType &&
             other is _$_RealEstateType &&
             (identical(other.id, id) || other.id == id) &&
-            (identical(other.name, name) || other.name == name) &&
-            (identical(other.isRent, isRent) || other.isRent == isRent));
+            (identical(other.name, name) || other.name == name));
   }
 
+  @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, id, name, isRent);
+  int get hashCode => Object.hash(runtimeType, id, name);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$_RealEstateTypeCopyWith<_$_RealEstateType> get copyWith =>
       __$$_RealEstateTypeCopyWithImpl<_$_RealEstateType>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_RealEstateTypeToJson(
+      this,
+    );
+  }
 }
 
 abstract class _RealEstateType implements RealEstateType {
   const factory _RealEstateType(
-      {required final int id,
-      required final String name,
-      final bool? isRent}) = _$_RealEstateType;
+      {required final int id, required final String name}) = _$_RealEstateType;
+
+  factory _RealEstateType.fromJson(Map<String, dynamic> json) =
+      _$_RealEstateType.fromJson;
 
   @override
   int get id;
   @override
   String get name;
-  @override
-  bool? get isRent;
   @override
   @JsonKey(ignore: true)
   _$$_RealEstateTypeCopyWith<_$_RealEstateType> get copyWith =>

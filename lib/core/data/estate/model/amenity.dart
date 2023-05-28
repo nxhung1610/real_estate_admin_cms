@@ -5,13 +5,19 @@ import 'package:real_estate_admin_cms/assets/assets.gen.dart';
 import 'package:real_estate_admin_cms/languages/generated/l10n.dart';
 
 part 'amenity.freezed.dart';
+part 'amenity.g.dart';
 
 @freezed
 class Amenity with _$Amenity {
-  const factory Amenity({
+@JsonSerializable(fieldRename: FieldRename.snake, explicitToJson: true)
+const factory Amenity({
     required int id,
     required String name,
   }) = _Amenity;
+
+
+factory Amenity.fromJson(Map<String, dynamic> json) =>
+_$AmenityFromJson(json);
 }
 
 extension AmenityExt on Amenity {

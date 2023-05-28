@@ -1,10 +1,15 @@
+import 'package:json_annotation/json_annotation.dart';
+
+@JsonEnum(valueField: "value")
 enum RealEstateStatus {
   normal(1),
   delete(2),
   processing(3),
-  failed(4);
+  failed(4),
+  approved(5);
 
   const RealEstateStatus(this.value);
+
   final int value;
 
   factory RealEstateStatus.fromValue(int? value) {
@@ -24,6 +29,8 @@ enum RealEstateStatus {
             return 'Đã xoá';
           case RealEstateStatus.failed:
             return 'Thất bại';
+          case RealEstateStatus.approved:
+            return "Đã duyệt";
         }
       }();
 }

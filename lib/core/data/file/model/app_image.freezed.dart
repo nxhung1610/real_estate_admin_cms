@@ -14,6 +14,10 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
+AppImage _$AppImageFromJson(Map<String, dynamic> json) {
+  return _AppImage.fromJson(json);
+}
+
 /// @nodoc
 mixin _$AppImage {
   int? get id => throw _privateConstructorUsedError;
@@ -24,6 +28,7 @@ mixin _$AppImage {
   String? get extension => throw _privateConstructorUsedError;
   int? get omitempty => throw _privateConstructorUsedError;
 
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $AppImageCopyWith<AppImage> get copyWith =>
       throw _privateConstructorUsedError;
@@ -169,6 +174,7 @@ class __$$_AppImageCopyWithImpl<$Res>
 
 /// @nodoc
 
+@JsonSerializable(fieldRename: FieldRename.snake, explicitToJson: true)
 class _$_AppImage implements _AppImage {
   const _$_AppImage(
       {this.id,
@@ -178,6 +184,9 @@ class _$_AppImage implements _AppImage {
       this.cloudName,
       this.extension,
       this.omitempty});
+
+  factory _$_AppImage.fromJson(Map<String, dynamic> json) =>
+      _$$_AppImageFromJson(json);
 
   @override
   final int? id;
@@ -216,6 +225,7 @@ class _$_AppImage implements _AppImage {
                 other.omitempty == omitempty));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType, id, url, width, height, cloudName, extension, omitempty);
@@ -225,6 +235,13 @@ class _$_AppImage implements _AppImage {
   @pragma('vm:prefer-inline')
   _$$_AppImageCopyWith<_$_AppImage> get copyWith =>
       __$$_AppImageCopyWithImpl<_$_AppImage>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_AppImageToJson(
+      this,
+    );
+  }
 }
 
 abstract class _AppImage implements AppImage {
@@ -236,6 +253,8 @@ abstract class _AppImage implements AppImage {
       final String? cloudName,
       final String? extension,
       final int? omitempty}) = _$_AppImage;
+
+  factory _AppImage.fromJson(Map<String, dynamic> json) = _$_AppImage.fromJson;
 
   @override
   int? get id;

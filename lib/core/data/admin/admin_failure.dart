@@ -4,6 +4,6 @@ import 'package:real_estate_admin_cms/core/data/common/i_failure_repository.dart
 part 'admin_failure.freezed.dart';
 
 @freezed
-class AdminFailure with _$AdminFailure, IFailureRepository {
+class AdminFailure with _$AdminFailure implements IFailureRepository {
   factory AdminFailure() = _AdminFailure;
 }

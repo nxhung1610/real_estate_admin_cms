@@ -1,7 +1,7 @@
 part of 'login_bloc.dart';
 
 @freezedBlocState
-class LoginState with _$LoginState, ILoadingState {
+class LoginState with _$LoginState implements ILoadingState {
   const factory LoginState({
     PhoneNumberAuth? phoneNumberAuth,
     PasswordAuth? passwordAuth,

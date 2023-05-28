@@ -14,11 +14,16 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
+Amenity _$AmenityFromJson(Map<String, dynamic> json) {
+  return _Amenity.fromJson(json);
+}
+
 /// @nodoc
 mixin _$Amenity {
   int get id => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
 
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $AmenityCopyWith<Amenity> get copyWith => throw _privateConstructorUsedError;
 }
@@ -98,8 +103,12 @@ class __$$_AmenityCopyWithImpl<$Res>
 
 /// @nodoc
 
+@JsonSerializable(fieldRename: FieldRename.snake, explicitToJson: true)
 class _$_Amenity implements _Amenity {
   const _$_Amenity({required this.id, required this.name});
+
+  factory _$_Amenity.fromJson(Map<String, dynamic> json) =>
+      _$$_AmenityFromJson(json);
 
   @override
   final int id;
@@ -120,6 +129,7 @@ class _$_Amenity implements _Amenity {
             (identical(other.name, name) || other.name == name));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, id, name);
 
@@ -128,11 +138,20 @@ class _$_Amenity implements _Amenity {
   @pragma('vm:prefer-inline')
   _$$_AmenityCopyWith<_$_Amenity> get copyWith =>
       __$$_AmenityCopyWithImpl<_$_Amenity>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_AmenityToJson(
+      this,
+    );
+  }
 }
 
 abstract class _Amenity implements Amenity {
   const factory _Amenity({required final int id, required final String name}) =
       _$_Amenity;
+
+  factory _Amenity.fromJson(Map<String, dynamic> json) = _$_Amenity.fromJson;
 
   @override
   int get id;

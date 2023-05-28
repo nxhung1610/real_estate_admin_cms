@@ -11,7 +11,7 @@ import 'dart:core' as $core;
 
 import 'package:grpc/service_api.dart' as $grpc;
 import 'admin.pb.dart' as $0;
-import '../core/response.pb.dart' as $1;
+import '../shared_proto/shared_proto.dart' as $1;
 export 'service.pb.dart';
 
 class AdminServiceClient extends $grpc.Client {

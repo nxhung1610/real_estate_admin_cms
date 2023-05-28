@@ -208,7 +208,8 @@ class __$$_UserCopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res, _$_User>
 }
 
 /// @nodoc
-@JsonSerializable()
+
+@JsonSerializable(fieldRename: FieldRename.snake, explicitToJson: true)
 class _$_User extends _User {
   _$_User(
       {required this.id,

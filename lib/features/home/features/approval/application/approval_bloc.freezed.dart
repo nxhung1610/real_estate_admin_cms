@@ -14,6 +14,212 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
+/// @nodoc
+mixin _$ApprovalEvent {}
+
+/// @nodoc
+
+class _$ApprovalEventOnStarted implements ApprovalEventOnStarted {
+  const _$ApprovalEventOnStarted();
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$ApprovalEventOnStarted);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+}
+
+abstract class ApprovalEventOnStarted implements ApprovalEvent {
+  const factory ApprovalEventOnStarted() = _$ApprovalEventOnStarted;
+}
+
+/// @nodoc
+
+class _$ApprovalEventOnFetch implements ApprovalEventOnFetch {
+  const _$ApprovalEventOnFetch(
+      {this.page = 1, this.size = 15, this.status, this.staffId});
+
+  @override
+  @JsonKey()
+  final int page;
+  @override
+  @JsonKey()
+  final int size;
+  @override
+  final TourStatus? status;
+  @override
+  final int? staffId;
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ApprovalEventOnFetch &&
+            (identical(other.page, page) || other.page == page) &&
+            (identical(other.size, size) || other.size == size) &&
+            (identical(other.status, status) || other.status == status) &&
+            (identical(other.staffId, staffId) || other.staffId == staffId));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, page, size, status, staffId);
+}
+
+abstract class ApprovalEventOnFetch implements ApprovalEvent {
+  const factory ApprovalEventOnFetch(
+      {final int page,
+      final int size,
+      final TourStatus? status,
+      final int? staffId}) = _$ApprovalEventOnFetch;
+
+  int get page;
+  int get size;
+  TourStatus? get status;
+  int? get staffId;
+}
+
+/// @nodoc
+
+class _$ApprovalEventOnFetchStaffs implements ApprovalEventOnFetchStaffs {
+  const _$ApprovalEventOnFetchStaffs();
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ApprovalEventOnFetchStaffs);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+}
+
+abstract class ApprovalEventOnFetchStaffs implements ApprovalEvent {
+  const factory ApprovalEventOnFetchStaffs() = _$ApprovalEventOnFetchStaffs;
+}
+
+/// @nodoc
+
+class _$ApprovalEventOnAssignStaff implements ApprovalEventOnAssignStaff {
+  const _$ApprovalEventOnAssignStaff(this.tourId, this.staffId);
+
+  @override
+  final int tourId;
+  @override
+  final int staffId;
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ApprovalEventOnAssignStaff &&
+            (identical(other.tourId, tourId) || other.tourId == tourId) &&
+            (identical(other.staffId, staffId) || other.staffId == staffId));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, tourId, staffId);
+}
+
+abstract class ApprovalEventOnAssignStaff implements ApprovalEvent {
+  const factory ApprovalEventOnAssignStaff(
+      final int tourId, final int staffId) = _$ApprovalEventOnAssignStaff;
+
+  int get tourId;
+  int get staffId;
+}
+
+/// @nodoc
+
+class _$ApprovalEventOnReject implements ApprovalEventOnReject {
+  const _$ApprovalEventOnReject(this.tourId, this.reason);
+
+  @override
+  final int tourId;
+  @override
+  final String reason;
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ApprovalEventOnReject &&
+            (identical(other.tourId, tourId) || other.tourId == tourId) &&
+            (identical(other.reason, reason) || other.reason == reason));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, tourId, reason);
+}
+
+abstract class ApprovalEventOnReject implements ApprovalEvent {
+  const factory ApprovalEventOnReject(final int tourId, final String reason) =
+      _$ApprovalEventOnReject;
+
+  int get tourId;
+  String get reason;
+}
+
+/// @nodoc
+
+class _$ApprovalEventOnStaffFilterChange
+    implements ApprovalEventOnStaffFilterChange {
+  const _$ApprovalEventOnStaffFilterChange(this.staff);
+
+  @override
+  final User? staff;
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ApprovalEventOnStaffFilterChange &&
+            (identical(other.staff, staff) || other.staff == staff));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, staff);
+}
+
+abstract class ApprovalEventOnStaffFilterChange implements ApprovalEvent {
+  const factory ApprovalEventOnStaffFilterChange(final User? staff) =
+      _$ApprovalEventOnStaffFilterChange;
+
+  User? get staff;
+}
+
+/// @nodoc
+
+class _$ApprovalEventOnContactTourStatusChange
+    implements ApprovalEventOnContactTourStatusChange {
+  const _$ApprovalEventOnContactTourStatusChange(this.tourStatus);
+
+  @override
+  final TourStatus? tourStatus;
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ApprovalEventOnContactTourStatusChange &&
+            (identical(other.tourStatus, tourStatus) ||
+                other.tourStatus == tourStatus));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, tourStatus);
+}
+
+abstract class ApprovalEventOnContactTourStatusChange implements ApprovalEvent {
+  const factory ApprovalEventOnContactTourStatusChange(
+      final TourStatus? tourStatus) = _$ApprovalEventOnContactTourStatusChange;
+
+  TourStatus? get tourStatus;
+}
+
 ApprovalState _$ApprovalStateFromJson(Map<String, dynamic> json) {
   return _ApprovalState.fromJson(json);
 }
@@ -393,210 +599,4 @@ abstract class _ApprovalState implements ApprovalState {
   @JsonKey(ignore: true)
   _$$_ApprovalStateCopyWith<_$_ApprovalState> get copyWith =>
       throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-mixin _$ApprovalEvent {}
-
-/// @nodoc
-
-class _$ApprovalEventOnStarted implements ApprovalEventOnStarted {
-  const _$ApprovalEventOnStarted();
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$ApprovalEventOnStarted);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-}
-
-abstract class ApprovalEventOnStarted implements ApprovalEvent {
-  const factory ApprovalEventOnStarted() = _$ApprovalEventOnStarted;
-}
-
-/// @nodoc
-
-class _$ApprovalEventOnFetch implements ApprovalEventOnFetch {
-  const _$ApprovalEventOnFetch(
-      {this.page = 1, this.size = 15, this.status, this.staffId});
-
-  @override
-  @JsonKey()
-  final int page;
-  @override
-  @JsonKey()
-  final int size;
-  @override
-  final TourStatus? status;
-  @override
-  final int? staffId;
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$ApprovalEventOnFetch &&
-            (identical(other.page, page) || other.page == page) &&
-            (identical(other.size, size) || other.size == size) &&
-            (identical(other.status, status) || other.status == status) &&
-            (identical(other.staffId, staffId) || other.staffId == staffId));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, page, size, status, staffId);
-}
-
-abstract class ApprovalEventOnFetch implements ApprovalEvent {
-  const factory ApprovalEventOnFetch(
-      {final int page,
-      final int size,
-      final TourStatus? status,
-      final int? staffId}) = _$ApprovalEventOnFetch;
-
-  int get page;
-  int get size;
-  TourStatus? get status;
-  int? get staffId;
-}
-
-/// @nodoc
-
-class _$ApprovalEventOnFetchStaffs implements ApprovalEventOnFetchStaffs {
-  const _$ApprovalEventOnFetchStaffs();
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$ApprovalEventOnFetchStaffs);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-}
-
-abstract class ApprovalEventOnFetchStaffs implements ApprovalEvent {
-  const factory ApprovalEventOnFetchStaffs() = _$ApprovalEventOnFetchStaffs;
-}
-
-/// @nodoc
-
-class _$ApprovalEventOnAssignStaff implements ApprovalEventOnAssignStaff {
-  const _$ApprovalEventOnAssignStaff(this.tourId, this.staffId);
-
-  @override
-  final int tourId;
-  @override
-  final int staffId;
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$ApprovalEventOnAssignStaff &&
-            (identical(other.tourId, tourId) || other.tourId == tourId) &&
-            (identical(other.staffId, staffId) || other.staffId == staffId));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, tourId, staffId);
-}
-
-abstract class ApprovalEventOnAssignStaff implements ApprovalEvent {
-  const factory ApprovalEventOnAssignStaff(
-      final int tourId, final int staffId) = _$ApprovalEventOnAssignStaff;
-
-  int get tourId;
-  int get staffId;
-}
-
-/// @nodoc
-
-class _$ApprovalEventOnReject implements ApprovalEventOnReject {
-  const _$ApprovalEventOnReject(this.tourId, this.reason);
-
-  @override
-  final int tourId;
-  @override
-  final String reason;
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$ApprovalEventOnReject &&
-            (identical(other.tourId, tourId) || other.tourId == tourId) &&
-            (identical(other.reason, reason) || other.reason == reason));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, tourId, reason);
-}
-
-abstract class ApprovalEventOnReject implements ApprovalEvent {
-  const factory ApprovalEventOnReject(final int tourId, final String reason) =
-      _$ApprovalEventOnReject;
-
-  int get tourId;
-  String get reason;
-}
-
-/// @nodoc
-
-class _$ApprovalEventOnStaffFilterChange
-    implements ApprovalEventOnStaffFilterChange {
-  const _$ApprovalEventOnStaffFilterChange(this.staff);
-
-  @override
-  final User? staff;
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$ApprovalEventOnStaffFilterChange &&
-            (identical(other.staff, staff) || other.staff == staff));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, staff);
-}
-
-abstract class ApprovalEventOnStaffFilterChange implements ApprovalEvent {
-  const factory ApprovalEventOnStaffFilterChange(final User? staff) =
-      _$ApprovalEventOnStaffFilterChange;
-
-  User? get staff;
-}
-
-/// @nodoc
-
-class _$ApprovalEventOnContactTourStatusChange
-    implements ApprovalEventOnContactTourStatusChange {
-  const _$ApprovalEventOnContactTourStatusChange(this.tourStatus);
-
-  @override
-  final TourStatus? tourStatus;
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$ApprovalEventOnContactTourStatusChange &&
-            (identical(other.tourStatus, tourStatus) ||
-                other.tourStatus == tourStatus));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, tourStatus);
-}
-
-abstract class ApprovalEventOnContactTourStatusChange implements ApprovalEvent {
-  const factory ApprovalEventOnContactTourStatusChange(
-      final TourStatus? tourStatus) = _$ApprovalEventOnContactTourStatusChange;
-
-  TourStatus? get tourStatus;
 }

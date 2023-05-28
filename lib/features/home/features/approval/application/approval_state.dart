@@ -1,7 +1,7 @@
 part of 'approval_bloc.dart';
 
 @freezedBlocState
-class ApprovalState with _$ApprovalState, ILoadingState {
+class ApprovalState with _$ApprovalState {
   const factory ApprovalState({
     @Default(false) bool shimmer,
     @JsonKey(ignore: true) @Default([]) List<Tour> tours,

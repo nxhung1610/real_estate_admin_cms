@@ -17,7 +17,7 @@ import 'package:real_estate_admin_cms/core/data_source/network/tour/dto/tour_res
 import 'package:real_estate_admin_cms/core/data_source/network/tour/i_tour_datasource.dart';
 import 'package:real_estate_admin_cms/utils/logger/logger.dart';
 
-import '../../data_source/grpc/core/request.pb.dart';
+import '../../data_source/grpc/shared_proto/request.pb.dart';
 import '../../data_source/grpc/tour/service.pbgrpc.dart';
 import '../common/model/paging_model.dart';
 import 'i_tour_repository.dart';
@@ -59,7 +59,7 @@ class TourRepository
   Future<OutputRepository<List<Tour>>> tours(FilterTour filter) async {
     try {
       final res = await tourServiceClient.listTour(filter.toDto());
-      return right(res.data.map(Tour.fromDto).toList());
+      return right(res.data.data.map(Tour.fromDto).toList());
     } on Exception catch (e, trace) {
       return left(handleException(e, trace));
     }
@@ -78,7 +78,7 @@ class TourRepository
       return right(PagingModel.fromDto(
         res,
         (dto) {
-          return Tour.fromResponse(dto);
+          return (dto);
         },
       ));
     } on Exception catch (e, trace) {

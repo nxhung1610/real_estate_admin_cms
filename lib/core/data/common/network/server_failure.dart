@@ -6,11 +6,15 @@ import '../i_failure_repository.dart';
 part 'server_failure.freezed.dart';
 
 @freezedFailure
-class ServerFailure with _$ServerFailure, IFailureRepository {
+class ServerFailure with _$ServerFailure implements IFailureRepository {
   const factory ServerFailure.serverDown() = ServerFailureServerDown;
+
   const factory ServerFailure.parseFailed() = ServerFailureParseFailed;
+
   const factory ServerFailure.unknow() = ServerFailureUnknow;
+
   const factory ServerFailure.dataEmpty() = ServerFailureDataEmpty;
+
   const factory ServerFailure.unAuthorized() = ServerFailureUnAuthorized;
 }
 

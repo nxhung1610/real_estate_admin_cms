@@ -232,6 +232,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "rePassword": MessageLookupByLibrary.simpleMessage("Re-enter password"),
         "rePasswordNotValid":
             MessageLookupByLibrary.simpleMessage("Re-enter password not valid"),
+        "realEstate": MessageLookupByLibrary.simpleMessage("Real Estate"),
         "realEstateDescription":
             MessageLookupByLibrary.simpleMessage("Private house"),
         "realEstateName":
@@ -293,6 +294,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "toProceedeYouNeedToEnableThePermissionsAbove":
             MessageLookupByLibrary.simpleMessage(
                 "To proceede, you need to enable the permissions above"),
+        "tour": MessageLookupByLibrary.simpleMessage("Tour"),
         "townhouse": MessageLookupByLibrary.simpleMessage("Townhouse"),
         "transactionDetail":
             MessageLookupByLibrary.simpleMessage("Transaction Detail"),

@@ -232,6 +232,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "rePassword": MessageLookupByLibrary.simpleMessage("Nhập lại mật khẩu"),
         "rePasswordNotValid": MessageLookupByLibrary.simpleMessage(
             "Mật khẩu nhập lại không hợp lệ"),
+        "realEstate": MessageLookupByLibrary.simpleMessage("Bất động sản"),
         "realEstateDescription":
             MessageLookupByLibrary.simpleMessage("Nhà riêng"),
         "realEstateName":
@@ -293,6 +294,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "toProceedeYouNeedToEnableThePermissionsAbove":
             MessageLookupByLibrary.simpleMessage(
                 "Để tiếp tục, bạn cần bật các quyền ở trên"),
+        "tour": MessageLookupByLibrary.simpleMessage("Lịch Tham quan"),
         "townhouse": MessageLookupByLibrary.simpleMessage("Nhà phố"),
         "transactionDetail":
             MessageLookupByLibrary.simpleMessage("Chi tiết giao dịch"),

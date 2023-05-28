@@ -1,5 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:real_estate_admin_cms/core/data_source/grpc/core/response.pb.dart';
+import 'package:real_estate_admin_cms/core/data_source/grpc/shared_proto/response.pb.dart';
 
 part 'user.freezed.dart';
 part 'user.g.dart';
@@ -7,6 +7,8 @@ part 'user.g.dart';
 @freezed
 class User with _$User {
   User._();
+
+  @JsonSerializable(fieldRename: FieldRename.snake, explicitToJson: true)
   factory User({
     required int id,
     int? status,
@@ -19,12 +21,13 @@ class User with _$User {
     String? identityNumber,
     String? avatarUrl,
   }) = _User;
+
   String get fullName => '$firstName $lastName';
 
   factory User.fromJson(Map<String, dynamic> json) => _$UserFromJson(json);
 
   @unfreezed
-  factory User.fromDto(StaffInfo dto) {
+  factory User.fromDto(AUser dto) {
     return User(
       id: dto.id,
       phone: dto.phone,

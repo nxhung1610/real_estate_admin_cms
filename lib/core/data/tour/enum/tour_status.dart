@@ -1,3 +1,6 @@
+import 'package:json_annotation/json_annotation.dart';
+
+@JsonEnum(valueField: "value")
 enum TourStatus {
   waiting(1),
   // deleted(2),
@@ -7,7 +10,9 @@ enum TourStatus {
   rejected(6);
 
   const TourStatus(this.value);
+
   final int value;
+
   factory TourStatus.fromValue(int value) {
     return TourStatus.values.firstWhere((element) => element.value == value);
   }

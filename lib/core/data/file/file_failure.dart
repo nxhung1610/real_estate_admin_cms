@@ -4,7 +4,8 @@ import 'package:real_estate_admin_cms/core/data/common/i_failure_repository.dart
 part 'file_failure.freezed.dart';
 
 @freezed
-class FileFailure with _$FileFailure, IFailureRepository {
+class FileFailure with _$FileFailure implements IFailureRepository {
   const factory FileFailure.unknown() = FileFailureUnknown;
+
   const factory FileFailure.compressFailed() = FileFailureCompressFailed;
 }

@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
+import 'package:real_estate_admin_cms/core/data/tour/model/tour.dart';
 import 'package:real_estate_admin_cms/core/data_source/grpc/admin/admin.pb.dart';
 import 'package:real_estate_admin_cms/core/data_source/network/api_service.dart';
 import 'package:real_estate_admin_cms/core/data_source/network/common/paging_response.dart';
@@ -20,7 +21,7 @@ class TourDataSource implements ITourDataSource {
 
   TourDataSource(@Named.from(AuthApiService) this.apiService);
   @override
-  Future<BaseResponse<PagingResponse<TourResponse>>> tourAdmin(
+  Future<BaseResponse<PagingResponse<Tour>>> tourAdmin(
       FilterAdminTourRequest request) {
     return apiService.post(
       TourConstant.admin,
@@ -29,7 +30,7 @@ class TourDataSource implements ITourDataSource {
         return PagingResponse.fromJson(
           result,
           parse: (value) {
-            return TourResponse.fromJson(value);
+            return Tour.fromJson(value);
           },
         );
       },

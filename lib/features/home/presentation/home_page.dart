@@ -2,10 +2,8 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:real_estate_admin_cms/assets/assets.gen.dart';
-import 'package:real_estate_admin_cms/assets/fonts.gen.dart';
 import 'package:real_estate_admin_cms/config/app_color.dart';
 import 'package:real_estate_admin_cms/features/common/presentation/base_page.dart';
-import 'package:real_estate_admin_cms/features/common/presentation/widget/w_lazy_indexed_stack.dart';
 import 'package:real_estate_admin_cms/features/home/application/home/home_bloc.dart';
 import 'package:real_estate_admin_cms/features/home/enum/tab_type.dart';
 import 'package:real_estate_admin_cms/features/home/features/approval/application/approval_bloc.dart';
@@ -23,12 +21,13 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
   late final TabController tabController;
+
   @override
   void initState() {
     super.initState();
     final index = context.read<HomeBloc>().state.index;
     tabController = TabController(
-      length: 2,
+      length: TabType.values.length,
       initialIndex: index,
       vsync: this,
       animationDuration: Duration.zero,
@@ -136,6 +135,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                   controller: tabController,
                   children: [
                     Container(),
+                    Container(),
                     ContainerPage<ApprovalBloc, ApprovalState>(
                       page: const ApprovalPage(),
                     ),
@@ -154,6 +154,7 @@ class _RowItem extends StatefulWidget {
   final VoidCallback onTap;
   final TabType type;
   final bool isSelected;
+
   const _RowItem({
     super.key,
     required this.onTap,
@@ -167,40 +168,12 @@ class _RowItem extends StatefulWidget {
 
 class _RowItemState extends State<_RowItem> {
   bool isHover = false;
+
   @override
   Widget build(BuildContext context) {
-    final s = S.of(context);
-    String title;
-    Widget icon;
-    switch (widget.type) {
-      // case TabType.home:
-      //   title = s.home;
-      //   icon = Assets.icons.icHome2.svg(
-      //     colorFilter: ColorFilter.mode(
-      //       context.colorScheme.background,
-      //       BlendMode.srcIn,
-      //     ),
-      //   );
-      //   break;
-      case TabType.bid:
-        title = s.bid;
-        icon = Assets.icons.icBid.svg(
-          colorFilter: ColorFilter.mode(
-            context.colorScheme.background,
-            BlendMode.srcIn,
-          ),
-        );
-        break;
-      case TabType.approval:
-        title = s.approval;
-        icon = Assets.icons.icQuality.svg(
-          colorFilter: ColorFilter.mode(
-            context.colorScheme.background,
-            BlendMode.srcIn,
-          ),
-        );
-        break;
-    }
+    String title = widget.type.getTitle(context);
+    Widget icon = widget.type.getIcon(context);
+
     return GestureDetector(
       onTap: () {
         widget.onTap();
