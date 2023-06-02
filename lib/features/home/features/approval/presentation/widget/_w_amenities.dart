@@ -25,7 +25,7 @@ class WAmenities extends StatelessWidget {
             s.amenities,
             style: context.textTheme.bodyLarge?.copyWith(
               color: AppColor.kNeutrals1,
-              fontWeight: FontWeight.w900,
+              fontWeight: FontWeight.w700,
             ),
           ),
           AppSize.largeHeightDimens.verticalSpace,

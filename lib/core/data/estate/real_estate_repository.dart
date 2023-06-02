@@ -2,6 +2,7 @@ import 'dart:developer';
 
 import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
+import 'package:real_estate_admin_cms/core/data/common/model/paging_model.dart';
 import 'package:real_estate_admin_cms/core/data/estate/dto/config/real_estate_config_response.dart';
 import 'package:real_estate_admin_cms/core/data/estate/dto/creation/real_estate_creation_request.dart';
 import 'package:real_estate_admin_cms/core/data/estate/dto/real_estate_response.dart';
@@ -76,23 +77,21 @@ class RealEstateRepository {
     }
   }
 
-  Future<Either<RealEstateFailure, List<RealEstate>>> search(
+  Future<Either<RealEstateFailure, PagingModel<RealEstate>>> search(
     RealEstateSearchInput data, {
     RealEstateFilterInput? filter,
   }) async {
     try {
-      final res = await _apiRemote.post<List<RealEstateResponse>>(
+      final res = await _apiRemote.post<PagingModel<RealEstate>>(
         RealEstateConstants.search,
         filter != null ? RealFilterRequest.fromModel(filter).toJson() : {},
         queryParameters: SearchRequest.fromModel(data).toJson(),
         resultParser: (data) {
-          return (data as List<dynamic>)
-              .map((e) => RealEstateResponse.fromJson(e))
-              .toList();
+          return PagingModel.fromJson(data, (dto) => RealEstate.fromJson(dto));
         },
       );
       if (!res.success) throw res.errorKey!;
-      return right(res.data?.map((e) => e.toModel()).toList() ?? []);
+      return right(res.data!);
     } catch (e) {
       return left(const RealEstateFailure.unknown());
     }

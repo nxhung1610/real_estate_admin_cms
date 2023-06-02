@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:go_router/go_router.dart';
 import 'package:real_estate_admin_cms/features/common/presentation/base_page.dart';
 import 'package:real_estate_admin_cms/features/common/router/base_router.dart';
-import 'package:real_estate_admin_cms/features/home/features/approval/application/approval_bloc.dart';
+import 'package:real_estate_admin_cms/features/home/features/approval/application/approval_bloc/approval_bloc.dart';
 import 'package:real_estate_admin_cms/features/home/features/approval/presentation/approval_page.dart';
 
 class ApprovalRoute extends BaseRoute {

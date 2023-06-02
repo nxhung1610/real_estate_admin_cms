@@ -44,7 +44,7 @@ class _WLocationState extends State<WLocation> {
                 s.location,
                 style: context.textTheme.bodyLarge?.copyWith(
                   color: AppColor.kNeutrals_,
-                  fontWeight: FontWeight.w900,
+                  fontWeight: FontWeight.w700,
                 ),
               ),
               AppSize.largeHeightDimens.verticalSpace,

@@ -19,21 +19,18 @@ mixin _$RealEstateDetailEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() onStarted,
-    required TResult Function(int senderId, int ownerId) onCreateRoomContact,
     required TResult Function() onDelete,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? onStarted,
-    TResult? Function(int senderId, int ownerId)? onCreateRoomContact,
     TResult? Function()? onDelete,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? onStarted,
-    TResult Function(int senderId, int ownerId)? onCreateRoomContact,
     TResult Function()? onDelete,
     required TResult orElse(),
   }) =>
@@ -41,24 +38,18 @@ mixin _$RealEstateDetailEvent {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(RealEstateDetailEventOnStarted value) onStarted,
-    required TResult Function(RealEstateDetailEventOnCreateRoomContact value)
-        onCreateRoomContact,
     required TResult Function(RealEstateDetailEventOnDelete value) onDelete,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(RealEstateDetailEventOnStarted value)? onStarted,
-    TResult? Function(RealEstateDetailEventOnCreateRoomContact value)?
-        onCreateRoomContact,
     TResult? Function(RealEstateDetailEventOnDelete value)? onDelete,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(RealEstateDetailEventOnStarted value)? onStarted,
-    TResult Function(RealEstateDetailEventOnCreateRoomContact value)?
-        onCreateRoomContact,
     TResult Function(RealEstateDetailEventOnDelete value)? onDelete,
     required TResult orElse(),
   }) =>
@@ -128,7 +119,6 @@ class _$RealEstateDetailEventOnStarted
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() onStarted,
-    required TResult Function(int senderId, int ownerId) onCreateRoomContact,
     required TResult Function() onDelete,
   }) {
     return onStarted();
@@ -138,7 +128,6 @@ class _$RealEstateDetailEventOnStarted
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? onStarted,
-    TResult? Function(int senderId, int ownerId)? onCreateRoomContact,
     TResult? Function()? onDelete,
   }) {
     return onStarted?.call();
@@ -148,7 +137,6 @@ class _$RealEstateDetailEventOnStarted
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? onStarted,
-    TResult Function(int senderId, int ownerId)? onCreateRoomContact,
     TResult Function()? onDelete,
     required TResult orElse(),
   }) {
@@ -162,8 +150,6 @@ class _$RealEstateDetailEventOnStarted
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(RealEstateDetailEventOnStarted value) onStarted,
-    required TResult Function(RealEstateDetailEventOnCreateRoomContact value)
-        onCreateRoomContact,
     required TResult Function(RealEstateDetailEventOnDelete value) onDelete,
   }) {
     return onStarted(this);
@@ -173,8 +159,6 @@ class _$RealEstateDetailEventOnStarted
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(RealEstateDetailEventOnStarted value)? onStarted,
-    TResult? Function(RealEstateDetailEventOnCreateRoomContact value)?
-        onCreateRoomContact,
     TResult? Function(RealEstateDetailEventOnDelete value)? onDelete,
   }) {
     return onStarted?.call(this);
@@ -184,8 +168,6 @@ class _$RealEstateDetailEventOnStarted
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(RealEstateDetailEventOnStarted value)? onStarted,
-    TResult Function(RealEstateDetailEventOnCreateRoomContact value)?
-        onCreateRoomContact,
     TResult Function(RealEstateDetailEventOnDelete value)? onDelete,
     required TResult orElse(),
   }) {
@@ -199,168 +181,6 @@ class _$RealEstateDetailEventOnStarted
 abstract class RealEstateDetailEventOnStarted implements RealEstateDetailEvent {
   const factory RealEstateDetailEventOnStarted() =
       _$RealEstateDetailEventOnStarted;
-}
-
-/// @nodoc
-abstract class _$$RealEstateDetailEventOnCreateRoomContactCopyWith<$Res> {
-  factory _$$RealEstateDetailEventOnCreateRoomContactCopyWith(
-          _$RealEstateDetailEventOnCreateRoomContact value,
-          $Res Function(_$RealEstateDetailEventOnCreateRoomContact) then) =
-      __$$RealEstateDetailEventOnCreateRoomContactCopyWithImpl<$Res>;
-  @useResult
-  $Res call({int senderId, int ownerId});
-}
-
-/// @nodoc
-class __$$RealEstateDetailEventOnCreateRoomContactCopyWithImpl<$Res>
-    extends _$RealEstateDetailEventCopyWithImpl<$Res,
-        _$RealEstateDetailEventOnCreateRoomContact>
-    implements _$$RealEstateDetailEventOnCreateRoomContactCopyWith<$Res> {
-  __$$RealEstateDetailEventOnCreateRoomContactCopyWithImpl(
-      _$RealEstateDetailEventOnCreateRoomContact _value,
-      $Res Function(_$RealEstateDetailEventOnCreateRoomContact) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? senderId = null,
-    Object? ownerId = null,
-  }) {
-    return _then(_$RealEstateDetailEventOnCreateRoomContact(
-      null == senderId
-          ? _value.senderId
-          : senderId // ignore: cast_nullable_to_non_nullable
-              as int,
-      null == ownerId
-          ? _value.ownerId
-          : ownerId // ignore: cast_nullable_to_non_nullable
-              as int,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$RealEstateDetailEventOnCreateRoomContact
-    implements RealEstateDetailEventOnCreateRoomContact {
-  const _$RealEstateDetailEventOnCreateRoomContact(this.senderId, this.ownerId);
-
-  @override
-  final int senderId;
-  @override
-  final int ownerId;
-
-  @override
-  String toString() {
-    return 'RealEstateDetailEvent.onCreateRoomContact(senderId: $senderId, ownerId: $ownerId)';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$RealEstateDetailEventOnCreateRoomContact &&
-            (identical(other.senderId, senderId) ||
-                other.senderId == senderId) &&
-            (identical(other.ownerId, ownerId) || other.ownerId == ownerId));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, senderId, ownerId);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$RealEstateDetailEventOnCreateRoomContactCopyWith<
-          _$RealEstateDetailEventOnCreateRoomContact>
-      get copyWith => __$$RealEstateDetailEventOnCreateRoomContactCopyWithImpl<
-          _$RealEstateDetailEventOnCreateRoomContact>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() onStarted,
-    required TResult Function(int senderId, int ownerId) onCreateRoomContact,
-    required TResult Function() onDelete,
-  }) {
-    return onCreateRoomContact(senderId, ownerId);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? onStarted,
-    TResult? Function(int senderId, int ownerId)? onCreateRoomContact,
-    TResult? Function()? onDelete,
-  }) {
-    return onCreateRoomContact?.call(senderId, ownerId);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? onStarted,
-    TResult Function(int senderId, int ownerId)? onCreateRoomContact,
-    TResult Function()? onDelete,
-    required TResult orElse(),
-  }) {
-    if (onCreateRoomContact != null) {
-      return onCreateRoomContact(senderId, ownerId);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(RealEstateDetailEventOnStarted value) onStarted,
-    required TResult Function(RealEstateDetailEventOnCreateRoomContact value)
-        onCreateRoomContact,
-    required TResult Function(RealEstateDetailEventOnDelete value) onDelete,
-  }) {
-    return onCreateRoomContact(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(RealEstateDetailEventOnStarted value)? onStarted,
-    TResult? Function(RealEstateDetailEventOnCreateRoomContact value)?
-        onCreateRoomContact,
-    TResult? Function(RealEstateDetailEventOnDelete value)? onDelete,
-  }) {
-    return onCreateRoomContact?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(RealEstateDetailEventOnStarted value)? onStarted,
-    TResult Function(RealEstateDetailEventOnCreateRoomContact value)?
-        onCreateRoomContact,
-    TResult Function(RealEstateDetailEventOnDelete value)? onDelete,
-    required TResult orElse(),
-  }) {
-    if (onCreateRoomContact != null) {
-      return onCreateRoomContact(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class RealEstateDetailEventOnCreateRoomContact
-    implements RealEstateDetailEvent {
-  const factory RealEstateDetailEventOnCreateRoomContact(
-          final int senderId, final int ownerId) =
-      _$RealEstateDetailEventOnCreateRoomContact;
-
-  int get senderId;
-  int get ownerId;
-  @JsonKey(ignore: true)
-  _$$RealEstateDetailEventOnCreateRoomContactCopyWith<
-          _$RealEstateDetailEventOnCreateRoomContact>
-      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -406,7 +226,6 @@ class _$RealEstateDetailEventOnDelete implements RealEstateDetailEventOnDelete {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() onStarted,
-    required TResult Function(int senderId, int ownerId) onCreateRoomContact,
     required TResult Function() onDelete,
   }) {
     return onDelete();
@@ -416,7 +235,6 @@ class _$RealEstateDetailEventOnDelete implements RealEstateDetailEventOnDelete {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? onStarted,
-    TResult? Function(int senderId, int ownerId)? onCreateRoomContact,
     TResult? Function()? onDelete,
   }) {
     return onDelete?.call();
@@ -426,7 +244,6 @@ class _$RealEstateDetailEventOnDelete implements RealEstateDetailEventOnDelete {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? onStarted,
-    TResult Function(int senderId, int ownerId)? onCreateRoomContact,
     TResult Function()? onDelete,
     required TResult orElse(),
   }) {
@@ -440,8 +257,6 @@ class _$RealEstateDetailEventOnDelete implements RealEstateDetailEventOnDelete {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(RealEstateDetailEventOnStarted value) onStarted,
-    required TResult Function(RealEstateDetailEventOnCreateRoomContact value)
-        onCreateRoomContact,
     required TResult Function(RealEstateDetailEventOnDelete value) onDelete,
   }) {
     return onDelete(this);
@@ -451,8 +266,6 @@ class _$RealEstateDetailEventOnDelete implements RealEstateDetailEventOnDelete {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(RealEstateDetailEventOnStarted value)? onStarted,
-    TResult? Function(RealEstateDetailEventOnCreateRoomContact value)?
-        onCreateRoomContact,
     TResult? Function(RealEstateDetailEventOnDelete value)? onDelete,
   }) {
     return onDelete?.call(this);
@@ -462,8 +275,6 @@ class _$RealEstateDetailEventOnDelete implements RealEstateDetailEventOnDelete {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(RealEstateDetailEventOnStarted value)? onStarted,
-    TResult Function(RealEstateDetailEventOnCreateRoomContact value)?
-        onCreateRoomContact,
     TResult Function(RealEstateDetailEventOnDelete value)? onDelete,
     required TResult orElse(),
   }) {

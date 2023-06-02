@@ -19,10 +19,14 @@ class RealEstateDetailBloc
 
   RealEstateDetailBloc(
     @factoryParam String id,
+    @factoryParam RealEstate realEstate,
     this.realEstateRepository,
-  ) : super(RealEstateDetailState(
-          id: id,
-        )) {
+  ) : super(
+          RealEstateDetailState(
+            id: id,
+            estate: realEstate,
+          ),
+        ) {
     on<RealEstateDetailEventOnStarted>(_onStarted);
     on<RealEstateDetailEventOnDelete>(_onDelete);
   }

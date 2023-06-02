@@ -23,4 +23,16 @@ class PagingModel<T> with _$PagingModel<T> {
           .toList(),
     );
   }
+
+  static PagingModel<M> fromJson<M>(Map<String, dynamic> json,
+      M Function(Map<String, dynamic> json) convert) {
+    return PagingModel<M>(
+      total: json["total"],
+      data: (json["data"] as List?)
+          ?.map(
+            (e) => convert.call(e),
+          )
+          .toList(),
+    );
+  }
 }

@@ -16,6 +16,8 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$RealEstateFilterInput {
+  int? get page => throw _privateConstructorUsedError;
+  int? get limit => throw _privateConstructorUsedError;
   int? get minPrice => throw _privateConstructorUsedError;
   int? get maxPrice => throw _privateConstructorUsedError;
   int? get noBedrooms => throw _privateConstructorUsedError;
@@ -28,6 +30,7 @@ mixin _$RealEstateFilterInput {
   String? get provinceId => throw _privateConstructorUsedError;
   String? get districtId => throw _privateConstructorUsedError;
   String? get wardId => throw _privateConstructorUsedError;
+  List<int>? get statuses => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $RealEstateFilterInputCopyWith<RealEstateFilterInput> get copyWith =>
@@ -41,7 +44,9 @@ abstract class $RealEstateFilterInputCopyWith<$Res> {
       _$RealEstateFilterInputCopyWithImpl<$Res, RealEstateFilterInput>;
   @useResult
   $Res call(
-      {int? minPrice,
+      {int? page,
+      int? limit,
+      int? minPrice,
       int? maxPrice,
       int? noBedrooms,
       int? noWc,
@@ -52,7 +57,8 @@ abstract class $RealEstateFilterInputCopyWith<$Res> {
       List<int>? realEstateAmenityTypeIds,
       String? provinceId,
       String? districtId,
-      String? wardId});
+      String? wardId,
+      List<int>? statuses});
 }
 
 /// @nodoc
@@ -69,6 +75,8 @@ class _$RealEstateFilterInputCopyWithImpl<$Res,
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? page = freezed,
+    Object? limit = freezed,
     Object? minPrice = freezed,
     Object? maxPrice = freezed,
     Object? noBedrooms = freezed,
@@ -81,8 +89,17 @@ class _$RealEstateFilterInputCopyWithImpl<$Res,
     Object? provinceId = freezed,
     Object? districtId = freezed,
     Object? wardId = freezed,
+    Object? statuses = freezed,
   }) {
     return _then(_value.copyWith(
+      page: freezed == page
+          ? _value.page
+          : page // ignore: cast_nullable_to_non_nullable
+              as int?,
+      limit: freezed == limit
+          ? _value.limit
+          : limit // ignore: cast_nullable_to_non_nullable
+              as int?,
       minPrice: freezed == minPrice
           ? _value.minPrice
           : minPrice // ignore: cast_nullable_to_non_nullable
@@ -131,6 +148,10 @@ class _$RealEstateFilterInputCopyWithImpl<$Res,
           ? _value.wardId
           : wardId // ignore: cast_nullable_to_non_nullable
               as String?,
+      statuses: freezed == statuses
+          ? _value.statuses
+          : statuses // ignore: cast_nullable_to_non_nullable
+              as List<int>?,
     ) as $Val);
   }
 }
@@ -144,7 +165,9 @@ abstract class _$$_RealEstateFilterInputCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {int? minPrice,
+      {int? page,
+      int? limit,
+      int? minPrice,
       int? maxPrice,
       int? noBedrooms,
       int? noWc,
@@ -155,7 +178,8 @@ abstract class _$$_RealEstateFilterInputCopyWith<$Res>
       List<int>? realEstateAmenityTypeIds,
       String? provinceId,
       String? districtId,
-      String? wardId});
+      String? wardId,
+      List<int>? statuses});
 }
 
 /// @nodoc
@@ -169,6 +193,8 @@ class __$$_RealEstateFilterInputCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? page = freezed,
+    Object? limit = freezed,
     Object? minPrice = freezed,
     Object? maxPrice = freezed,
     Object? noBedrooms = freezed,
@@ -181,8 +207,17 @@ class __$$_RealEstateFilterInputCopyWithImpl<$Res>
     Object? provinceId = freezed,
     Object? districtId = freezed,
     Object? wardId = freezed,
+    Object? statuses = freezed,
   }) {
     return _then(_$_RealEstateFilterInput(
+      page: freezed == page
+          ? _value.page
+          : page // ignore: cast_nullable_to_non_nullable
+              as int?,
+      limit: freezed == limit
+          ? _value.limit
+          : limit // ignore: cast_nullable_to_non_nullable
+              as int?,
       minPrice: freezed == minPrice
           ? _value.minPrice
           : minPrice // ignore: cast_nullable_to_non_nullable
@@ -231,6 +266,10 @@ class __$$_RealEstateFilterInputCopyWithImpl<$Res>
           ? _value.wardId
           : wardId // ignore: cast_nullable_to_non_nullable
               as String?,
+      statuses: freezed == statuses
+          ? _value._statuses
+          : statuses // ignore: cast_nullable_to_non_nullable
+              as List<int>?,
     ));
   }
 }
@@ -239,7 +278,9 @@ class __$$_RealEstateFilterInputCopyWithImpl<$Res>
 
 class _$_RealEstateFilterInput implements _RealEstateFilterInput {
   _$_RealEstateFilterInput(
-      {this.minPrice,
+      {this.page,
+      this.limit,
+      this.minPrice,
       this.maxPrice,
       this.noBedrooms,
       this.noWc,
@@ -250,10 +291,16 @@ class _$_RealEstateFilterInput implements _RealEstateFilterInput {
       final List<int>? realEstateAmenityTypeIds,
       this.provinceId,
       this.districtId,
-      this.wardId})
+      this.wardId,
+      final List<int>? statuses})
       : _realEstateTypeIds = realEstateTypeIds,
-        _realEstateAmenityTypeIds = realEstateAmenityTypeIds;
+        _realEstateAmenityTypeIds = realEstateAmenityTypeIds,
+        _statuses = statuses;
 
+  @override
+  final int? page;
+  @override
+  final int? limit;
   @override
   final int? minPrice;
   @override
@@ -296,10 +343,19 @@ class _$_RealEstateFilterInput implements _RealEstateFilterInput {
   final String? districtId;
   @override
   final String? wardId;
+  final List<int>? _statuses;
+  @override
+  List<int>? get statuses {
+    final value = _statuses;
+    if (value == null) return null;
+    if (_statuses is EqualUnmodifiableListView) return _statuses;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
 
   @override
   String toString() {
-    return 'RealEstateFilterInput(minPrice: $minPrice, maxPrice: $maxPrice, noBedrooms: $noBedrooms, noWc: $noWc, minArea: $minArea, maxArea: $maxArea, floors: $floors, realEstateTypeIds: $realEstateTypeIds, realEstateAmenityTypeIds: $realEstateAmenityTypeIds, provinceId: $provinceId, districtId: $districtId, wardId: $wardId)';
+    return 'RealEstateFilterInput(page: $page, limit: $limit, minPrice: $minPrice, maxPrice: $maxPrice, noBedrooms: $noBedrooms, noWc: $noWc, minArea: $minArea, maxArea: $maxArea, floors: $floors, realEstateTypeIds: $realEstateTypeIds, realEstateAmenityTypeIds: $realEstateAmenityTypeIds, provinceId: $provinceId, districtId: $districtId, wardId: $wardId, statuses: $statuses)';
   }
 
   @override
@@ -307,6 +363,8 @@ class _$_RealEstateFilterInput implements _RealEstateFilterInput {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_RealEstateFilterInput &&
+            (identical(other.page, page) || other.page == page) &&
+            (identical(other.limit, limit) || other.limit == limit) &&
             (identical(other.minPrice, minPrice) ||
                 other.minPrice == minPrice) &&
             (identical(other.maxPrice, maxPrice) ||
@@ -325,12 +383,15 @@ class _$_RealEstateFilterInput implements _RealEstateFilterInput {
                 other.provinceId == provinceId) &&
             (identical(other.districtId, districtId) ||
                 other.districtId == districtId) &&
-            (identical(other.wardId, wardId) || other.wardId == wardId));
+            (identical(other.wardId, wardId) || other.wardId == wardId) &&
+            const DeepCollectionEquality().equals(other._statuses, _statuses));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      page,
+      limit,
       minPrice,
       maxPrice,
       noBedrooms,
@@ -342,7 +403,8 @@ class _$_RealEstateFilterInput implements _RealEstateFilterInput {
       const DeepCollectionEquality().hash(_realEstateAmenityTypeIds),
       provinceId,
       districtId,
-      wardId);
+      wardId,
+      const DeepCollectionEquality().hash(_statuses));
 
   @JsonKey(ignore: true)
   @override
@@ -354,7 +416,9 @@ class _$_RealEstateFilterInput implements _RealEstateFilterInput {
 
 abstract class _RealEstateFilterInput implements RealEstateFilterInput {
   factory _RealEstateFilterInput(
-      {final int? minPrice,
+      {final int? page,
+      final int? limit,
+      final int? minPrice,
       final int? maxPrice,
       final int? noBedrooms,
       final int? noWc,
@@ -365,8 +429,13 @@ abstract class _RealEstateFilterInput implements RealEstateFilterInput {
       final List<int>? realEstateAmenityTypeIds,
       final String? provinceId,
       final String? districtId,
-      final String? wardId}) = _$_RealEstateFilterInput;
+      final String? wardId,
+      final List<int>? statuses}) = _$_RealEstateFilterInput;
 
+  @override
+  int? get page;
+  @override
+  int? get limit;
   @override
   int? get minPrice;
   @override
@@ -391,6 +460,8 @@ abstract class _RealEstateFilterInput implements RealEstateFilterInput {
   String? get districtId;
   @override
   String? get wardId;
+  @override
+  List<int>? get statuses;
   @override
   @JsonKey(ignore: true)
   _$$_RealEstateFilterInputCopyWith<_$_RealEstateFilterInput> get copyWith =>

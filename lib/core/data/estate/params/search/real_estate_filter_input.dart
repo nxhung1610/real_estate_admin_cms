@@ -5,6 +5,8 @@ part 'real_estate_filter_input.freezed.dart';
 @freezed
 class RealEstateFilterInput with _$RealEstateFilterInput {
   factory RealEstateFilterInput({
+    int? page,
+    int? limit,
     int? minPrice,
     int? maxPrice,
     int? noBedrooms,
@@ -17,5 +19,6 @@ class RealEstateFilterInput with _$RealEstateFilterInput {
     String? provinceId,
     String? districtId,
     String? wardId,
+    List<int>? statuses,
   }) = _RealEstateFilterInput;
 }

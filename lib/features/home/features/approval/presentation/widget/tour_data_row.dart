@@ -1,15 +1,19 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:real_estate_admin_cms/assets/assets.gen.dart';
 import 'package:real_estate_admin_cms/config/app_color.dart';
 import 'package:real_estate_admin_cms/config/app_size.dart';
+import 'package:real_estate_admin_cms/config/w_image_custom.dart';
+import 'package:real_estate_admin_cms/core/data/estate/model/real_estate.dart';
 import 'package:real_estate_admin_cms/core/data/tour/enum/contact_tour_type.dart';
 import 'package:real_estate_admin_cms/core/data/tour/enum/tour_status.dart';
 import 'package:real_estate_admin_cms/core/data/tour/model/tour.dart';
 import 'package:real_estate_admin_cms/dependency_injection/dependencies_injection.dart';
 import 'package:real_estate_admin_cms/features/common/features/staff/popup/staff_selected_popup.dart';
-import 'package:real_estate_admin_cms/features/home/features/approval/application/approval_bloc.dart';
+import 'package:real_estate_admin_cms/features/home/features/approval/application/address/address_builder_cubit.dart';
+import 'package:real_estate_admin_cms/features/home/features/approval/application/approval_bloc/approval_bloc.dart';
 import 'package:real_estate_admin_cms/features/home/features/approval/application/real_estate_detail/real_estate_detail_bloc.dart';
 import 'package:real_estate_admin_cms/features/home/features/approval/presentation/popup/reject_tour_popup.dart';
 import 'package:real_estate_admin_cms/features/home/features/approval/presentation/widget/_w_amenities.dart';
@@ -17,6 +21,7 @@ import 'package:real_estate_admin_cms/features/home/features/approval/presentati
 import 'package:real_estate_admin_cms/features/home/features/approval/presentation/widget/_w_info_house.dart';
 import 'package:real_estate_admin_cms/features/home/features/approval/presentation/widget/_w_location.dart';
 import 'package:real_estate_admin_cms/helper/extensions/context.dart';
+import 'package:real_estate_admin_cms/utils/utils.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class TourDataRow extends DataRow {
@@ -38,7 +43,8 @@ class TourDataRow extends DataRow {
             builder: (context) {
               return BlocProvider(
                   create: (context) => getIt.call<RealEstateDetailBloc>(
-                      param1: item.realEstate.id.toString()),
+                      param1: item.realEstate.id.toString(),
+                      param2: item.realEstate),
                   child: RealEstateDetailDialog(item: item));
             },
           );
@@ -278,10 +284,103 @@ class RealEstateDetailDialog extends StatelessWidget {
           borderRadius: BorderRadius.circular(16),
           color: AppColor.kNeutrals11,
         ),
-        width: 0.3.sw,
+        width: 0.5.sw,
         height: 0.6.sh,
         child: CustomScrollView(
           slivers: [
+            SizedBox(
+              height: 300,
+              child: Row(
+                children: <Widget>[
+                  16.horizontalSpace,
+                  BlocBuilder<RealEstateDetailBloc, RealEstateDetailState>(
+                    builder: (context, state) {
+                      return Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Text(
+                            "Địa chỉ",
+                            style: context.textTheme.bodyLarge?.copyWith(
+                              color: AppColor.kNeutrals_,
+                              fontWeight: FontWeight.w700,
+                            ),
+                          ),
+                          Flexible(
+                            child: Text(
+                              state.estate?.name ?? '',
+                              style: context.textTheme.headlineSmall?.copyWith(
+                                color: AppColor.kNeutrals2,
+                              ),
+                            ),
+                          ),
+                          AppSize.smallHeightDimens.verticalSpace,
+                          BlocProvider(
+                            create: (context) =>
+                                getIt.call<AddressBuilderCubit>()
+                                  ..onLoadAdress(
+                                    proviceId: state.estate?.provinceId ?? '',
+                                    wardId: state.estate?.wardId ?? '',
+                                    districtId: state.estate?.districtId ?? '',
+                                  ),
+                            child: BlocBuilder<AddressBuilderCubit,
+                                AddressBuilderState>(
+                              builder: (context, addressState) {
+                                return Text(
+                                  (state.estate?.address ?? '') +
+                                      (addressState.buildAddress(context) ??
+                                          ''),
+                                  style: context.textTheme.bodyMedium?.copyWith(
+                                    color: AppColor.kNeutrals2,
+                                  ),
+                                );
+                              },
+                            ),
+                          ),
+                          16.verticalSpace,
+                          const WDirection(),
+                        ],
+                      );
+                    },
+                  ),
+                  Expanded(
+                    child: BlocSelector<RealEstateDetailBloc,
+                        RealEstateDetailState, RealEstate?>(
+                      selector: (state) {
+                        return state.estate;
+                      },
+                      builder: (context, state) {
+                        return Center(
+                          child: CarouselSlider.builder(
+                            key: PageStorageKey(state),
+                            itemCount: state?.images?.length ?? 0,
+                            itemBuilder: (context, index, realIndex) {
+                              final image = state?.images?[index];
+                              return ImageCustom.network(
+                                image?.url ?? '',
+                                fit: BoxFit.cover,
+                              );
+                            },
+                            options: CarouselOptions(
+                              initialPage: 0,
+                              viewportFraction: 1,
+                              aspectRatio: 1,
+                              enableInfiniteScroll: true,
+                              autoPlay: true,
+                              autoPlayInterval: const Duration(seconds: 3),
+                              autoPlayAnimationDuration:
+                                  const Duration(milliseconds: 800),
+                              autoPlayCurve: Curves.fastOutSlowIn,
+                              scrollDirection: Axis.horizontal,
+                            ),
+                          ),
+                        );
+                      },
+                    ),
+                  ),
+                ],
+              ),
+            ).sliver,
             SliverToBoxAdapter(
               child: AppSize.largeHeightDimens.verticalSpace,
             ),
@@ -296,9 +395,6 @@ class RealEstateDetailDialog extends StatelessWidget {
             ),
             SliverToBoxAdapter(
               child: AppSize.largeHeightDimens.verticalSpace,
-            ),
-            const SliverToBoxAdapter(
-              child: WDirection(),
             ),
             SliverToBoxAdapter(
               child: AppSize.extraHeightDimens.verticalSpace,

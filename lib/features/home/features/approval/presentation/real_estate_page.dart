@@ -14,14 +14,14 @@ import 'package:real_estate_admin_cms/features/home/features/approval/presentati
 import 'package:real_estate_admin_cms/helper/.helper.dart';
 import 'package:real_estate_admin_cms/helper/extensions/context.dart';
 
-class ApprovalPage extends StatefulWidget {
-  const ApprovalPage({super.key});
+class RealEstatePage extends StatefulWidget {
+  const RealEstatePage({super.key});
 
   @override
-  State<ApprovalPage> createState() => _ApprovalPageState();
+  State<RealEstatePage> createState() => _RealEstatePageState();
 }
 
-class _ApprovalPageState extends State<ApprovalPage> {
+class _RealEstatePageState extends State<RealEstatePage> {
   // late final PagingController<int, Tour> pageController;
   // Completer<bool>? refresh;
   late final ApprovalBloc bloc;

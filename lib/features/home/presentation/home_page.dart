@@ -6,7 +6,8 @@ import 'package:real_estate_admin_cms/config/app_color.dart';
 import 'package:real_estate_admin_cms/features/common/presentation/base_page.dart';
 import 'package:real_estate_admin_cms/features/home/application/home/home_bloc.dart';
 import 'package:real_estate_admin_cms/features/home/enum/tab_type.dart';
-import 'package:real_estate_admin_cms/features/home/features/approval/application/approval_bloc.dart';
+import 'package:real_estate_admin_cms/features/home/features/approval/application/approval_bloc/approval_bloc.dart';
+import 'package:real_estate_admin_cms/features/home/features/approval/presentation/real_estate_page.dart';
 import 'package:real_estate_admin_cms/helper/extensions/context.dart';
 import 'package:real_estate_admin_cms/languages/generated/l10n.dart';
 
@@ -135,7 +136,9 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                   controller: tabController,
                   children: [
                     Container(),
-                    Container(),
+                    ContainerPage<ApprovalBloc, ApprovalState>(
+                      page: const RealEstatePage(),
+                    ),
                     ContainerPage<ApprovalBloc, ApprovalState>(
                       page: const ApprovalPage(),
                     ),
